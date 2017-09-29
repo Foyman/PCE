@@ -57,4 +57,3 @@ public class home {
 		return list;
 	}
 }
-
