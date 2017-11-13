@@ -115,9 +115,11 @@ public class Home
         while (scan.hasNextLine())
         {
             department = scan.nextLine();
-            Matcher match = Pattern.compile("\\W\\W\\W\\s([A-Z]+)\\s\\W\\W\\W").matcher(department);
+            Matcher match = Pattern.compile("^([A-Z]+)$").matcher(department);
             if (match.find())
+            {
                 list.add(match.group(1));
+            }
         }
 
         scan.close();
