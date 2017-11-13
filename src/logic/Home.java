@@ -24,19 +24,19 @@ public class Home
         GridBagConstraints c = new GridBagConstraints();
 
         // Panels
-        JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel header = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JPanel main = new JPanel(new GridBagLayout());
         JPanel footer = new JPanel();
 
         // Everything for header below
-        JLabel headText = new JLabel("Polyratings: Class Edition");
+        JLabel headText = new JLabel("Polyratings: Course Edition");
         headText.setForeground(Color.WHITE);
         headText.setFont(headText.getFont().deriveFont(64.0f));
         header.setBackground(new Color(7, 88, 64));
-        header.add(headText, FlowLayout.LEFT);
+        header.add(headText);
 
         // Everything for main below
-        main.setBackground(new Color(255, 238, 190));
+        main.setBackground(new Color(255, 255, 255));
 
         // Department text
         JLabel deptText = new JLabel("Department: ");
@@ -46,7 +46,7 @@ public class Home
         main.add(deptText, c);
 
         // Department drop down box
-        ArrayList<String> deptArrayList = getDeparments();
+        ArrayList<String> deptArrayList = getDepartments();
         String[] deptArray = deptArrayList.toArray(new String[deptArrayList.size()]);
         JComboBox<String> deptList = new JComboBox<String>(deptArray);
         c.gridx = 1;
@@ -54,42 +54,41 @@ public class Home
         main.add(deptList, c);
 
         // Class # text
-        JLabel classText = new JLabel("Class #: ");
+        JLabel courseText = new JLabel("Course #: ");
         c.gridx = 2;
         c.gridy = 0;
-        main.add(classText, c);
+        main.add(courseText, c);
 
         // Class search bar
-        JTextField numSearchbar = new JTextField("", 3);
+        JTextField courseNumberInput = new JTextField("", 5);
         c.gridx = 3;
         c.gridy = 0;
-        main.add(numSearchbar, c);
+        main.add(courseNumberInput, c);
 
         // Class Name text
-        JLabel searchText = new JLabel("Class Name: ");
+        JLabel searchText = new JLabel("Course Name: ");
         c.gridx = 0;
         c.gridy = 1;
-        c.gridwidth = 1;
         main.add(searchText, c);
 
         // Class search bar
-        JTextField nameSearchbar = new JTextField("", 50);
+        JTextField courseNameInput = new JTextField("");
         c.gridx = 1;
         c.gridy = 1;
         c.gridwidth = 3;
-        main.add(nameSearchbar, c);
+        main.add(courseNameInput, c);
 
         // Search button
-        JButton button = new JButton("Search");
-        button.setSize(new Dimension(50, 50));
-        c.gridx = 0;
-        c.gridy = 3;
-        c.gridwidth = 4;
-        c.anchor = GridBagConstraints.CENTER;
-        main.add(button, c);
+        JButton searchButton = new JButton("Search");
+        c.gridx = 1;
+        c.gridy = 2;
+        c.gridwidth = 2;
+        c.ipady = 6; // vertical padding
+        c.insets = new Insets(14,0,0,0); // top margin
+        main.add(searchButton, c);
 
         // Everything for footer below
-        JLabel footText = new JLabel("Footer");
+        JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
         footText.setForeground(Color.WHITE);
         footer.setBackground(new Color(7, 88, 64));
         footer.add(footText);
@@ -104,7 +103,7 @@ public class Home
     }
 
     // Gets all departments for drop down box
-    public static ArrayList<String> getDeparments() throws FileNotFoundException
+    public static ArrayList<String> getDepartments() throws FileNotFoundException
     {
         File courses = new File("courses.txt");
         Scanner scan = new Scanner(courses);
