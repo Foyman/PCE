@@ -1,6 +1,8 @@
 package logic;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.*;
 import java.util.*;
@@ -86,6 +88,58 @@ public class Home
         c.ipady = 6; // vertical padding
         c.insets = new Insets(14,0,0,0); // top margin
         main.add(searchButton, c);
+        
+        
+        // Search Results
+        JLabel result = new JLabel("");
+        c.gridx = 0;
+        c.gridy = 3;
+        main.add(result, c);
+        
+        // Displaying Search Results
+        searchButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                StringBuilder search = new StringBuilder();
+                Type t;
+                try
+                {
+                    Search.readClasses();
+                } catch (FileNotFoundException e1)
+                {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                
+                // Search Department and number
+                if(!courseNumberInput.getText().equals(""))
+                {
+                    t = Type.name;
+                    search.append((String) deptList.getSelectedItem());
+                    search.append(" ");
+                    search.append(courseNumberInput.getText());
+                }
+                // Search Course description
+                else
+                {
+                    t = Type.description;
+                    search.append(courseNameInput.getText());
+                }
+                
+                EditDistance.sortList(search.toString(), t);
+                if (Search.courses.get(0).distance == 0)
+                {
+                    result.setText("Found: " + Search.courses.get(0).name);
+                } else
+                {
+                    result.setText("Closest Course: " + Search.courses.get(0).name + ", distance: " + Search.courses.get(0).distance);
+                }
+            }
+          });
+        
+        
+
 
         // Everything for footer below
         JLabel footText = new JLabel("© 2017 Polyratings Course Edition");

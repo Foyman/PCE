@@ -3,6 +3,10 @@ package logic;
 import java.lang.Math;
 import java.util.Collections;
 
+enum Type {
+    description, name
+}
+
 public class EditDistance
 {
     /**
@@ -11,13 +15,23 @@ public class EditDistance
      * 
      * @param search - The course name to search for
      */
-    public static void sortList(String search)
+    public static void sortList(String search, Type t)
     {
         CourseComparator compare = new CourseComparator();
         search = search.toLowerCase();
-        for (Course c : Search.courses)
+        if(t == Type.name)
         {
-            c.distance = getDistance(search, c.name);
+            for (Course c : Search.courses)
+            {
+                c.distance = getDistance(search, c.name);
+            }
+        }
+        else if(t == Type.description)
+        {
+            for (Course c : Search.courses)
+            {
+                c.distance = getDistance(search, c.description);
+            }
         }
         Collections.sort(Search.courses, compare);
     }
@@ -31,8 +45,6 @@ public class EditDistance
      */
     public static int getDistance(String s1, String s2)
     {
-        s1 = s1.replaceAll("\\s", "");
-        s2 = s2.replaceAll("\\s", "");
         int len1 = s1.length() + 1;
         int len2 = s2.length() + 1;
         int[][] ED = new int[len1][len2];

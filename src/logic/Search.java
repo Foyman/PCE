@@ -12,7 +12,8 @@ public class Search
 
     public static void main(String[] args) throws FileNotFoundException
     {
-        String search = "";
+        String search = "", type = "";
+        Type t;
         readClasses();
         Scanner scanner = new Scanner(System.in);
         while (true)
@@ -21,7 +22,17 @@ public class Search
             search = scanner.nextLine();
             if (search.equals("quit"))
                 break;
-            EditDistance.sortList(search);
+            System.out.print("Enter d to search course descriptions or n for course numbers: ");
+            type = scanner.nextLine();
+            if(type.equals("d"))
+            {
+                t = Type.description;
+            }
+            else
+            {
+                t = Type.name;
+            }
+            EditDistance.sortList(search, t);
             if (courses.get(0).distance == 0)
             {
                 System.out.println("Found: " + courses.get(0).name);
@@ -46,14 +57,14 @@ public class Search
             String temp = scanner.nextLine();
             Scanner classScanner = new Scanner(temp);
 
-            classScanner.findInLine("\\w+ \\d+:");
+            classScanner.findInLine("(\\w+ \\d+): (.*)");
             try
             {
                 MatchResult result = classScanner.match();
-                String className = result.group(0);
-                int len = className.length();
-                className = className.substring(0, len - 1);
-                courses.add(new Course(className.toLowerCase()));
+                String className = result.group(1);
+                String classDescription = result.group(2);
+                courses.add(new Course(className.toLowerCase(), classDescription.toLowerCase()));
+                System.out.println("" + className + " " + classDescription);
             } catch (IllegalStateException e)
             {
 
