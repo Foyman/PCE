@@ -1,0 +1,41 @@
+-- Wenmin He
+-- whe01@calpoly.edu
+-- Bibek Shrestha
+-- bshresth@calpoly.edu
+
+-- Compile the program by: javac Writer.java
+-- Add my-connector-java-5.1.18-bin.jar to the working directory
+-- And running the program: java -cp ./mysql-connector-java-5.1.18-bin.jar:. Writer
+
+-- Prompt and valid input to the prompt:
+The program will ask for the ticker to create reports for or get general reports.
+
+Enter the ticker, then the program will automatically generate html with reports on the Individual Stock data for the ticker.
+
+Enter 'General' to get General Stock Market Analysis report.  
+
+Additional Notes:
+-- Methodology
+
+-- General Stock Market Data Analysis
+-- Q4
+The performance is based calculate based on the absolute price increase from opening price to the closing price.
+
+-- Q5
+We believe that Stock are Performing well when the relative Price increase is above 7% about right when price increase is about 7%, and underperformaning under 7%.
+
+-- Individual Stock Data Analysis
+-- Q4
+The performance of a stock every month is calculate based on the absolute price increase from the opening price of first monthly trade to the closing price of last monthly trade. The best performance month of a year is the month with the highest absolute price increase.
+
+-- Q5
+We believe that stock market will eventually recover itself, therefore buying the stocks that are decreasing in value will have higher chance of profit.
+
+-- Q6
+The performance is based on the absolute price increase. The position is considered good if the performance is positive, bad when the performance is negative, and no difference when the net performance is 0.
+
+-- Q7
+The performance is based on the absolute price increase. The second column indicates the stock which has better performance.
+
+-- Q8
+The performance is based on the absolute price increase. The second column indicates the stock which has better performance.

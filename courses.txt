@@ -1,4 +1,4 @@
-*** AERO ***
+AERO
 AERO 121: Aerospace Fundamentals
 AERO 200: Special Problems for Undergraduates
 AERO 215: Introduction to Aerospace Design
@@ -95,7 +95,7 @@ AERO 596: Culminating Experience in Space Systems Engineering
 AERO 599: Thesis (Design Project)
 
 
-*** AGB ***
+AGB
 AGB 101: Introduction to Agribusiness
 AGB 200: Special Problems for Undergraduates
 AGB 202: Introduction to Sales
@@ -154,7 +154,7 @@ AGB 571: Selected Advanced Laboratory in Agribusiness
 AGB 599: Thesis in Agribusiness
 
 
-*** AEPS ***
+AEPS
 AEPS 101: Orientation to Horticulture and Crop Science
 AEPS 110: People, Pests and Plagues
 AEPS 120: Principles of Horticulture and Crop Science
@@ -240,7 +240,7 @@ AEPS 598: Thesis in Fruit Science
 AEPS 599: Thesis in Plant Protection Science
 
 
-*** AGC ***
+AGC
 AGC 102: Orientation to Agricultural Communication
 AGC 200: Special Problems in Agricultural Communication
 AGC 207: Software Applications for Agricultural Publications
@@ -262,7 +262,7 @@ AGC 571: Selected Advanced Laboratory in Agricultural Communication
 AGC 580: Special Problems in Agricultural Communication
 
 
-*** AGED ***
+AGED
 AGED 102: Introduction to Agricultural Education
 AGED 200: Special Problems in Agricultural Education
 AGED 220: Agricultural Youth Conferences
@@ -305,7 +305,7 @@ AGED 580: Special Problems in Agricultural Education
 AGED 581: Graduate Seminar in Agricultural Education
 
 
-*** AG ***
+AG
 AG 200: Special Problems for Undergraduates
 AG 243: Theory and Practice of Rodeo
 AG 315: Organic Crop Production
@@ -327,7 +327,7 @@ AG 598: Reading and Conference
 AG 599: Thesis
 
 
-*** ASCI ***
+ASCI
 ASCI 101: Introduction to the Animal Sciences
 ASCI 112: Principles of Animal Science
 ASCI 200: Special Problems
@@ -411,7 +411,7 @@ ASCI 593: Regenerative Medicine Internship
 ASCI 594: Applications in Regenerative Medicine
 
 
-*** ANT ***
+ANT
 ANT 200: Special Problems for Undergraduates
 ANT 201: Cultural Anthropology
 ANT 202: World Prehistory
@@ -442,7 +442,7 @@ ANT 465: Internship
 ANT 470: Selected Advanced Topics
 
 
-*** ARCE ***
+ARCE
 ARCE 106: Introduction to Building Systems
 ARCE 211: Structures I
 ARCE 212: Structures II
@@ -503,7 +503,7 @@ ARCE 571: Selected Advanced Laboratory
 ARCE 598: Structural Engineering Design Project
 
 
-*** ARCH ***
+ARCH
 ARCH 101: Survey of Architectural Education and Practice
 ARCH 106: Materials of Construction
 ARCH 131: Design and Visual Communication 1.1
@@ -565,7 +565,7 @@ ARCH 598: Master's Design Project
 ARCH 599: Master's Thesis
 
 
-*** ART ***
+ART
 ART 101: The Fundamentals of Drawing
 ART 102: Art and Design Foundation Studies I
 ART 103: Art and Design Foundation Studies II
@@ -644,7 +644,7 @@ ART 494: Cooperative Education Experience
 ART 495: Cooperative Education Experience
 
 
-*** ASTR ***
+ASTR
 ASTR 101: Introduction to the Solar System
 ASTR 102: Introduction to Stars and Galaxies
 ASTR 200: Special Problems for Undergraduates
@@ -660,7 +660,7 @@ ASTR 470: Selected Advanced Topics
 ASTR 471: Selected Advanced Laboratory
 
 
-*** BIO ***
+BIO
 BIO 111: General Biology
 BIO 112: Environmental Biology and Conservation
 BIO 114: Plant Diversity and Ecology
@@ -752,7 +752,7 @@ BIO 595: Cooperative Education Experience
 BIO 599: Thesis
 
 
-*** BMED ***
+BMED
 BMED 101: Introduction to the Biomedical Engineering Major
 BMED 102: Introduction to Biomedical Engineering Analysis
 BMED 212: Introduction to Biomedical Engineering Design
@@ -809,7 +809,7 @@ BMED 594: Applications in Regenerative Medicine
 BMED 599: Design Project (Thesis)
 
 
-*** BRAE ***
+BRAE
 BRAE 121: Agricultural Mechanics
 BRAE 128: Careers in Bioresource and Agricultural Engineering
 BRAE 129: Laboratory Skills and Safety
@@ -883,7 +883,7 @@ BRAE 571: Selected Advanced Laboratory in Bioresources and Agricultural Engineer
 BRAE 599: Thesis in BioResource and Agricultural Engineering
 
 
-*** BOT ***
+BOT
 BOT 121: General Botany
 BOT 311: Plants, People and Civilization
 BOT 313: Taxonomy of Vascular Plants
@@ -893,7 +893,7 @@ BOT 329: Plants, Food, and Biotechnology
 BOT 433: Field Botany: California Plant Diversity
 
 
-*** BUS ***
+BUS
 BUS 100: Student Orientation and College Success
 BUS 200: Special Problems for Undergraduates
 BUS 205: Personal Finance
@@ -990,7 +990,7 @@ BUS 498: Directed Topics in Information Systems
 BUS 499: Data Communications and Networking
 
 
-*** CHEM ***
+CHEM
 CHEM 101: Introduction to the Chemical Sciences
 CHEM 106: Introductory Chemistry
 CHEM 110: World of Chemistry
@@ -1085,7 +1085,7 @@ CHEM 598: Graduate Project
 CHEM 599: Graduate Thesis
 
 
-*** CD ***
+CD
 CD 102: Orientation to the Child Development Major
 CD 131: Observing and Interacting with Children
 CD 200: Special Problems
@@ -1117,7 +1117,7 @@ CD 462: Senior Project
 CD 470: Selected Advanced Topics
 
 
-*** CHIN ***
+CHIN
 CHIN 101: Elementary Mandarin Chinese I
 CHIN 102: Elementary Mandarin Chinese II
 CHIN 103: Elementary Mandarin Chinese III
@@ -1126,7 +1126,7 @@ CHIN 202: Intermediate Mandarin Chinese II
 CHIN 203: Intermediate Mandarin Chinese III
 
 
-*** CRP ***
+CRP
 CRP 101: Introduction to the Profession of City and Regional Planning
 CRP 201: Basic Graphic Skills
 CRP 202: Urban Design Studio I
@@ -1206,7 +1206,7 @@ CRP 596: Professional Project
 CRP 599: Thesis
 
 
-*** CE ***
+CE
 CE 111: Introduction to Civil Engineering
 CE 112: Design Principles in Civil Engineering
 CE 113: Computer Aided Drafting in Civil Engineering
@@ -1311,7 +1311,7 @@ CE 596: Comprehensive Examination
 CE 599: Design Project (Thesis)
 
 
-*** COMS ***
+COMS
 COMS 101: Public Speaking
 COMS 102: Principles of Oral Communication
 COMS 126: Argument and Advocacy
@@ -1358,7 +1358,7 @@ COMS 470: Selected Advanced Topics
 COMS 485: Cooperative Education Experience
 
 
-*** CPE ***
+CPE
 CPE 100: Computer Engineering Orientation
 CPE 101: Fundamentals of Computer Science
 CPE 105: Fundamentals of Computer Science I Supplemental Instruction
@@ -1415,7 +1415,7 @@ CPE 564: Computer Networks: Research Topics
 CPE 569: Distributed Computing
 
 
-*** CSC ***
+CSC
 CSC 101: Fundamentals of Computer Science
 CSC 105: Fundamentals of Computer Science I Supplemental Instruction
 CSC 108: Accelerated Introduction to Computer Science
@@ -1524,7 +1524,7 @@ CSC 597: Thesis II
 CSC 599: Thesis III
 
 
-*** CM ***
+CM
 CM 102: Introduction to Construction Management
 CM 113: Construction Materials and Assemblies
 CM 114: Construction Materials and Assemblies Lab
@@ -1583,7 +1583,7 @@ CM 570: Selected Advanced Topics in Construction Management
 CM 571: Selected Advanced Laboratory
 
 
-*** DSCI ***
+DSCI
 DSCI 100: Enterprise Project
 DSCI 102: Dairy Operations and Safety
 DSCI 200: Special Problems for Undergraduates
@@ -1634,7 +1634,7 @@ DSCI 585: Cooperative Education Experience in Dairy Science
 DSCI 599: Thesis in Dairy Science
 
 
-*** DANC ***
+DANC
 DANC 130: Pilates and Conditioning Fundamentals
 DANC 131: Beginning Ballet
 DANC 132: Beginning Modern Dance
@@ -1663,22 +1663,22 @@ DANC 470: Selected Advanced Topics
 DANC 471: Selected Advanced Laboratory
 
 
-*** DATA ***
+DATA
 DATA 301: Introduction to Data Science
 DATA 401: Data Science
 DATA 451: Data Science Capstone I
 DATA 452: Data Science Capstone II
 
 
-*** ESE ***
+ESE
 ESE 90: Early Start Program: English
 
 
-*** ESM ***
+ESM
 ESM 90: Early Start Program: Mathematics
 
 
-*** ERSC ***
+ERSC
 ERSC 140: Careers in Natural Resources Management and Environmental Sciences
 ERSC 144: Introduction to Earth Science
 ERSC 200: Special Problems for Undergraduates
@@ -1709,7 +1709,7 @@ ERSC 570: Selected Topics in Earth Science
 ERSC 571: Selected Advanced Laboratory
 
 
-*** ECON ***
+ECON
 ECON 200: Special Problems for Undergraduates
 ECON 201: Survey of Economics
 ECON 221: Microeconomics
@@ -1749,7 +1749,7 @@ ECON 464: Applied Senior Project
 ECON 470: Selected Advanced Topics
 
 
-*** EDUC ***
+EDUC
 EDUC 125: First Year Seminar
 EDUC 207: Children's Learning and Development in Educational Settings
 EDUC 270: Selected Topics
@@ -1836,7 +1836,7 @@ EDUC 598: Action Research Project in Education
 EDUC 599: Thesis in Education
 
 
-*** EE ***
+EE
 EE 111: Introduction to Electrical Engineering
 EE 112: Electric Circuit Analysis I
 EE 133: Digital Design
@@ -1952,7 +1952,7 @@ EE 595: Cooperative Education Experience
 EE 599: Design Project (Thesis)
 
 
-*** ENGR ***
+ENGR
 ENGR 101: Engineering Student Success
 ENGR 110: Introduction to Engineering
 ENGR 234: Introduction to Design Thinking
@@ -1993,7 +1993,7 @@ ENGR 596: Industry Sponsored Project Experience
 ENGR 599: Design Project (Thesis)
 
 
-*** ENGL ***
+ENGL
 ENGL 92: Basic Writing
 ENGL 93: Essay Writing for English as a Second Language Students
 ENGL 96: Writing and Rhetoric Tutorial
@@ -2102,7 +2102,7 @@ ENGL 590: Directed Study
 ENGL 598: Graduate Project
 
 
-*** EDES ***
+EDES
 EDES 101: Introduction to Architecture and Environmental Design
 EDES 123: Principles of Environmental Design
 EDES 333: Professional Presentations
@@ -2112,7 +2112,7 @@ EDES 408: Implementing Sustainable Principles
 EDES 410: Advanced Implementation of Sustainable Principles
 
 
-*** ENVE ***
+ENVE
 ENVE 111: Introduction to the Environmental Engineering Profession
 ENVE 264: Environmental Fluid Mechanics
 ENVE 270: Selected Topics
@@ -2153,7 +2153,7 @@ ENVE 581: Biochemical Engineering
 ENVE 599: Design Project (Thesis)
 
 
-*** ES ***
+ES
 ES 112: Race, Culture and Politics in the United States
 ES 114: Introduction to Ethnic Studies: Race in the United States
 ES 200: Special Problems
@@ -2191,7 +2191,7 @@ ES 461: Senior Project
 ES 470: Selected Advanced Topics
 
 
-*** FPE ***
+FPE
 FPE 500: Individual Study
 FPE 501: Fundamental Thermal Sciences
 FPE 502: Fire Dynamics
@@ -2210,7 +2210,7 @@ FPE 596: Culminating Experience in Fire Protection Engineering
 FPE 599: Design Thesis
 
 
-*** FSN ***
+FSN
 FSN 101: Orientation to the Food Science and Nutrition Majors
 FSN 121: Fundamentals of Food
 FSN 125: Introduction to Food Science
@@ -2284,7 +2284,7 @@ FSN 581: Graduate Seminar in Food Science and Nutrition
 FSN 599: Thesis
 
 
-*** FR ***
+FR
 FR 101: Elementary French I
 FR 102: Elementary French  II
 FR 103: Elementary French III
@@ -2300,7 +2300,7 @@ FR 350: French Literature in English Translation
 FR 470: Selected Advanced Topics
 
 
-*** GEOG ***
+GEOG
 GEOG 150: Human Geography
 GEOG 200: Special Problems for Undergraduates
 GEOG 250: Physical Geography
@@ -2329,7 +2329,7 @@ GEOG 465: Internship
 GEOG 470: Selected Advanced Topics
 
 
-*** GEOL ***
+GEOL
 GEOL 102: Introduction to Geology
 GEOL 200: Special Problems for Undergraduates
 GEOL 201: Physical Geology
@@ -2351,7 +2351,7 @@ GEOL 470: Selected Advanced Topics
 GEOL 471: Selected Advanced Laboratory
 
 
-*** GER ***
+GER
 GER 101: Elementary German I
 GER 102: Elementary German II
 GER 103: Elementary German III
@@ -2367,11 +2367,11 @@ GER 350: German Literature in English Translation
 GER 470: Selected Advanced Topics
 
 
-*** GS ***
+GS
 GS 597: Continued Graduate Study
 
 
-*** GSA ***
+GSA
 GSA 501: Graduate Accounting Individual Research
 GSA 536: Taxation of Trusts, Estates, and Transfer Taxes
 GSA 537: State and Local Taxation
@@ -2395,7 +2395,7 @@ GSA 556: Financial Accounting and Valuation
 GSA 570: Selected Advanced Topics for Accounting
 
 
-*** GSB ***
+GSB
 GSB 500: Independent Study
 GSB 501: Individual Research
 GSB 503: Collaborative Industry Project
@@ -2434,7 +2434,7 @@ GSB 596: Economic Forecasting
 GSB 597: Seminar in Selected Economic Problems
 
 
-*** GSE ***
+GSE
 GSE 500: Independent Study
 GSE 510: Essential Mathematics for Economic Analysis
 GSE 511: Microeconomic Analysis
@@ -2455,7 +2455,7 @@ GSE 580: Seminar in Economics
 GSE 599: Thesis
 
 
-*** GSP ***
+GSP
 GSP 530: Packaging Value Chain
 GSP 532: Packaging Materials
 GSP 533: Advanced Packaging Laws and Regulations
@@ -2467,7 +2467,7 @@ GSP 540: Quantitative Analysis for Packaging
 GSP 541: Corporate Finance for Packaging
 
 
-*** GRC ***
+GRC
 GRC 101: Introduction to Graphic Communication
 GRC 172: Introductory Applied Graphic Communication Processes
 GRC 200: Special Problems for Undergraduates
@@ -2530,7 +2530,21 @@ GRC 595: Cooperative Education Experience
 GRC 596: Research Project in Printed Electronics and Functional Imaging
 
 
-*** HIST ***
+HLTH
+HLTH 101: Orientation to Public Health
+HLTH 299: Behavioral Epidemiology
+HLTH 310: Injury Prevention
+HLTH 334: Health Behavior Theory
+HLTH 402: Research Methods in Public Health Settings
+HLTH 405: Stress, Health and Chronic Illness
+HLTH 410: Global Health
+HLTH 460: Experiential Senior Project
+HLTH 461: Senior Project Report
+HLTH 462: Research Senior Project
+HLTH 463: Public Health Internship
+
+
+HIST
 HIST 100: Introduction to the Study of History
 HIST 110: Western Civilization: Ancient to Renaissance
 HIST 111: Western Civilization: Reformation to the Present
@@ -2633,14 +2647,14 @@ HIST 570: Selected Advanced Topics
 HIST 599: Thesis
 
 
-*** HNRC ***
+HNRC
 HNRC 199: Honors Contract
 HNRC 200: Honors Leadership Experience
 HNRC 399: Honors Contract
 HNRC 400: Honors Professional, Social and Global Experience
 
 
-*** HNRS ***
+HNRS
 HNRS 100: Introduction to the Honors Community
 HNRS 101: Public Speaking
 HNRS 102: Principles of Oral Communication
@@ -2670,6 +2684,7 @@ HNRS 230: Philosophical Classics: Knowledge and Reality
 HNRS 231: Philosophical Classics: Ethics and Political Philosophy
 HNRS 232: Masterworks of British Literature from the Late 18th Century to the Present
 HNRS 241: Calculus IV
+HNRS 242: American Literature: 1830 to the Present
 HNRS 244: Linear Analysis I
 HNRS 251: Great Books I: Introduction to Classical Literature
 HNRS 261: Leadership: Self Evaluation
@@ -2695,12 +2710,14 @@ HNRS 333: British Literature in the Age of Romanticism: 1798-1832
 HNRS 334: Modern Europe, 1789-1914
 HNRS 335: Modern Europe, 1914-Present
 HNRS 336: Social Ethics
+HNRS 338: Critical Issues in American Politics
 HNRS 340: Sexuality Studies
 HNRS 341: The Literary Sources of the American Character: 1865-1914
 HNRS 342: The Literary Sources of the American Character: 1914-1956
 HNRS 343: Multiple Voices of Contemporary American Literature
 HNRS 345: Women Writers of the Twentieth Century
 HNRS 347: African American Literature
+HNRS 350: The Scientific Revolution, c. 1500-1800
 HNRS 352: Modern Drama
 HNRS 361: Honors Track - Research, International, and Community Service Experience
 HNRS 380: Literary Themes
@@ -2719,7 +2736,7 @@ HNRS 492: Appropriate Technology for the World's People: Design
 HNRS 499: Honors Group Seminar
 
 
-*** IME ***
+IME
 IME 101: Introduction to Industrial and Manufacturing Engineering
 IME 130: Technical Foundations
 IME 140: Graphics Communication and Modeling
@@ -2760,6 +2777,7 @@ IME 417: Supply Chain and Logistics Management
 IME 418: Product-Process Design
 IME 420: Simulation
 IME 421: Manufacturing Organizations
+IME 424: Industrial Engineering in Healthcare
 IME 428: Engineering Metrology
 IME 429: Ergonomics Laboratory
 IME 430: Quality Engineering
@@ -2799,7 +2817,7 @@ IME 596: Graduate Project/Internship
 IME 599: Thesis
 
 
-*** ITP ***
+ITP
 ITP 137: Electrical/Electronic Systems
 ITP 150: Industrial Power Systems
 ITP 211: Industrial Safety and Quality Program Leadership
@@ -2850,7 +2868,7 @@ ITP 592: Applied Industry Project II
 ITP 599: Industrial and Technical Studies Thesis
 
 
-*** ISLA ***
+ISLA
 ISLA 123: Introduction to Science, Technology &amp; Society
 ISLA 240: Introduction to Media Arts and Technologies
 ISLA 303: Values and Technology
@@ -2870,21 +2888,21 @@ ISLA 456: Advanced Project-Based Learning in Science, Technology &amp; Society
 ISLA 470: Selected Advanced Topics
 
 
-*** ITAL ***
+ITAL
 ITAL 101: Elementary Italian I
 ITAL 102: Elementary Italian II
 ITAL 103: Elementary Italian III
 ITAL 201: Intermediate Italian I
 
 
-*** JPNS ***
+JPNS
 JPNS 101: Elementary Japanese I
 JPNS 102: Elementary Japanese II
 JPNS 103: Elementary Japanese III
 JPNS 201: Intermediate Japanese I
 
 
-*** JOUR ***
+JOUR
 JOUR 102: Introduction to Journalism
 JOUR 201: Journalism History
 JOUR 203: News Reporting and Writing
@@ -2925,7 +2943,7 @@ JOUR 470: Selected Advanced Topics
 JOUR 471: Selected Advanced Laboratory
 
 
-*** KINE ***
+KINE
 KINE 100: Physical Activity for Students with Disabilities
 KINE 108: Basketball
 KINE 109: Bowling
@@ -2934,16 +2952,16 @@ KINE 121: Golf
 KINE 122: Golf, Int.-Adv.
 KINE 125: Jogging
 KINE 129: Yoga/Pilates
-KINE 131: Group Fitness Combine
+KINE 131: Group Fitness Cardio/Strength
 KINE 132: Beginning Racquetball
 KINE 133: Racquetball, Int. - Adv.
 KINE 137: Self-Defense
 KINE 138: Karate
 KINE 139: Soccer
 KINE 143: Swimming for Non-Swimmers
-KINE 144: Swimming: Advanced Beginner
+KINE 144: Beginning Swimming
 KINE 145: Intermediate Swimming
-KINE 147: Swim Conditioning
+KINE 147: Advanced Swimming and Conditioning
 KINE 148: Tennis, Beg.
 KINE 149: Tennis, Int. - Adv.
 KINE 151: Volleyball
@@ -3038,7 +3056,7 @@ KINE 585: Cooperative Education Experience
 KINE 599: Thesis or Project
 
 
-*** LA ***
+LA
 LA 101: Introduction to Landscape Architecture
 LA 170: Principles of Design Communication
 LA 171: Principles of Digital Communication
@@ -3087,7 +3105,7 @@ LA 585: Cooperative Education Experience
 LA 595: Cooperative Education Experience
 
 
-*** LAES ***
+LAES
 LAES 200: Special Problems for Undergraduates
 LAES 270: Selected Topics
 LAES 301: Project-Based Learning in Liberal Arts and Engineering Studies
@@ -3103,7 +3121,7 @@ LAES 485: Cooperative Education Experience
 LAES 495: Cooperative Education Experience
 
 
-*** LS ***
+LS
 LS 201: Orientation to Liberal Studies
 LS 211: Visual Arts in the Elementary Classroom
 LS 214: Constitutional Issues in the History of U.S. and California Education
@@ -3125,7 +3143,7 @@ LS 462: Senior Project Research
 LS 470: Selected Advanced Topics
 
 
-*** MSCI ***
+MSCI
 MSCI 100: Introduction to Marine Sciences
 MSCI 301: Biological Oceanography
 MSCI 303: Ocean Sampling Techniques
@@ -3142,7 +3160,7 @@ MSCI 439: Fisheries Science and Resource Management
 MSCI 440: Communicating Ocean Sciences to Informal Audiences
 
 
-*** MATE ***
+MATE
 MATE 110: Introduction to Materials Engineering Design  I
 MATE 120: Introduction to Materials Engineering Design II
 MATE 130: Introduction to Materials Engineering Design III
@@ -3195,7 +3213,7 @@ MATE 590: Solidification and Densification
 MATE 599: Design Project (Thesis)
 
 
-*** MATH ***
+MATH
 MATH 92: Beginning Algebra Review
 MATH 94: Beginning Algebra Workshop
 MATH 96: Intermediate Algebra
@@ -3307,7 +3325,7 @@ MATH 580: Seminar
 MATH 599: Thesis
 
 
-*** ME ***
+ME
 ME 128: Introduction to Mechanical Engineering I
 ME 129: Introduction to Mechanical Engineering II
 ME 130: Introduction to Mechanical Engineering III
@@ -3392,7 +3410,7 @@ ME 579: Fluid Power Control
 ME 599: Design Project (Thesis)
 
 
-*** MCRO ***
+MCRO
 MCRO 100: Introduction to Microbiology Research
 MCRO 221: Microbiology
 MCRO 224: General Microbiology I
@@ -3408,7 +3426,7 @@ MCRO 433: Microbial Biotechnology
 MCRO 436: Microbial Ecology
 
 
-*** MSL ***
+MSL
 MSL 101: Foundation of Officership I
 MSL 102: Foundation of Officership II
 MSL 103: Basic Leadership
@@ -3438,7 +3456,7 @@ MSL 412: Administration and Evaluation of the Army Physical Fitness Program
 MSL 470: Selected Advanced Topics
 
 
-*** MU ***
+MU
 MU 101: Introduction to Music Theory
 MU 103: Music Theory I: Diatonic Materials
 MU 104: Musicianship I
@@ -3537,7 +3555,7 @@ MU 466: Instrumental Literature and Rehearsal Techniques
 MU 470: Music History: Selected Advanced Topics
 
 
-*** NR ***
+NR
 NR 140: Careers in Natural Resources Management and Environmental Sciences
 NR 141: Introduction to Forest Ecosystem Management
 NR 142: Environmental Management
@@ -3606,7 +3624,7 @@ NR 581: Graduate Seminar in Environmental Sciences
 NR 599: Thesis
 
 
-*** PHIL ***
+PHIL
 PHIL 101: Introduction to Philosophy
 PHIL 126: Logic and Argumentative Writing
 PHIL 230: Philosophical Classics: Knowledge and Reality
@@ -3660,7 +3678,7 @@ PHIL 461: Senior Project II
 PHIL 470: Selected Advanced Topics
 
 
-*** PEM ***
+PEM
 PEM 182: Baseball
 PEM 183: Basketball
 PEM 184: Cross Country
@@ -3673,7 +3691,7 @@ PEM 195: Golf
 PEM 196: Wrestling
 
 
-*** PEW ***
+PEW
 PEW 183: Basketball
 PEW 184: Cross Country
 PEW 189: Soccer
@@ -3686,7 +3704,7 @@ PEW 195: Golf
 PEW 196: Beach Volleyball
 
 
-*** PSC ***
+PSC
 PSC 101: Matter and Energy
 PSC 102: Atoms and Molecules
 PSC 103: The Physical Environment: Earth
@@ -3701,7 +3719,7 @@ PSC 491: Appropriate Technology for the World's People: Development
 PSC 492: Appropriate Technology for the World's People: Design
 
 
-*** PHYS ***
+PHYS
 PHYS 104: Introductory Physics
 PHYS 107: Introduction to Meteorology
 PHYS 111: Contemporary Physics for Nonscientists
@@ -3761,7 +3779,7 @@ PHYS 485: Cooperative Education Experience
 PHYS 495: Cooperative Education Experience
 
 
-*** POLS ***
+POLS
 POLS 111: California Constitution and Government
 POLS 112: American and California Government
 POLS 180: Political Inquiry
@@ -3846,7 +3864,7 @@ POLS 590: Graduate Seminar
 POLS 595: Directed Readings for MPP Comprehensive Exams
 
 
-*** PSY ***
+PSY
 PSY 200: Special Problems for Undergraduates
 PSY 201: General Psychology
 PSY 202: General Psychology
@@ -3932,7 +3950,7 @@ PSY 588: Assessment and Treatment of Substance Use Disorders
 PSY 599: Thesis
 
 
-*** RPTA ***
+RPTA
 RPTA 101: Introduction to the Experience Industry
 RPTA 110: Orientation and College Success in Experience Industry Management
 RPTA 112: Introduction to Parks and Outdoor Recreation
@@ -3987,7 +4005,7 @@ RPTA 581: Graduate Seminar in Recreation, Parks and Tourism
 RPTA 599: Thesis in Recreation, Parks and Tourism
 
 
-*** RELS ***
+RELS
 RELS 201: Religion, Dialogue, and Society
 RELS 205: Jesus
 RELS 270: Selected Topics
@@ -4009,7 +4027,7 @@ RELS 400: Special Problems for Advanced Undergraduates
 RELS 470: Selected Advanced Topics
 
 
-*** SCM ***
+SCM
 SCM 101: Introduction to Health Profession Careers
 SCM 150: Supplemental Workshops in Science
 SCM 220: Seminar for Science and Math Tutors
@@ -4028,7 +4046,7 @@ SCM 470: Selected Advanced Topics
 SCM 471: Selected Advanced Laboratory
 
 
-*** SOCS ***
+SOCS
 SOCS 200: Special Problems for Undergraduates
 SOCS 400: Special Problems for Advanced Undergraduates
 SOCS 440: Internship
@@ -4038,7 +4056,7 @@ SOCS 485: Cooperative Education Experience
 SOCS 495: Cooperative Education Experience
 
 
-*** SOC ***
+SOC
 SOC 110: Comparative Societies
 SOC 111: Social Problems
 SOC 200: Special Problems for Undergraduates
@@ -4075,7 +4093,7 @@ SOC 464: Professional Development for Sociologists
 SOC 470: Selected Advanced Topics
 
 
-*** SS ***
+SS
 SS 121: Introductory Soil Science
 SS 131: Soils in Environmental and Agricultural Systems
 SS 200: Special Problems for Undergraduates
@@ -4108,7 +4126,7 @@ SS 582: GIS in Advanced Land Management
 SS 599: Thesis
 
 
-*** SPAN ***
+SPAN
 SPAN 101: Elementary Spanish I
 SPAN 102: Elementary Spanish II
 SPAN 103: Elementary Spanish III
@@ -4136,7 +4154,7 @@ SPAN 416: Don Quixote
 SPAN 470: Selected Advanced Topics
 
 
-*** STAT ***
+STAT
 STAT 130: Statistical Reasoning
 STAT 150: Introduction to the Discipline of Statistics
 STAT 200: Special Problems for Undergraduates
@@ -4191,14 +4209,14 @@ STAT 542: Statistical Methods for Engineers
 STAT 570: Selected Advanced Topics
 
 
-*** SIE ***
+SIE
 SIE 509: Systems Integration Overview
 SIE 510: Introduction to Systems
 SIE 511: Systems Analysis
 SIE 512: Systems Synthesis
 
 
-*** TH ***
+TH
 TH 101: First-Year Theatre Seminar
 TH 210: Introduction to Theatre
 TH 220: Acting Methods
@@ -4236,7 +4254,7 @@ TH 471: Selected Advanced Laboratory
 TH 480: Advanced Internship
 
 
-*** UNIV ***
+UNIV
 UNIV 100: University Studies
 UNIV 125: First Year Seminar
 UNIV 321: Undergraduate Research Methods and Practice
@@ -4251,7 +4269,7 @@ UNIV 491: Appropriate Technology for the World's People: Development
 UNIV 492: Appropriate Technology for the World's People: Design
 
 
-*** WVIT ***
+WVIT
 WVIT 101: Orientation to Wine and Viticulture
 WVIT 102: Global Wine and Viticulture
 WVIT 202: Fundamentals of Enology
@@ -4287,7 +4305,7 @@ WVIT 470: Selected Advanced Topics
 WVIT 471: Selected Advanced Laboratory
 
 
-*** WGS ***
+WGS
 WGS 201: Introduction to Women's and Gender Studies in the United States
 WGS 270: Selected Topics
 WGS 301: Contemporary Issues in Women's and Gender Studies
@@ -4314,7 +4332,7 @@ WGS 467: Women's and Gender Studies Internship
 WGS 470: Selected Advanced Topics
 
 
-*** WLC ***
+WLC
 WLC 101: Elementary World Language I
 WLC 102: Elementary World Language II
 WLC 103: Elementary World Language III

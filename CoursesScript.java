@@ -30,7 +30,7 @@ public class CoursesScript
         {
             String department = inputLine.substring(
                 inputLine.indexOf("(") + 1, inputLine.indexOf(")"));
-            System.out.println("*** " + department + " ***");
+            System.out.println(department);
             getCourses(getDepartmentURL(inputLine));
             System.out.println("\n");
         }

@@ -1,2 +1,6 @@
+# Binary class file folder
+bin/*
+
 # Compiled java class file
 *.class
+
