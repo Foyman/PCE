@@ -4,3 +4,4 @@ bin/*
 # Compiled java class file
 *.class
 
+/bin/
