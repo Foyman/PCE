@@ -1,4 +1,4 @@
-package logic;
+//package logic;
 
 import java.awt.*;
 import java.io.*;
@@ -94,7 +94,8 @@ public class Home
         footer.add(footText);
 
         // All panels into frame
-        frame.setPreferredSize(new Dimension(1440, 830));
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //frame.setPreferredSize(new Dimension(1440, 830));
         frame.getContentPane().add(header, BorderLayout.NORTH);
         frame.getContentPane().add(main, BorderLayout.CENTER);
         frame.getContentPane().add(footer, BorderLayout.SOUTH);
