@@ -1,4 +1,4 @@
-//package logic;
+package logic;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
