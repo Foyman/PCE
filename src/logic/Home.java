@@ -10,6 +10,7 @@ import java.util.regex.*;
 
 public class Home
 {
+    
     public static void main(String[] args) throws Exception
     {
         createFrame();
@@ -105,7 +106,7 @@ public class Home
                 Type t;
                 try
                 {
-                    Search.readClasses();
+                    Search.readCourses();
                 } catch (FileNotFoundException e1)
                 {
                     // TODO Auto-generated catch block

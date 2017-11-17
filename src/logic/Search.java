@@ -14,7 +14,7 @@ public class Search
     {
         String search = "", type = "";
         Type t;
-        readClasses();
+        readCourses();
         Scanner scanner = new Scanner(System.in);
         while (true)
         {
@@ -44,7 +44,11 @@ public class Search
         scanner.close();
     }
 
-    public static void readClasses() throws FileNotFoundException
+    /**
+     * Reads in Courses into Course Objects from the courses.txt file
+     * @throws FileNotFoundException
+     */
+    public static void readCourses() throws FileNotFoundException
     {
         if (courses != null)
         {
