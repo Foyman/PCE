@@ -11,6 +11,11 @@ public class Search
 {
     private static List<Course> courses;
 
+    private Search()
+    {
+   	 
+    }
+    
     public static List<Course> getCourses()
     {
         return courses;
@@ -28,42 +33,51 @@ public class Search
             return;
         }
         courses = new ArrayList<Course>(5000);
+        Scanner scanner = null;
         try 
         {
-            Scanner scanner = new Scanner(new FileReader("courses.txt"));
-            
+            scanner = new Scanner(new FileReader("courses.txt"));
             while (scanner.hasNextLine())
             {
                 String temp = scanner.nextLine();
-                try {
-                    Scanner classScanner = new Scanner(temp);
-    
-                    classScanner.findInLine("(\\w+ \\d+): (.*)");
-                    try
-                    {
-                        MatchResult result = classScanner.match();
-                        String className = result.group(1);
-                        String classDescription = result.group(2);
-                        courses.add(new Course(className.toLowerCase(), classDescription.toLowerCase()));
-                        System.out.println("" + className + " " + classDescription);
-                    } catch (IllegalStateException e)
-                    {
-    
-                    }
-                    classScanner.close();
-                }
-                catch(Exception e)
-                {
-                    scanner.close();
-                    return;
-                }
+                readCoursesHelper(temp, courses);
             }
-            scanner.close();
         }
         catch (Exception e)
         {
             return;
         }
+        finally 
+        {
+      	     if(scanner != null)
+      	   	  		scanner.close();
+        }
+        
+        
     }
 
+    private static void readCoursesHelper(String temp, List<Course> courses)
+    {
+   	 		Scanner classScanner = null;
+   	 		try 
+       	{
+           	classScanner = new Scanner(temp);
+
+           	classScanner.findInLine("(\\w+ \\d+): (.*)");
+            MatchResult result = classScanner.match();
+            String className = result.group(1);
+            String classDescription = result.group(2);
+            courses.add(new Course(className.toLowerCase(), classDescription.toLowerCase()));
+       	}
+   	 		catch(Exception e)
+   	 		{
+   	 			return;
+   	 		}
+   	 		finally 
+   	 		{
+   	 			if(classScanner != null)
+   	 				classScanner.close();
+   	 		}
+    }
+    
 }

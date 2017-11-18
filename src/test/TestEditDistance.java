@@ -37,7 +37,7 @@ public class TestEditDistance
 	
 	// Each loop (1-3) executed typical number of times
 	@Test
-	public void testGetDistance_Normal()
+	public void testGetDistanceNormal()
 	{
 		String s1 = "ExpOnential";
 		s1 = s1.toLowerCase();
@@ -48,7 +48,7 @@ public class TestEditDistance
 	
 	
 	@Test
-	public void testGetDistance_OneEmptyString()
+	public void testGetDistanceOneEmptyString()
 	{
 		String s1 = "";
 		String s2 = "hi";
@@ -58,7 +58,7 @@ public class TestEditDistance
 	// Loop Test for Loop 3 -- Don't run
 	// Loop Test n = 1 for Loop 1 and Loop 2
 	@Test
-	public void testGetDistance_BothEmptyStrings()
+	public void testGetDistanceBothEmptyStrings()
 	{
 		String s1 = "";
 		String s2 = "";
@@ -67,7 +67,7 @@ public class TestEditDistance
 	
 	// Loop Test n = 2 for Loop 1 and Loop 2
 	@Test
-	public void testGetDistance_OneLetter()
+	public void testGetDistanceOneLetter()
 	{
 		String s1 = "l";
 		String s2 = "m";
@@ -75,7 +75,7 @@ public class TestEditDistance
 	}
 	
 	@Test
-	public void testGetDistance_Equal()
+	public void testGetDistanceEqual()
 	{
 		String s1 = "hraeghieorighiauwhroigejrgoijaeriogj";
 		String s2 = "hraeghieorighiauwhroigejrgoijaeriogj";
