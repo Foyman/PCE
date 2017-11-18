@@ -1,6 +1,7 @@
 package logic;
 
 import java.awt.*;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -49,7 +50,7 @@ public class Home
         main.add(deptText, c);
 
         // Department drop down box
-        ArrayList<String> deptArrayList = getDepartments();
+        ArrayList<String> deptArrayList = (ArrayList<String>) getDepartments();
         String[] deptArray = deptArrayList.toArray(new String[deptArrayList.size()]);
         JComboBox<String> deptList = new JComboBox<String>(deptArray);
         c.gridx = 1;
@@ -109,14 +110,14 @@ public class Home
                     Search.readCourses();
                 } catch (FileNotFoundException e1)
                 {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
+                    result.setText("file \"course.txt\" Not found");
+                    return;
                 }
                 
                 // Search Department and number
                 if(!courseNumberInput.getText().equals(""))
                 {
-                    t = Type.name;
+                    t = Type.NAME;
                     search.append((String) deptList.getSelectedItem());
                     search.append(" ");
                     search.append(courseNumberInput.getText());
@@ -124,17 +125,18 @@ public class Home
                 // Search Course description
                 else
                 {
-                    t = Type.description;
+                    t = Type.DESCRIPTION;
                     search.append(courseNameInput.getText());
                 }
                 
+                List<Course> courses = Search.getCourses();
                 EditDistance.sortList(search.toString(), t);
-                if (Search.courses.get(0).distance == 0)
+                if (courses.get(0).getDistance() == 0)
                 {
-                    result.setText("Found: " + Search.courses.get(0).name);
+                    result.setText("Found: " + courses.get(0).getName());
                 } else
                 {
-                    result.setText("Closest Course: " + Search.courses.get(0).name + ", distance: " + Search.courses.get(0).distance);
+                    result.setText("Closest Course: " + courses.get(0).getName() + ", distance: " + courses.get(0).getDistance());
                 }
             }
           });
@@ -150,7 +152,6 @@ public class Home
 
         // All panels into frame
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //frame.setPreferredSize(new Dimension(1440, 830));
         frame.getContentPane().add(header, BorderLayout.NORTH);
         frame.getContentPane().add(main, BorderLayout.CENTER);
         frame.getContentPane().add(footer, BorderLayout.SOUTH);
@@ -159,12 +160,12 @@ public class Home
     }
 
     // Gets all departments for drop down box
-    public static ArrayList<String> getDepartments() throws FileNotFoundException
+    public static List<String> getDepartments() throws FileNotFoundException
     {
         File courses = new File("courses.txt");
         Scanner scan = new Scanner(courses);
         String department;
-        ArrayList<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         list.add("");
 
         while (scan.hasNextLine())

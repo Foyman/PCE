@@ -7,11 +7,13 @@ public class CourseComparator implements Comparator<Course>
     /** Compares Edit Distances of the courses to sort an Array
      */
     @Override
-    public int compare(Course o1, Course o2)
+    public int compare(Course c1, Course c2)
     {
-        if (o1.distance < o2.distance)
+        int o1 = c1.getDistance();
+        int o2 = c2.getDistance();
+        if (o1 < o2)
             return -1;
-        else if (o1.distance > o2.distance)
+        else if (o1 > o2)
             return 1;
         else
             return 0;

@@ -8,11 +8,12 @@ package test;
 
 import logic.Course;
 import logic.EditDistance;
-import logic.Search;
+import logic.Type;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -23,15 +24,15 @@ public class TestEditDistance
 	public void testSortList() 
 	{
 		String search = "hi";
-		Course c1 = new Course("HI");
-		Course c2 = new Course("HIT");
-		Course c3 = new Course("HIT!");
-		Search.courses = new ArrayList<Course>(3);
-		Search.courses.add(c3);
-		Search.courses.add(c1);
-		Search.courses.add(c2);
-		EditDistance.sortList(search);
-		assertEquals(c3, Search.courses.get(2));
+		Course c1 = new Course("HI", null);
+		Course c2 = new Course("HIT", null);
+		Course c3 = new Course("HIT!", null);
+		List<Course> courses = new ArrayList<Course>(3);
+		courses.add(c3);
+		courses.add(c1);
+		courses.add(c2);
+		EditDistance.sortList(search, Type.NAME);
+		assertEquals(c3, courses.get(2));
 	}
 	
 	// Each loop (1-3) executed typical number of times
