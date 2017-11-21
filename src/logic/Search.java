@@ -11,11 +11,17 @@ public class Search
 {
     private static List<Course> courses;
 
+    // For SonarQube
     private Search()
     {
    	 
     }
     
+    /**
+     * Getter method for the courses
+     * 
+     * @return courses - a list of all the courses
+     */
     public static List<Course> getCourses()
     {
         return courses;
@@ -24,6 +30,8 @@ public class Search
 
     /**
      * Reads in Courses into Course Objects from the courses.txt file
+     * Sets the static courses list in this class
+     * 
      * @throws FileNotFoundException
      */
     public static void readCourses() throws FileNotFoundException
@@ -53,15 +61,20 @@ public class Search
       	   	  		scanner.close();
         }
         
-        
     }
 
-    private static void readCoursesHelper(String temp, List<Course> courses)
+    /**
+     * Helper method for the readCourses in order to please SonarQube...
+     * 
+     * @param line - the last line read (holds one course's information)
+     * @param courses - reference to the courses list
+     */
+    private static void readCoursesHelper(String line, List<Course> courses)
     {
    	 		Scanner classScanner = null;
    	 		try 
        	{
-           	classScanner = new Scanner(temp);
+           	classScanner = new Scanner(line);
 
            	classScanner.findInLine("(\\w+ \\d+): (.*)");
             MatchResult result = classScanner.match();
