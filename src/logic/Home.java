@@ -37,7 +37,7 @@ public class Home
         headText.setFont(headText.getFont().deriveFont(64.0f));
         header.setBackground(new Color(7, 88, 64));
         header.add(headText);
-        
+
         // Course List button
         JButton courseListButton = new JButton("Course List");
         courseListButton.addActionListener(new ActionListener()
@@ -55,6 +55,42 @@ public class Home
             }
         });
         header.add(courseListButton);
+
+        // Evaluate Course button
+        JButton evaluateButton = new JButton("Evaluate a Course");
+        evaluateButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Search.readCourses();
+                } catch (FileNotFoundException e1)
+                {
+                    return;
+                }
+                FrameController.changeFrame(EvaluatePage.createFrame());
+            }
+        });
+        header.add(evaluateButton);
+
+        // FAQ button
+        JButton faqButton = new JButton("FAQ");
+        faqButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Search.readCourses();
+                } catch (FileNotFoundException e1)
+                {
+                    return;
+                }
+                FrameController.changeFrame(FaqPage.createFrame());
+            }
+        });
+        header.add(faqButton);
 
         // Everything for main below
         main.setBackground(new Color(255, 255, 255));
