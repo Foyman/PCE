@@ -15,32 +15,32 @@ public class Course
         this.description = description;
         this.distance = Integer.MAX_VALUE;
     }
-    
+
     public String getName()
     {
         return name;
     }
-    
+
     public String getDescription()
     {
         return description;
     }
-    
+
     public int getDistance()
     {
         return distance;
     }
-    
+
     public void setName(String name)
     {
         this.name = name;
     }
-    
+
     public void setDescription(String description)
     {
         this.description = description;
     }
-    
+
     public void setDistance(int distance)
     {
         this.distance = distance;

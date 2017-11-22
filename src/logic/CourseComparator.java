@@ -4,7 +4,8 @@ import java.util.Comparator;
 
 public class CourseComparator implements Comparator<Course>
 {
-    /** Compares Edit Distances of the courses to sort an Array
+    /**
+     * Compares Edit Distances of the courses to sort an Array
      */
     @Override
     public int compare(Course c1, Course c2)

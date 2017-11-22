@@ -2,14 +2,13 @@ package logic;
 
 import java.util.Collections;
 
-
 public class EditDistance
 {
     private EditDistance()
     {
-        
+
     }
-    
+
     /**
      * Sorts the Course List in Search.java based on the Edit Distance between each
      * course name and the search string.
@@ -20,14 +19,13 @@ public class EditDistance
     {
         CourseComparator compare = new CourseComparator();
         search = search.toLowerCase();
-        if(t == Type.NAME)
+        if (t == Type.NAME)
         {
             for (Course c : Search.getCourses())
             {
                 c.setDistance(getDistance(search, c.getName()));
             }
-        }
-        else if(t == Type.DESCRIPTION)
+        } else if (t == Type.DESCRIPTION)
         {
             for (Course c : Search.getCourses())
             {

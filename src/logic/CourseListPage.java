@@ -11,11 +11,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-public class SearchPage
+public class CourseListPage
 {
 
     // To Please SonarQube
-    private SearchPage()
+    private CourseListPage()
     {
 
     }
@@ -34,14 +34,12 @@ public class SearchPage
 
         // Getting column names and rows for search Data
         Object[] columnNames = { "Course", "Description" };
-        Object[][] rowData = new Object[100][2];
-        int n = 0;
-        for (Course course : courses)
+        Object[][] rowData = new Object[courses.size()][2];
+        for (int i = 0; i < courses.size(); i++)
         {
-            rowData[n][0] = course.getName().toUpperCase();
-            rowData[n][1] = course.getDescription().toUpperCase();
-            if (++n == 100)
-                break;
+            Course course = courses.get(i);
+            rowData[i][0] = course.getName().toUpperCase();
+            rowData[i][1] = course.getDescription().toUpperCase();
         }
 
         // Adding JTable for Search Data
@@ -150,7 +148,7 @@ public class SearchPage
         header.add(whitespace, 1);
 
         // Everything for header below
-        JLabel headText = new JLabel("Polyratings: Course Edition");
+        JLabel headText = new JLabel("Course List");
         headText.setForeground(Color.WHITE);
         headText.setFont(headText.getFont().deriveFont(64.0f));
         header.setBackground(new Color(7, 88, 64));

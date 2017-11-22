@@ -14,9 +14,9 @@ public class Search
     // For SonarQube
     private Search()
     {
-   	 
+
     }
-    
+
     /**
      * Getter method for the courses
      * 
@@ -26,11 +26,10 @@ public class Search
     {
         return courses;
     }
-    
 
     /**
-     * Reads in Courses into Course Objects from the courses.txt file
-     * Sets the static courses list in this class
+     * Reads in Courses into Course Objects from the courses.txt file Sets the
+     * static courses list in this class
      * 
      * @throws FileNotFoundException
      */
@@ -42,7 +41,7 @@ public class Search
         }
         courses = new ArrayList<Course>(5000);
         Scanner scanner = null;
-        try 
+        try
         {
             scanner = new Scanner(new FileReader("courses.txt"));
             while (scanner.hasNextLine())
@@ -50,17 +49,15 @@ public class Search
                 String temp = scanner.nextLine();
                 readCoursesHelper(temp, courses);
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             return;
-        }
-        finally 
+        } finally
         {
-      	     if(scanner != null)
-      	   	  		scanner.close();
+            if (scanner != null)
+                scanner.close();
         }
-        
+
     }
 
     /**
@@ -71,26 +68,24 @@ public class Search
      */
     private static void readCoursesHelper(String line, List<Course> courses)
     {
-   	 		Scanner classScanner = null;
-   	 		try 
-       	{
-           	classScanner = new Scanner(line);
+        Scanner classScanner = null;
+        try
+        {
+            classScanner = new Scanner(line);
 
-           	classScanner.findInLine("(\\w+ \\d+): (.*)");
+            classScanner.findInLine("(\\w+ \\d+): (.*)");
             MatchResult result = classScanner.match();
             String className = result.group(1);
             String classDescription = result.group(2);
             courses.add(new Course(className.toLowerCase(), classDescription.toLowerCase()));
-       	}
-   	 		catch(Exception e)
-   	 		{
-   	 			return;
-   	 		}
-   	 		finally 
-   	 		{
-   	 			if(classScanner != null)
-   	 				classScanner.close();
-   	 		}
+        } catch (Exception e)
+        {
+            return;
+        } finally
+        {
+            if (classScanner != null)
+                classScanner.close();
+        }
     }
-    
+
 }
