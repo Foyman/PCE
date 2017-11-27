@@ -4,11 +4,11 @@ package logic;
 
 public class StudentReview
 {
-    public static double criteria1;
-    public static double criteria2;
-    public static double criteria3;
-    public static String grade;
-    public static String review;
+    private static double criteria1;
+    private static double criteria2;
+    private static double criteria3;
+    private static String grade;
+    private static String review;
     
     private StudentReview()
     {
@@ -37,5 +37,15 @@ public class StudentReview
             default:
                 return 0.0;
         }
+    }
+    
+    public String getReview()
+    {
+        return review;
+    }
+    
+    public String getGrade()
+    {
+        return grade;
     }
 }

@@ -23,6 +23,7 @@ public class CourseReviewPage
 
     }
     
+    //Constructor used
     private CourseReviewPage(String courseNum)
     {
         CourseReviewPage.courseNum = courseNum;
@@ -128,10 +129,8 @@ public class CourseReviewPage
         JLabel teachers = new JLabel(courseNum + " Teachers");
         c.gridx = 2;
         c.gridy = 0;
-        //c.anchor = GridBagConstraints.SOUTH;
         c.gridheight = 1;
         c.ipady = 0;
-        //c.ipadx = 50;
         c.insets = new Insets(0, 10, 0, 0);
         teachers.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //For visually seeing grids
         main.add(teachers, c);
@@ -151,7 +150,6 @@ public class CourseReviewPage
         c.gridy = 2;
         c.anchor = GridBagConstraints.NORTH;
         c.ipady = 50;
-        //c.ipadx = 0;
         c.insets = new Insets(0, 50, 0, 0);
         overall.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //For visually seeing grids
         main.add(overall, c);
@@ -224,7 +222,7 @@ public class CourseReviewPage
     public static double averageCriteria(String criteria)
     {
         int i;
-        double total = 0;;
+        double total = 0;
         for(i = 0; i < reviews.size(); i++)
         {
             total += reviews.get(i).getCriteria(criteria);
