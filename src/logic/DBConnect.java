@@ -6,7 +6,7 @@ import java.util.List;
 public class DBConnect
 {
     private static Connection conn;
- /*   public static void main(String[] args) throws Exception{
+ /*  public static void main(String[] args) throws Exception{
         connectToDB();
         //String q = "INSERT INTO Course "
         //        + "VALUES (1, \"CSC\", 307, \"Intro to Software\")" ;
