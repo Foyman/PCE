@@ -24,15 +24,16 @@ public class FrameController
      * Run this to start the program
      * 
      * @param args
-     * @throws FileNotFoundException
+     * @throws Exception 
      */
-    public static void main(String[] args) throws FileNotFoundException
+    public static void main(String[] args) throws Exception
     {
         // Frame
         frame = new JFrame("PolyRatings Course Edition");
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
+        DBConnect.buildCourse();
         // Set Home Frame
         Home.createFrame(frame);
 
