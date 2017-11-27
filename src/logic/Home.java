@@ -1,6 +1,9 @@
-//package logic;
+package logic;
 
 import java.awt.*;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.*;
 import java.util.*;
@@ -8,20 +11,20 @@ import java.util.regex.*;
 
 public class Home
 {
-    public static void main(String[] args) throws Exception
+
+    // To Please SonarQube
+    private Home()
     {
-        createFrame();
+
     }
 
-    public static void createFrame() throws FileNotFoundException
+    public static void createFrame(JFrame frame) throws FileNotFoundException
     {
-        // Frame
-        JFrame frame = new JFrame("Home Page");
-        frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Constraints used for setting up main
         GridBagConstraints c = new GridBagConstraints();
+
+        List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
         JPanel header = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -35,6 +38,60 @@ public class Home
         header.setBackground(new Color(7, 88, 64));
         header.add(headText);
 
+        // Course List button
+        JButton courseListButton = new JButton("Course List");
+        courseListButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Search.readCourses();
+                } catch (FileNotFoundException e1)
+                {
+                    return;
+                }
+                FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
+            }
+        });
+        header.add(courseListButton);
+
+        // Evaluate Course button
+        JButton evaluateButton = new JButton("Evaluate a Course");
+        evaluateButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Search.readCourses();
+                } catch (FileNotFoundException e1)
+                {
+                    return;
+                }
+                FrameController.changeFrame(EvaluatePage.createFrame());
+            }
+        });
+        header.add(evaluateButton);
+
+        // FAQ button
+        JButton faqButton = new JButton("FAQ");
+        faqButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    Search.readCourses();
+                } catch (FileNotFoundException e1)
+                {
+                    return;
+                }
+                FrameController.changeFrame(FaqPage.createFrame());
+            }
+        });
+        header.add(faqButton);
+
         // Everything for main below
         main.setBackground(new Color(255, 255, 255));
 
@@ -46,7 +103,7 @@ public class Home
         main.add(deptText, c);
 
         // Department drop down box
-        ArrayList<String> deptArrayList = getDepartments();
+        ArrayList<String> deptArrayList = (ArrayList<String>) getDepartments();
         String[] deptArray = deptArrayList.toArray(new String[deptArrayList.size()]);
         JComboBox<String> deptList = new JComboBox<String>(deptArray);
         c.gridx = 1;
@@ -84,8 +141,59 @@ public class Home
         c.gridy = 2;
         c.gridwidth = 2;
         c.ipady = 6; // vertical padding
-        c.insets = new Insets(14,0,0,0); // top margin
+        c.insets = new Insets(14, 0, 0, 0); // top margin
         main.add(searchButton, c);
+
+        // Displaying Search Results
+        searchButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                StringBuilder search = new StringBuilder();
+                Type t;
+                try
+                {
+                    Search.readCourses();
+                } catch (FileNotFoundException e1)
+                {
+                    return;
+                }
+
+                // Search Department and number
+                if (!courseNumberInput.getText().equals(""))
+                {
+                    t = Type.NAME;
+                    search.append((String) deptList.getSelectedItem());
+                    search.append(" ");
+                    search.append(courseNumberInput.getText());
+                }
+                // Search Course description
+                else
+                {
+                    t = Type.DESCRIPTION;
+                    search.append(courseNameInput.getText());
+                }
+
+                List<Course> courses = Search.getCourses();
+                EditDistance.sortList(search.toString(), t);
+
+                // Distance of the first two courses in the search list
+                int t1 = courses.get(0).getDistance();
+                int t2 = courses.get(1).getDistance();
+                if (t1 == 0 && t2 == 0)
+                {
+                    // send to Search Page frame
+                    FrameController.changeFrame(SearchPage.createFrame(courses));
+                } else if (t1 == 0)
+                {
+                    // send to Course Page Frame
+                } else
+                {
+                    // send to Search Page Frame
+                    FrameController.changeFrame(SearchPage.createFrame(courses));
+                }
+            }
+        });
 
         // Everything for footer below
         JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
@@ -95,21 +203,32 @@ public class Home
 
         // All panels into frame
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //frame.setPreferredSize(new Dimension(1440, 830));
-        frame.getContentPane().add(header, BorderLayout.NORTH);
-        frame.getContentPane().add(main, BorderLayout.CENTER);
-        frame.getContentPane().add(footer, BorderLayout.SOUTH);
+        panels.add(new JComponentWithLayout(header, BorderLayout.NORTH));
+        panels.add(new JComponentWithLayout(main, BorderLayout.CENTER));
+        panels.add(new JComponentWithLayout(footer, BorderLayout.SOUTH));
+
+        for (JComponentWithLayout p : panels)
+        {
+            p.addToFrame(frame);
+        }
         frame.pack();
         frame.setVisible(true);
+
+        FrameController.changeFrame(panels);
     }
 
-    // Gets all departments for drop down box
-    public static ArrayList<String> getDepartments() throws FileNotFoundException
+    /**
+     * Gets all departments for drop down box
+     * 
+     * @return List of Departments for all courses
+     * @throws FileNotFoundException
+     */
+    public static List<String> getDepartments() throws FileNotFoundException
     {
         File courses = new File("courses.txt");
         Scanner scan = new Scanner(courses);
         String department;
-        ArrayList<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         list.add("");
 
         while (scan.hasNextLine())

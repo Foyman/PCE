@@ -13,17 +13,17 @@ import org.junit.Test;
 public class TestCourse {
 
 	@Test
-	public void testConstructor_Name() 
+	public void testConstructorName() 
 	{
-		Course c = new Course("Collin");
-		assertEquals("Collin", c.name);
+		Course c = new Course("Collin", "Hey");
+		assertEquals("Collin", c.getName());
 	}
 	
 	@Test
-	public void testConstructor_Distance()
+	public void testConstructorDistance()
 	{
-		Course c = new Course(null);
-		assertEquals(Integer.MAX_VALUE, c.distance);
+		Course c = new Course(null, null);
+		assertEquals(Integer.MAX_VALUE, c.getDistance());
 	}
 
 }

@@ -1,25 +1,38 @@
 package logic;
 
-import java.lang.Math;
 import java.util.Collections;
 
 public class EditDistance
 {
+    private EditDistance()
+    {
+
+    }
+
     /**
      * Sorts the Course List in Search.java based on the Edit Distance between each
      * course name and the search string.
      * 
      * @param search - The course name to search for
      */
-    public static void sortList(String search)
+    public static void sortList(String search, Type t)
     {
         CourseComparator compare = new CourseComparator();
         search = search.toLowerCase();
-        for (Course c : Search.courses)
+        if (t == Type.NAME)
         {
-            c.distance = getDistance(search, c.name);
+            for (Course c : Search.getCourses())
+            {
+                c.setDistance(getDistance(search, c.getName()));
+            }
+        } else if (t == Type.DESCRIPTION)
+        {
+            for (Course c : Search.getCourses())
+            {
+                c.setDistance(getDistance(search, c.getDescription()));
+            }
         }
-        Collections.sort(Search.courses, compare);
+        Collections.sort(Search.getCourses(), compare);
     }
 
     /**
@@ -31,21 +44,19 @@ public class EditDistance
      */
     public static int getDistance(String s1, String s2)
     {
-        s1 = s1.replaceAll("\\s", "");
-        s2 = s2.replaceAll("\\s", "");
         int len1 = s1.length() + 1;
         int len2 = s2.length() + 1;
-        int[][] ED = new int[len1][len2];
+        int[][] ed = new int[len1][len2];
 
         // Loop 1 (Always Runs Once)
         for (int i = 0; i < len1; i++)
         {
-            ED[i][0] = i;
+            ed[i][0] = i;
         }
         // Loop 2 (Always Runs Once)
         for (int j = 0; j < len2; j++)
         {
-            ED[0][j] = j;
+            ed[0][j] = j;
         }
 
         // Loop 3
@@ -53,14 +64,14 @@ public class EditDistance
         {
             for (int j = 1; j < len2; j++)
             {
-                int min = Math.min(1 + ED[i - 1][j], 1 + ED[i][j - 1]);
+                int min = Math.min(1 + ed[i - 1][j], 1 + ed[i][j - 1]);
 
-                int x = (s1.charAt(i - 1) == s2.charAt(j - 1) ? 0 : 1) + ED[i - 1][j - 1];
-                ED[i][j] = Math.min(min, x);
+                int x = (s1.charAt(i - 1) == s2.charAt(j - 1) ? 0 : 1) + ed[i - 1][j - 1];
+                ed[i][j] = Math.min(min, x);
             }
         }
 
-        return ED[len1 - 1][len2 - 1];
+        return ed[len1 - 1][len2 - 1];
     }
 
 }
