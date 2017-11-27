@@ -32,8 +32,8 @@ public class FrameController
         frame = new JFrame("PolyRatings Course Edition");
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        DBConnect.buildCourse();
+        DBConnect.connectToDB();
+        //DBConnect.buildCourse();
         // Set Home Frame
         Home.createFrame(frame);
 

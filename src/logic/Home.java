@@ -236,7 +236,6 @@ public class Home
                         main.repaint();
                         noInput = 1;
                     }
-                    else {}
                 }
             }
         });

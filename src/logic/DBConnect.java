@@ -34,7 +34,7 @@ public class DBConnect
     }
     
     public static void processUpdateQuery(String query) throws Exception {
-        connectToDB();
+        //connectToDB();
         try {
             Statement s = conn.createStatement();
             s.executeUpdate(query);
@@ -45,7 +45,7 @@ public class DBConnect
     
     public static ResultSet processGeneralQuery(String query) throws Exception {
         ResultSet result;
-        connectToDB();
+        //connectToDB();
         try {
             Statement s = conn.createStatement();
             result = s.executeQuery(query);
