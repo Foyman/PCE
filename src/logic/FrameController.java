@@ -34,7 +34,7 @@ public class FrameController
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         DBConnect.connectToDB();
-        DBConnect.buildCourse();
+        //DBConnect.buildCourse();
         // Set Home Frame
         Home.createFrame(frame);
 
