@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.util.*;
 import java.util.regex.*;
 
@@ -21,22 +23,32 @@ public class Home
     public static void createFrame(JFrame frame) throws FileNotFoundException
     {
 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
         // Constraints used for setting up main
-        GridBagConstraints c = new GridBagConstraints();
+        final GridBagConstraints c = new GridBagConstraints();
 
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
-        JPanel header = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JPanel main = new JPanel(new GridBagLayout());
+        JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        final JPanel main = new JPanel(new GridBagLayout());
         JPanel footer = new JPanel();
 
+        int screenWidth = screenSize.width;
+        int screenHeight = screenSize.height;
+
+        
+        
         // Everything for header below
-        JLabel headText = new JLabel("Polyratings: Course Edition");
+        header.add(Box.createHorizontalStrut(20));
+        JLabel headText = new JLabel("PCE");
         headText.setForeground(Color.WHITE);
         headText.setFont(headText.getFont().deriveFont(64.0f));
         header.setBackground(new Color(7, 88, 64));
         header.add(headText);
+        header.add(Box.createHorizontalStrut((screenWidth - (620))));
+
 
         // Course List button
         JButton courseListButton = new JButton("Course List");
@@ -54,8 +66,10 @@ public class Home
                 FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
             }
         });
+        header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
 
+        
         // Evaluate Course button
         JButton evaluateButton = new JButton("Evaluate a Course");
         evaluateButton.addActionListener(new ActionListener()
@@ -72,6 +86,8 @@ public class Home
                 FrameController.changeFrame(EvaluatePage.createFrame());
             }
         });
+        header.add(Box.createHorizontalStrut(20));
+
         header.add(evaluateButton);
 
         // FAQ button
@@ -90,6 +106,7 @@ public class Home
                 FrameController.changeFrame(FaqPage.createFrame());
             }
         });
+        header.add(Box.createHorizontalStrut(20));
         header.add(faqButton);
 
         // Everything for main below
@@ -147,6 +164,9 @@ public class Home
         // Displaying Search Results
         searchButton.addActionListener(new ActionListener()
         {
+            int noInput = 0; //track if user did not enter input
+            JLabel noInputText = new JLabel();
+
             public void actionPerformed(ActionEvent e)
             {
                 StringBuilder search = new StringBuilder();
@@ -168,29 +188,55 @@ public class Home
                     search.append(courseNumberInput.getText());
                 }
                 // Search Course description
-                else
+                else if (!courseNameInput.getText().equals(""))
                 {
                     t = Type.DESCRIPTION;
                     search.append(courseNameInput.getText());
                 }
+                
+                else{
+                    noInputText.setText("Please add a search input before searching");
+                    c.gridx = 0;
+                    c.gridy = 4;
+                    c.gridwidth = 4;
+                    c.ipady = 4; // vertical padding
+                    main.add(noInputText, c);
+                    t = null;
+                }
 
-                List<Course> courses = Search.getCourses();
-                EditDistance.sortList(search.toString(), t);
-
-                // Distance of the first two courses in the search list
-                int t1 = courses.get(0).getDistance();
-                int t2 = courses.get(1).getDistance();
-                if (t1 == 0 && t2 == 0)
-                {
-                    // send to Search Page frame
-                    FrameController.changeFrame(SearchPage.createFrame(courses));
-                } else if (t1 == 0)
-                {
-                    // send to Course Page Frame
-                } else
-                {
-                    // send to Search Page Frame
-                    FrameController.changeFrame(SearchPage.createFrame(courses));
+                if (t != null){
+                    List<Course> courses = Search.getCourses();
+                    EditDistance.sortList(search.toString(), t);
+    
+                    if (noInput == 1){ //remove jlabel that asks for input
+                        noInputText.setText("");
+                        noInput = 0;
+                        main.revalidate();
+                        main.repaint();
+                    }
+                    
+                    // Distance of the first two courses in the search list
+                    int t1 = courses.get(0).getDistance();
+                    int t2 = courses.get(1).getDistance();
+                    if (t1 == 0 && t2 == 0)
+                    {
+                        // send to Search Page frame
+                        FrameController.changeFrame(SearchPage.createFrame(courses));
+                    } else if (t1 == 0)
+                    {
+                        // send to Course Page Frame
+                    } else
+                    {
+                        // send to Search Page Frame
+                        FrameController.changeFrame(SearchPage.createFrame(courses));
+                    }
+                } else {
+                    if (noInput == 0){
+                        main.revalidate(); //display new jlabel
+                        main.repaint();
+                        noInput = 1;
+                    }
+                    else {}
                 }
             }
         });
