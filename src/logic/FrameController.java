@@ -33,7 +33,8 @@ public class FrameController
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        DBConnect.buildCourse();
+        DBConnect.connectToDB();
+        //DBConnect.buildCourse();
         // Set Home Frame
         Home.createFrame(frame);
 

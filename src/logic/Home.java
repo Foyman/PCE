@@ -38,8 +38,8 @@ public class Home
         int screenWidth = screenSize.width;
         int screenHeight = screenSize.height;
 
-        
-        
+
+
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
         JLabel headText = new JLabel("PCE");
@@ -69,7 +69,7 @@ public class Home
         header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
 
-        
+
         // Evaluate Course button
         JButton evaluateButton = new JButton("Evaluate a Course");
         evaluateButton.addActionListener(new ActionListener()
@@ -180,21 +180,24 @@ public class Home
                 }
 
                 // Search Department and number
+                //String querySub;
                 if (!courseNumberInput.getText().equals(""))
                 {
                     t = Type.NAME;
                     search.append((String) deptList.getSelectedItem());
                     search.append(" ");
                     search.append(courseNumberInput.getText());
+
+                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %d", 
+                    //                              (String) deptList.getSelectedItem(), courseNumberInput.getText());
                 }
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
                     t = Type.DESCRIPTION;
                     search.append(courseNameInput.getText());
-                }
-                
-                else{
+                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+                } else {
                     noInputText.setText("Please add a search input before searching");
                     c.gridx = 0;
                     c.gridy = 4;
@@ -204,17 +207,29 @@ public class Home
                     t = null;
                 }
 
-                if (t != null){
+                if (t != null) {
                     List<Course> courses = Search.getCourses();
                     EditDistance.sortList(search.toString(), t);
-    
+
                     if (noInput == 1){ //remove jlabel that asks for input
                         noInputText.setText("");
                         noInput = 0;
                         main.revalidate();
                         main.repaint();
                     }
-                    
+
+
+
+//                    String query = String.format("SELECT * FROM Reviews r WHERE r.CourseId = (%s)", querySub);
+//                    try
+//                    {
+//                        ResultSet r = DBConnect.processGeneralQuery(query);
+//                    } catch (Exception e1)
+//                    {
+//                        // TODO Auto-generated catch block
+//                        e1.printStackTrace();
+//                    }
+
                     // Distance of the first two courses in the search list
                     int t1 = courses.get(0).getDistance();
                     int t2 = courses.get(1).getDistance();
@@ -242,7 +257,7 @@ public class Home
         });
 
         // Everything for footer below
-        JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
+        JLabel footText = new JLabel("� 2017 Polyratings Course Edition");
         footText.setForeground(Color.WHITE);
         footer.setBackground(new Color(7, 88, 64));
         footer.add(footText);
