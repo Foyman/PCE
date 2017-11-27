@@ -17,7 +17,7 @@ public class SearchPage
 
     }
 
-    public static List<JComponentWithLayout> createFrame(List<Course> courses)
+    public static List<JComponentWithLayout> createFrame(final List<Course> courses)
     {
 
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
@@ -42,7 +42,7 @@ public class SearchPage
         }
 
         // Adding JTable for Search Data
-        JTable table = new JTable();
+        final JTable table = new JTable();
         table.setModel(new DefaultTableModel(rowData, columnNames)
         {
 
@@ -64,7 +64,7 @@ public class SearchPage
         table.addMouseListener(new MouseListener()
         {
 
-            @Override
+            //@Override
             public void mouseClicked(MouseEvent e)
             {
                 if (e.getClickCount() == 2)
@@ -74,25 +74,25 @@ public class SearchPage
                 }
             }
 
-            @Override
+            //@Override
             public void mouseEntered(MouseEvent arg0)
             {
                 return;
             }
 
-            @Override
+            //@Override
             public void mouseExited(MouseEvent arg0)
             {
                 return;
             }
 
-            @Override
+            //@Override
             public void mousePressed(MouseEvent arg0)
             {
                 return;
             }
 
-            @Override
+            //@Override
             public void mouseReleased(MouseEvent arg0)
             {
                 return;
@@ -128,7 +128,7 @@ public class SearchPage
     public static void createHeader(JPanel header)
     {
         // Back Button
-        JButton button = new JButton();
+        final JButton button = new JButton();
         button.setText("< Back");
         button.addActionListener(new ActionListener()
         {

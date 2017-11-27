@@ -52,7 +52,7 @@ public class FaqPage
     public static void createHeader(JPanel header)
     {
         // Back Button
-        JButton button = new JButton();
+        final JButton button = new JButton();
         button.setText("< Back");
         button.addActionListener(new ActionListener()
         {

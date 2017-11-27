@@ -105,7 +105,7 @@ public class Home
         // Department drop down box
         ArrayList<String> deptArrayList = (ArrayList<String>) getDepartments();
         String[] deptArray = deptArrayList.toArray(new String[deptArrayList.size()]);
-        JComboBox<String> deptList = new JComboBox<String>(deptArray);
+        final JComboBox<String> deptList = new JComboBox<String>(deptArray);
         c.gridx = 1;
         c.gridy = 0;
         main.add(deptList, c);
@@ -117,7 +117,7 @@ public class Home
         main.add(courseText, c);
 
         // Class search bar
-        JTextField courseNumberInput = new JTextField("", 5);
+        final JTextField courseNumberInput = new JTextField("", 5);
         c.gridx = 3;
         c.gridy = 0;
         main.add(courseNumberInput, c);
@@ -129,7 +129,7 @@ public class Home
         main.add(searchText, c);
 
         // Class search bar
-        JTextField courseNameInput = new JTextField("");
+        final JTextField courseNameInput = new JTextField("");
         c.gridx = 1;
         c.gridy = 1;
         c.gridwidth = 3;
