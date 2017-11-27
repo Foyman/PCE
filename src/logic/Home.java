@@ -162,31 +162,33 @@ public class Home
                 }
 
                 // Search Department and number
+                //String querySub;
                 if (!courseNumberInput.getText().equals(""))
                 {
                     t = Type.NAME;
                     search.append((String) deptList.getSelectedItem());
                     search.append(" ");
                     search.append(courseNumberInput.getText());
-//                    String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %d", 
+//                  querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %d", 
 //                            (String) deptList.getSelectedItem(), courseNumberInput.getText());
-//                    String query = String.format("SELECT * FROM Reviews r WHERE r.CourseId = (%s)", querySub);
-//                    try
-//                    {
-//                        ResultSet r = DBConnect.processGeneralQuery(query);
-//                    } catch (Exception e1)
-//                    {
-//                        // TODO Auto-generated catch block
-//                        e1.printStackTrace();
-//                    }
                 }
                 // Search Course description
                 else
                 {
                     t = Type.DESCRIPTION;
                     search.append(courseNameInput.getText());
+                    //querySub = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
                 }
-
+                
+                //String query = String.format("SELECT * FROM Reviews r WHERE r.CourseId = (%s)", querySub);
+//              try
+//              {
+//                  ResultSet r = DBConnect.processGeneralQuery(query);
+//              } catch (Exception e1)
+//              {
+//                  // TODO Auto-generated catch block
+//                  e1.printStackTrace();
+//              }
                 List<Course> courses = Search.getCourses();
                 EditDistance.sortList(search.toString(), t);
 

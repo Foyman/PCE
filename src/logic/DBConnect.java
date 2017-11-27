@@ -6,7 +6,7 @@ import java.util.List;
 public class DBConnect
 {
     private static Connection conn;
- /*   public static void main(String[] args) throws Exception{
+ /*  public static void main(String[] args) throws Exception{
         connectToDB();
         //String q = "INSERT INTO Course "
         //        + "VALUES (1, \"CSC\", 307, \"Intro to Software\")" ;
@@ -34,7 +34,7 @@ public class DBConnect
     }
     
     public static void processUpdateQuery(String query) throws Exception {
-        connectToDB();
+        //connectToDB();
         try {
             Statement s = conn.createStatement();
             s.executeUpdate(query);
@@ -45,7 +45,7 @@ public class DBConnect
     
     public static ResultSet processGeneralQuery(String query) throws Exception {
         ResultSet result;
-        connectToDB();
+        //connectToDB();
         try {
             Statement s = conn.createStatement();
             result = s.executeQuery(query);
