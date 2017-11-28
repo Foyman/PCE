@@ -10,12 +10,12 @@ public class StudentReview
     private String grade;
     private String review;
     private String course;
-    
+
     public StudentReview()
     {
-        
+
     }
-    
+
     public StudentReview(double criteria1, double criteria2, double criteria3, 
             String grade, String review, String c)
     {
@@ -26,7 +26,8 @@ public class StudentReview
         this.review = review;
         this.course = c;
     }
-    
+
+
     public double getCriteria(int criteriaNum)
     {
         switch (criteriaNum)
@@ -41,24 +42,24 @@ public class StudentReview
                 return 0.0;
         }
     }
-    
+
     public String getReview()
     {
         return review;
     }
-    
+
     public String getGrade()
     {
         return grade;
     }
-    
+
     public String getCourse()
     {
         return course;
     }
-    
+
     public String toString() {
         return (criteria1 + " " + criteria2 + " " + criteria3 + " " + grade + " " + review);
     }
-    
+
 }

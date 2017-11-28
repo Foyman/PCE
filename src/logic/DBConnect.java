@@ -1,20 +1,11 @@
 package logic;
 import java.io.FileNotFoundException;
-//import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.List;
 
 public class DBConnect
 {
     private static Connection conn;
-    /*  public static void main(String[] args) throws Exception{
-        connectToDB();
-        //String q = "INSERT INTO Course "
-        //        + "VALUES (1, \"CSC\", 307, \"Intro to Software\")" ;
-        //System.out.println("Query: " + q);
-        //processUpdateQuery(q);
-        buildCourse();
-    }*/
 
     public static void buildCourse() throws SQLException, FileNotFoundException {
         Search.readCourses();

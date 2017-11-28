@@ -9,14 +9,13 @@ import java.io.*;
 import java.sql.*;
 
 import javax.swing.*;
-//import javax.swing.border.EmptyBorder;
-
 import java.util.*;
 import java.util.regex.*;
 
 public class Home
 {
     private static final Logger HOMELOGGER= Logger.getLogger(Home.class.getName());
+
     // To Please SonarQube
     private Home()
     {
@@ -25,7 +24,6 @@ public class Home
 
     public static void createFrame(JFrame frame) throws FileNotFoundException
     {
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Constraints used for setting up main
@@ -39,17 +37,34 @@ public class Home
         JPanel footer = new JPanel();
 
         int screenWidth = screenSize.width;
-        int screenHeight = screenSize.height;
-
-
-
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
-        JLabel headText = new JLabel("PCE");
-        headText.setForeground(Color.WHITE);
-        headText.setFont(headText.getFont().deriveFont(64.0f));
+
+
+        // Home button
+        JButton homeButton = new JButton("PCE");          
+        homeButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+
+                try {
+                    FrameController.goHome();
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                //FrameController.changeFrame(Home.createFrame());
+            }
+        });
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false); 
+        homeButton.setFocusPainted(false); 
+        homeButton.setOpaque(false);
+        homeButton.setForeground(Color.WHITE);
+        homeButton.setFont(new Font("Arial", Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
-        header.add(headText);
+        header.add(homeButton);
         header.add(Box.createHorizontalStrut((screenWidth - (620))));
 
 
@@ -69,9 +84,14 @@ public class Home
                 FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
             }
         });
+        courseListButton.setBorderPainted(false);
+        courseListButton.setContentAreaFilled(false); 
+        courseListButton.setFocusPainted(false); 
+        courseListButton.setOpaque(false);
+        courseListButton.setForeground(Color.WHITE);
+        courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
         header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
-
 
         // Evaluate Course button
         JButton evaluateButton = new JButton("Evaluate a Course");
@@ -91,6 +111,12 @@ public class Home
         });
         header.add(Box.createHorizontalStrut(20));
 
+        evaluateButton.setBorderPainted(false);
+        evaluateButton.setContentAreaFilled(false); 
+        evaluateButton.setFocusPainted(false); 
+        evaluateButton.setOpaque(false);
+        evaluateButton.setForeground(Color.WHITE);
+        evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
         header.add(evaluateButton);
 
         // FAQ button
@@ -110,6 +136,12 @@ public class Home
             }
         });
         header.add(Box.createHorizontalStrut(20));
+        faqButton.setBorderPainted(false);
+        faqButton.setContentAreaFilled(false); 
+        faqButton.setFocusPainted(false); 
+        faqButton.setOpaque(false);
+        faqButton.setForeground(Color.WHITE);
+        faqButton.setFont(new Font("Arial", Font.BOLD, 20));
         header.add(faqButton);
 
         // Everything for main below
@@ -163,6 +195,41 @@ public class Home
         c.ipady = 6; // vertical padding
         c.insets = new Insets(14, 0, 0, 0); // top margin
         main.add(searchButton, c);
+
+
+        addAction(searchButton, c, courseNumberInput, deptList, main, courseNameInput);
+
+
+        // Everything for footer below
+        JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
+        footText.setForeground(Color.WHITE);
+        footer.setBackground(new Color(7, 88, 64));
+        footer.add(footText);
+
+        // All panels into frame
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        panels.add(new JComponentWithLayout(header, BorderLayout.NORTH));
+        panels.add(new JComponentWithLayout(main, BorderLayout.CENTER));
+        panels.add(new JComponentWithLayout(footer, BorderLayout.SOUTH));
+
+        for (JComponentWithLayout p : panels)
+        {
+            p.addToFrame(frame);
+        }
+        frame.pack();
+        frame.setVisible(true);
+
+        FrameController.changeFrame(panels);
+    }
+
+    /**
+     * Creates search Button Action 
+     * For SonarQube Complexity
+     */
+    public static void addAction(JButton searchButton, final GridBagConstraints c, 
+            final JTextField courseNumberInput, final JComboBox<String> deptList,
+            final JPanel main, final JTextField courseNameInput)
+    {
 
         // Displaying Search Results
         searchButton.addActionListener(new ActionListener()
@@ -244,28 +311,9 @@ public class Home
                 }
             }
         });
-
-        // Everything for footer below
-        JLabel footText = new JLabel("� 2017 Polyratings Course Edition");
-        footText.setForeground(Color.WHITE);
-        footer.setBackground(new Color(7, 88, 64));
-        footer.add(footText);
-
-        // All panels into frame
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panels.add(new JComponentWithLayout(header, BorderLayout.NORTH));
-        panels.add(new JComponentWithLayout(main, BorderLayout.CENTER));
-        panels.add(new JComponentWithLayout(footer, BorderLayout.SOUTH));
-
-        for (JComponentWithLayout p : panels)
-        {
-            p.addToFrame(frame);
-        }
-        frame.pack();
-        frame.setVisible(true);
-
-        FrameController.changeFrame(panels);
     }
+
+
 
     public static void searchForReview(String department, String cNum, String courseNamed) {
         String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s", 
@@ -276,8 +324,7 @@ public class Home
             //System.out.println("Qury " + query);
             CourseReviewPage cReview = new CourseReviewPage(makeReviews(r, courseNamed), courseNamed);
             if (cReview != null)
-            {
-                //          add review page stuff here   
+            {  
                 FrameController.changeFrame(cReview.createFrame());
             }
         } catch (SQLException s) {
@@ -300,6 +347,7 @@ public class Home
         }
         return reviews;
     }
+
     /**
      * Gets all departments for drop down box
      * 

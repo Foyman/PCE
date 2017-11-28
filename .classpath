@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry excluding="src/|java-sql-demo/" kind="src" path=""/>
 	<classpathentry kind="src" path="java-sql-demo"/>
 	<classpathentry kind="src" path="src"/>
@@ -7,4 +8,20 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="/Users/Bibek/Desktop/csc307/PCE/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
+=======
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/Collin/Documents/workspace/PCECurrent/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+>>>>>>> 1a95dd5081a87fc07a6848a2687007f596966509
 </classpath>

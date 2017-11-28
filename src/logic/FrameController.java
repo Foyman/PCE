@@ -5,8 +5,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
-//import java.io.FileNotFoundException;
-
 import javax.swing.JFrame;
 
 public class FrameController
@@ -85,6 +83,32 @@ public class FrameController
         }
         frame.revalidate();
         frame.repaint();
+    }
+    
+    
+    
+    
+    public static void goHome() throws Exception{
+    	String[] args = {};
+    	main(args);
+    	frame.dispose();
+
+    	
+    	
+    	// Removes all Components
+        //frame.getContentPane().removeAll();
+        //frame.invalidate();
+        /*
+        homeframe = new JFrame("PolyRatings Course Edition");
+        homeframe.setLayout(new BorderLayout());
+        homeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DBConnect.connectToDB();
+        // Set Home Frame
+        Home.createFrame(homeframe);
+        frame.dispose();*/
+        
+        //homeframe.revalidate();
+        //homeframe.repaint();
     }
 
 }

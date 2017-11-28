@@ -85,7 +85,6 @@ public class CourseListPage
             }
 
             //@Override
-
             public void mousePressed(MouseEvent arg0)
             {
                 return;
