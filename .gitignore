@@ -6,3 +6,8 @@ bin/*
 
 /bin/
 /target/
+
+# eclipse files
+.classpath
+.project
+
