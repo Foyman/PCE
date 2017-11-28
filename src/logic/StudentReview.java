@@ -15,6 +15,7 @@ public class StudentReview
         
     }
     
+    /*
     private StudentReview(double criteria1, double criteria2, double criteria3, String grade, String review)
     {
         StudentReview.criteria1 = criteria1;
@@ -23,6 +24,7 @@ public class StudentReview
         StudentReview.grade = grade;
         StudentReview.review = review;
     }
+    */
     
     public double getCriteria(String varName)
     {

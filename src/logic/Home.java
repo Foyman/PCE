@@ -5,9 +5,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 import java.util.*;
 import java.util.regex.*;
@@ -16,17 +14,15 @@ public class Home
 {
 
 	private static JFrame homeFrame;
+	
     // To Please SonarQube
     private Home()
     {
 
-    }    
-    
+    }
 
-    
     public static void createFrame(JFrame frame) throws FileNotFoundException
     {
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Constraints used for setting up main
@@ -40,10 +36,6 @@ public class Home
         JPanel footer = new JPanel();
 
         int screenWidth = screenSize.width;
-        int screenHeight = screenSize.height;
-
-
-
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
         
@@ -75,7 +67,6 @@ public class Home
         header.add(Box.createHorizontalStrut((screenWidth - (620))));
 
 
-
         // Course List button
         JButton courseListButton = new JButton("Course List");
         courseListButton.addActionListener(new ActionListener()
@@ -101,7 +92,6 @@ public class Home
         header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
 
-
         // Evaluate Course button
         JButton evaluateButton = new JButton("Evaluate a Course");
         evaluateButton.addActionListener(new ActionListener()
@@ -119,6 +109,7 @@ public class Home
             }
         });
         header.add(Box.createHorizontalStrut(20));
+
         evaluateButton.setBorderPainted(false);
         evaluateButton.setContentAreaFilled(false); 
         evaluateButton.setFocusPainted(false); 
@@ -204,102 +195,10 @@ public class Home
         c.insets = new Insets(14, 0, 0, 0); // top margin
         main.add(searchButton, c);
 
-        // Displaying Search Results
-        searchButton.addActionListener(new ActionListener()
-        {
-            int noInput = 0; //track if user did not enter input
-            JLabel noInputText = new JLabel();
-
-            public void actionPerformed(ActionEvent e)
-            {
-                StringBuilder search = new StringBuilder();
-                Type t;
-                try
-                {
-                    Search.readCourses();
-                } catch (FileNotFoundException e1)
-                {
-                    return;
-                }
-
-                // Search Department and number
-                //String querySub;
-                if (!courseNumberInput.getText().equals(""))
-                {
-                    t = Type.NAME;
-                    search.append((String) deptList.getSelectedItem());
-                    search.append(" ");
-                    search.append(courseNumberInput.getText());
-
-                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %d", 
-                    //                              (String) deptList.getSelectedItem(), courseNumberInput.getText());
-                }
-                // Search Course description
-                else if (!courseNameInput.getText().equals(""))
-                {
-                    t = Type.DESCRIPTION;
-                    search.append(courseNameInput.getText());
-                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
-                } else {
-                    noInputText.setText("Please add a search input before searching");
-                    c.gridx = 0;
-                    c.gridy = 4;
-                    c.gridwidth = 4;
-                    c.ipady = 4; // vertical padding
-                    main.add(noInputText, c);
-                    t = null;
-                }
-
-                if (t != null) {
-                    List<Course> courses = Search.getCourses();
-                    EditDistance.sortList(search.toString(), t);
-
-                    if (noInput == 1){ //remove jlabel that asks for input
-                        noInputText.setText("");
-                        noInput = 0;
-                        main.revalidate();
-                        main.repaint();
-                    }
-
-
-
-//                    String query = String.format("SELECT * FROM Reviews r WHERE r.CourseId = (%s)", querySub);
-//                    try
-//                    {
-//                        ResultSet r = DBConnect.processGeneralQuery(query);
-//                    } catch (Exception e1)
-//                    {
-//                        // TODO Auto-generated catch block
-//                        e1.printStackTrace();
-//                    }
-
-                    // Distance of the first two courses in the search list
-                    int t1 = courses.get(0).getDistance();
-                    int t2 = courses.get(1).getDistance();
-                    if (t1 == 0 && t2 == 0)
-                    {
-                        // send to Search Page frame
-                        FrameController.changeFrame(SearchPage.createFrame(courses));
-                    } else if (t1 == 0)
-                    {
-                        // send to Course Page Frame
-                    } else
-                    {
-                        // send to Search Page Frame
-                        FrameController.changeFrame(SearchPage.createFrame(courses));
-                    }
-                } else {
-                    if (noInput == 0){
-                        main.revalidate(); //display new jlabel
-                        main.repaint();
-                        noInput = 1;
-                    }
-                }
-            }
-        });
+        addAction(searchButton, c, courseNumberInput, deptList, main, courseNameInput);
 
         // Everything for footer below
-        JLabel footText = new JLabel("� 2017 Polyratings Course Edition");
+        JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
         footText.setForeground(Color.WHITE);
         footer.setBackground(new Color(7, 88, 64));
         footer.add(footText);
@@ -319,7 +218,97 @@ public class Home
 
         FrameController.changeFrame(panels);
     }
+    
+    /**
+     * Creates search Button Action 
+     * For SonarQube Complexity
+     */
+    public static void addAction(JButton searchButton, final GridBagConstraints c, 
+   		 final JTextField courseNumberInput, final JComboBox<String> deptList,
+   		 final JPanel main, final JTextField courseNameInput)
+    {
 
+       // Displaying Search Results
+       searchButton.addActionListener(new ActionListener()
+       {
+           int noInput = 0; //track if user did not enter input
+           JLabel noInputText = new JLabel();
+
+           public void actionPerformed(ActionEvent e)
+           {
+               StringBuilder search = new StringBuilder();
+               Type t;
+               try
+               {
+                   Search.readCourses();
+               } catch (FileNotFoundException e1)
+               {
+                   return;
+               }
+
+               // Search Department and number
+               if (!courseNumberInput.getText().equals(""))
+               {
+                   t = Type.NAME;
+                   search.append((String) deptList.getSelectedItem());
+                   search.append(" ");
+                   search.append(courseNumberInput.getText());
+               }
+               // Search Course description
+               else if (!courseNameInput.getText().equals(""))
+               {
+                   t = Type.DESCRIPTION;
+                   search.append(courseNameInput.getText());
+               }
+               
+               else{
+                   noInputText.setText("Please add a search input before searching");
+                   c.gridx = 0;
+                   c.gridy = 4;
+                   c.gridwidth = 4;
+                   c.ipady = 4; // vertical padding
+                   main.add(noInputText, c);
+                   t = null;
+               }
+
+               if (t != null){
+                   List<Course> courses = Search.getCourses();
+                   EditDistance.sortList(search.toString(), t);
+   
+                   if (noInput == 1){ //remove jlabel that asks for input
+                       noInputText.setText("");
+                       noInput = 0;
+                       main.revalidate();
+                       main.repaint();
+                   }
+                   
+                   // Distance of the first two courses in the search list
+                   int t1 = courses.get(0).getDistance();
+                   int t2 = courses.get(1).getDistance();
+                   if (t1 == 0 && t2 == 0)
+                   {
+                       // send to Search Page frame
+                       FrameController.changeFrame(SearchPage.createFrame(courses));
+                   } else if (t1 == 0)
+                   {
+                       // send to Course Page Frame
+                   } else
+                   {
+                       // send to Search Page Frame
+                       FrameController.changeFrame(SearchPage.createFrame(courses));
+                   }
+               } else {
+                   if (noInput == 0){
+                       main.revalidate(); //display new jlabel
+                       main.repaint();
+                       noInput = 1;
+                   }
+               }
+           }
+       });
+    }
+    
+    
     /**
      * Gets all departments for drop down box
      * 
