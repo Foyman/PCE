@@ -18,8 +18,9 @@ public class Home
     private Home()
     {
 
-    }
-
+    }    
+    
+    
     public static void createFrame(JFrame frame) throws FileNotFoundException
     {
 
@@ -47,7 +48,7 @@ public class Home
         headText.setFont(headText.getFont().deriveFont(64.0f));
         header.setBackground(new Color(7, 88, 64));
         header.add(headText);
-        header.add(Box.createHorizontalStrut((screenWidth - (620))));
+        header.add(Box.createHorizontalStrut((screenWidth - (1220))));
 
 
         // Course List button
@@ -66,6 +67,12 @@ public class Home
                 FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
             }
         });
+        courseListButton.setBorderPainted(false);
+        courseListButton.setContentAreaFilled(false); 
+        courseListButton.setFocusPainted(false); 
+        courseListButton.setOpaque(false);
+        courseListButton.setForeground(Color.WHITE);
+        courseListButton.setFont(new Font("Arial", Font.BOLD, 30));
         header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
 
@@ -87,7 +94,12 @@ public class Home
             }
         });
         header.add(Box.createHorizontalStrut(20));
-
+        evaluateButton.setBorderPainted(false);
+        evaluateButton.setContentAreaFilled(false); 
+        evaluateButton.setFocusPainted(false); 
+        evaluateButton.setOpaque(false);
+        evaluateButton.setForeground(Color.WHITE);
+        evaluateButton.setFont(new Font("Arial", Font.BOLD, 30));
         header.add(evaluateButton);
 
         // FAQ button
@@ -107,6 +119,12 @@ public class Home
             }
         });
         header.add(Box.createHorizontalStrut(20));
+        faqButton.setBorderPainted(false);
+        faqButton.setContentAreaFilled(false); 
+        faqButton.setFocusPainted(false); 
+        faqButton.setOpaque(false);
+        faqButton.setForeground(Color.WHITE);
+        faqButton.setFont(new Font("Arial", Font.BOLD, 30));
         header.add(faqButton);
 
         // Everything for main below
