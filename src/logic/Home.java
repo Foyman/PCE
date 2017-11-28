@@ -5,6 +5,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -14,12 +15,14 @@ import java.util.regex.*;
 public class Home
 {
 
+	private static JFrame homeFrame;
     // To Please SonarQube
     private Home()
     {
 
     }    
     
+
     
     public static void createFrame(JFrame frame) throws FileNotFoundException
     {
@@ -43,12 +46,40 @@ public class Home
 
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
-        JLabel headText = new JLabel("PCE");
-        headText.setForeground(Color.WHITE);
-        headText.setFont(headText.getFont().deriveFont(64.0f));
+        
+        
+        // Home button
+        JButton homeButton = new JButton("PCE");  
+        
+        homeFrame = new JFrame("PolyRatings Course Edition");
+        homeFrame.setLayout(new BorderLayout());
+        homeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DBConnect.connectToDB();
+        
+        homeButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+
+                try {
+					FrameController.goHome(homeFrame);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+                //FrameController.changeFrame(Home.createFrame());
+            }
+        });
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false); 
+        homeButton.setFocusPainted(false); 
+        homeButton.setOpaque(false);
+        homeButton.setForeground(Color.WHITE);
+        homeButton.setFont(new Font("Arial", Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
-        header.add(headText);
+        header.add(homeButton);
         header.add(Box.createHorizontalStrut((screenWidth - (1220))));
+
 
 
         // Course List button
