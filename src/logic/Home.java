@@ -49,21 +49,15 @@ public class Home
         
         
         // Home button
-        JButton homeButton = new JButton("PCE");  
-        
-        homeFrame = new JFrame("PolyRatings Course Edition");
-        homeFrame.setLayout(new BorderLayout());
-        homeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        DBConnect.connectToDB();
-        
+        JButton homeButton = new JButton("PCE");          
         homeButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
 
-                try {
-					FrameController.goHome(homeFrame);
-				} catch (FileNotFoundException e1) {
+				try {
+					FrameController.goHome();
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -78,7 +72,7 @@ public class Home
         homeButton.setFont(new Font("Arial", Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
         header.add(homeButton);
-        header.add(Box.createHorizontalStrut((screenWidth - (1220))));
+        header.add(Box.createHorizontalStrut((screenWidth - (620))));
 
 
 
@@ -103,7 +97,7 @@ public class Home
         courseListButton.setFocusPainted(false); 
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
-        courseListButton.setFont(new Font("Arial", Font.BOLD, 30));
+        courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
         header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
 
@@ -130,7 +124,7 @@ public class Home
         evaluateButton.setFocusPainted(false); 
         evaluateButton.setOpaque(false);
         evaluateButton.setForeground(Color.WHITE);
-        evaluateButton.setFont(new Font("Arial", Font.BOLD, 30));
+        evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
         header.add(evaluateButton);
 
         // FAQ button
@@ -155,7 +149,7 @@ public class Home
         faqButton.setFocusPainted(false); 
         faqButton.setOpaque(false);
         faqButton.setForeground(Color.WHITE);
-        faqButton.setFont(new Font("Arial", Font.BOLD, 30));
+        faqButton.setFont(new Font("Arial", Font.BOLD, 20));
         header.add(faqButton);
 
         // Everything for main below
