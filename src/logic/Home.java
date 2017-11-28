@@ -12,8 +12,6 @@ import java.util.regex.*;
 
 public class Home
 {
-
-	private static JFrame homeFrame;
 	
     // To Please SonarQube
     private Home()
