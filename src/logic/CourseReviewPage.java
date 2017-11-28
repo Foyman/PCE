@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+import java.util.logging.Logger;
+
 
 public class CourseReviewPage
 {
@@ -14,8 +16,8 @@ public class CourseReviewPage
     private static double score1;
     private static double score2;
     private static double score3;
-    private static ImageIcon stars;
     private static List<StudentReview> reviews;
+    private static final Logger LOGGER = Logger.getLogger( CourseReviewPage.class.getName() );
     
  // To Please SonarQube
     private CourseReviewPage()
@@ -23,12 +25,12 @@ public class CourseReviewPage
 
     }
     
-    //Constructor used
+    /*
     private CourseReviewPage(String courseNum)
     {
         CourseReviewPage.courseNum = courseNum;
         reviews = getReviews();
-    }
+    } */
 
     public static List<JComponentWithLayout> createFrame()
     {
@@ -41,10 +43,6 @@ public class CourseReviewPage
 
         // Does everything to create header
         createHeader(header);
-
-        // Makes table scroll-able
-        //JScrollPane scroll = new JScrollPane();
-        
         createMain(main);
 
         // Everything for footer below
@@ -55,7 +53,6 @@ public class CourseReviewPage
 
         // All panels into frame
         panels.add(new JComponentWithLayout(header, BorderLayout.NORTH));
-        //panels.add(new JComponentWithLayout(scroll, BorderLayout.CENTER));
         panels.add(new JComponentWithLayout(main, BorderLayout.CENTER));
         panels.add(new JComponentWithLayout(footer, BorderLayout.SOUTH));
 
@@ -143,7 +140,8 @@ public class CourseReviewPage
         main.add(docs, c);
         
         //Overall Score
-        stars = getStars();
+
+        ImageIcon stars = getStars();
         JLabel overall = new JLabel("Overall Score", SwingConstants.LEFT);
         JLabel starRating = new JLabel(stars, SwingConstants.RIGHT);
         c.gridx = 0;
@@ -205,7 +203,8 @@ public class CourseReviewPage
         int average = (int) (score1 + score2 + score3) / 3;
         if(average > 4 || average < 1)
             average = 0;
-        System.out.print(average);
+        String info = "Stars: " + average;
+        LOGGER.info(info);
         String link = "images/" + Integer.toString(average) + "_star.png";
         return new ImageIcon(link);
     }
@@ -213,9 +212,7 @@ public class CourseReviewPage
     //Takes the courseNum and gets all reviews for that course
     public static List<StudentReview> getReviews()
     {
-        List<StudentReview> list = new ArrayList<StudentReview>();
-        
-        return list;
+        return new ArrayList<StudentReview>();
     }
     
     //Gets the average criteria score from the StudentReview list "reviews" based on the string passed in
