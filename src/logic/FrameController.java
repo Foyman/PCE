@@ -86,5 +86,24 @@ public class FrameController
         frame.revalidate();
         frame.repaint();
     }
+    
+    
+    
+    
+    public static void goHome(JFrame homeFrame) throws FileNotFoundException{
+    	// Removes all Components
+        frame.getContentPane().removeAll();
+        frame.invalidate();
+        
+        frame = new JFrame("PolyRatings Course Edition");
+        frame.setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DBConnect.connectToDB();
+        // Set Home Frame
+        Home.createFrame(frame);
+        
+        frame.revalidate();
+        frame.repaint();
+    }
 
 }
