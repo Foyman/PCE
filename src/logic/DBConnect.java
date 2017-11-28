@@ -1,4 +1,5 @@
 package logic;
+import java.io.FileNotFoundException;
 //import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.List;
@@ -6,7 +7,7 @@ import java.util.List;
 public class DBConnect
 {
     private static Connection conn;
- /*  public static void main(String[] args) throws Exception{
+    /*  public static void main(String[] args) throws Exception{
         connectToDB();
         //String q = "INSERT INTO Course "
         //        + "VALUES (1, \"CSC\", 307, \"Intro to Software\")" ;
@@ -14,8 +15,8 @@ public class DBConnect
         //processUpdateQuery(q);
         buildCourse();
     }*/
-    
-    public static void buildCourse() throws Exception {
+
+    public static void buildCourse() throws SQLException, FileNotFoundException {
         Search.readCourses();
         int i = 1; 
         List<Course> courses = Search.getCourses();
@@ -30,29 +31,17 @@ public class DBConnect
             processUpdateQuery(query);
             i++;
         }
-        
+
     }
-    
-    public static void processUpdateQuery(String query) throws Exception {
-        //connectToDB();
-        try {
-            Statement s = conn.createStatement();
-            s.executeUpdate(query);
-        } catch(SQLException e) {
-            System.out.println("Failed to process query.");
-        } 
+
+    public static void processUpdateQuery(String query) throws SQLException {
+        Statement s = conn.createStatement();
+        s.executeUpdate(query);
     }
-    
-    public static ResultSet processGeneralQuery(String query) throws Exception {
-        ResultSet result;
-        //connectToDB();
-        try {
-            Statement s = conn.createStatement();
-            result = s.executeQuery(query);
-        } catch(SQLException e) {
-            System.out.println("Failed to process query.");
-            return null;
-        }
+
+    public static ResultSet processGeneralQuery(String query) throws SQLException {
+        Statement s = conn.createStatement();
+        ResultSet result = s.executeQuery(query);
         return result;
     }
 

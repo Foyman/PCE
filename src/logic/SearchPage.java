@@ -71,6 +71,9 @@ public class SearchPage
                 {
                     // VERIFIES THAT IT IS CLICKING ON THE ACTUAL COURSE
                     System.out.println("Double Click on " + courses.get(table.getSelectedRow()).getName());
+                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+         //           cSelectedQuery = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+
                 }
             }
 

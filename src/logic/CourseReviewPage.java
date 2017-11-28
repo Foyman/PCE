@@ -24,10 +24,10 @@ public class CourseReviewPage
     }
     
     //Constructor used
-    private CourseReviewPage(String courseNum)
+    public CourseReviewPage(List<StudentReview> r, String courseNum)
     {
         CourseReviewPage.courseNum = courseNum;
-        reviews = getReviews();
+        reviews = r;
     }
 
     public static List<JComponentWithLayout> createFrame()
@@ -164,7 +164,7 @@ public class CourseReviewPage
         main.add(grade, c);
         
         //Criteria 1 (Calculated based on criteria1 from student reviews for class on SQL database)
-        score1 = averageCriteria("criteria1");
+        score1 = averageCriteria(1);
         JLabel criteria1 = new JLabel("Criteria 1: " + Double.toString(score1) + "/4.0");
         c.gridx = 0;
         c.gridy = 3;
@@ -173,7 +173,7 @@ public class CourseReviewPage
         main.add(criteria1, c);
         
         //Criteria 2 (Calculated based on criteria2 from student reviews for class on SQL database)
-        score2 = averageCriteria("criteria2");
+        score2 = averageCriteria(2);
         JLabel criteria2 = new JLabel("Criteria 2: " + Double.toString(score2) + "/4.0");
         c.gridx = 1;
         c.gridy = 3;
@@ -181,7 +181,7 @@ public class CourseReviewPage
         main.add(criteria2, c);
         
         //Criteria 3 (Calculated based on criteria3 from student reviews for class on SQL database)
-        score3 = averageCriteria("criteria3");
+        score3 = averageCriteria(3);
         JLabel criteria3 = new JLabel("Criteria 3: " + Double.toString(score3) + "/4.0");
         c.gridx = 2;
         c.gridy = 3;
@@ -219,7 +219,7 @@ public class CourseReviewPage
     }
     
     //Gets the average criteria score from the StudentReview list "reviews" based on the string passed in
-    public static double averageCriteria(String criteria)
+    public static double averageCriteria(int criteria)
     {
         int i;
         double total = 0;

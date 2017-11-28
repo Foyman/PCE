@@ -84,11 +84,8 @@ public class CourseListPage
                 return;
             }
 
-<<<<<<< HEAD
             //@Override
-=======
-           // @Override
->>>>>>> refs/remotes/origin/master
+
             public void mousePressed(MouseEvent arg0)
             {
                 return;

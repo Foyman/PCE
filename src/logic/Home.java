@@ -2,18 +2,21 @@ package logic;
 
 import java.awt.*;
 import java.util.List;
+import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.sql.*;
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+//import javax.swing.border.EmptyBorder;
 
 import java.util.*;
 import java.util.regex.*;
 
 public class Home
 {
-
+    private static final Logger HOMELOGGER= Logger.getLogger(Home.class.getName());
     // To Please SonarQube
     private Home()
     {
@@ -180,23 +183,22 @@ public class Home
                 }
 
                 // Search Department and number
-                //String querySub;
+                String cSelected = "";
                 if (!courseNumberInput.getText().equals(""))
                 {
                     t = Type.NAME;
                     search.append((String) deptList.getSelectedItem());
                     search.append(" ");
                     search.append(courseNumberInput.getText());
-
-                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %d", 
-                    //                              (String) deptList.getSelectedItem(), courseNumberInput.getText());
+                    cSelected = (String) deptList.getSelectedItem() + courseNumberInput.getText();
+                    searchForReview((String) deptList.getSelectedItem(), 
+                            courseNumberInput.getText(), cSelected);
                 }
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
                     t = Type.DESCRIPTION;
                     search.append(courseNameInput.getText());
-                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
                 } else {
                     noInputText.setText("Please add a search input before searching");
                     c.gridx = 0;
@@ -217,18 +219,6 @@ public class Home
                         main.revalidate();
                         main.repaint();
                     }
-
-
-
-//                    String query = String.format("SELECT * FROM Reviews r WHERE r.CourseId = (%s)", querySub);
-//                    try
-//                    {
-//                        ResultSet r = DBConnect.processGeneralQuery(query);
-//                    } catch (Exception e1)
-//                    {
-//                        // TODO Auto-generated catch block
-//                        e1.printStackTrace();
-//                    }
 
                     // Distance of the first two courses in the search list
                     int t1 = courses.get(0).getDistance();
@@ -277,6 +267,39 @@ public class Home
         FrameController.changeFrame(panels);
     }
 
+    public static void searchForReview(String department, String cNum, String courseNamed) {
+        String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s", 
+                department, cNum);
+        String query = String.format("SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);", querySub);
+        try {
+            ResultSet r = DBConnect.processGeneralQuery(query);
+            //System.out.println("Qury " + query);
+            CourseReviewPage cReview = new CourseReviewPage(makeReviews(r, courseNamed), courseNamed);
+            if (cReview != null)
+            {
+                //          add review page stuff here   
+                FrameController.changeFrame(cReview.createFrame());
+            }
+        } catch (SQLException s) {
+            //System.out.println("SQL cannot process query");
+            HOMELOGGER.info("SQL cannot process query");
+        }
+    }
+
+    public static ArrayList<StudentReview> makeReviews(ResultSet r, String c) throws SQLException {
+        ArrayList<StudentReview> reviews = new ArrayList<StudentReview>();
+        StudentReview rev;
+        while(r.next()) {
+            double rating1 = r.getDouble("Rating1");
+            double rating2 = r.getDouble("Rating2");
+            double rating3 = r.getDouble("Rating3");
+            String sGrade = r.getString("StudentGrade");
+            String sReview = r.getString("Review");
+            rev = new StudentReview(rating1, rating2, rating3, sGrade, sReview, c);
+            reviews.add(rev);
+        }
+        return reviews;
+    }
     /**
      * Gets all departments for drop down box
      * 

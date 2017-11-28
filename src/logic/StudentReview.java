@@ -4,35 +4,38 @@ package logic;
 
 public class StudentReview
 {
-    private static double criteria1;
-    private static double criteria2;
-    private static double criteria3;
-    private static String grade;
-    private static String review;
+    private double criteria1;
+    private double criteria2;
+    private double criteria3;
+    private String grade;
+    private String review;
+    private String course;
     
-    private StudentReview()
+    public StudentReview()
     {
         
     }
     
-    private StudentReview(double criteria1, double criteria2, double criteria3, String grade, String review)
+    public StudentReview(double criteria1, double criteria2, double criteria3, 
+            String grade, String review, String c)
     {
-        StudentReview.criteria1 = criteria1;
-        StudentReview.criteria2 = criteria2;
-        StudentReview.criteria3 = criteria3;
-        StudentReview.grade = grade;
-        StudentReview.review = review;
+        this.criteria1 = criteria1;
+        this.criteria2 = criteria2;
+        this.criteria3 = criteria3;
+        this.grade = grade;
+        this.review = review;
+        this.course = c;
     }
     
-    public double getCriteria(String varName)
+    public double getCriteria(int criteriaNum)
     {
-        switch (varName)
+        switch (criteriaNum)
         {
-            case "criteria1":
+            case 1:
                 return criteria1;
-            case "criteria2":
+            case 2:
                 return criteria2;
-            case "criteria3":
+            case 3:
                 return criteria3;
             default:
                 return 0.0;
@@ -48,4 +51,14 @@ public class StudentReview
     {
         return grade;
     }
+    
+    public String getCourse()
+    {
+        return course;
+    }
+    
+    public String toString() {
+        return (criteria1 + " " + criteria2 + " " + criteria3 + " " + grade + " " + review);
+    }
+    
 }
