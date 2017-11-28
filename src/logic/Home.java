@@ -65,7 +65,7 @@ public class Home
         homeButton.setFont(new Font("Arial", Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
         header.add(homeButton);
-        header.add(Box.createHorizontalStrut((screenWidth - (620))));
+        header.add(Box.createHorizontalStrut((screenWidth - (900))));
 
 
         // Course List button
