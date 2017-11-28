@@ -25,5 +25,28 @@ public class TestCourse {
 		Course c = new Course(null, null);
 		assertEquals(Integer.MAX_VALUE, c.getDistance());
 	}
+	
+	@Test
+	public void testGetDescription()
+	{
+        Course c = new Course("Test", "Course");
+        assertEquals("Course", c.getDescription());
+    }
+	
+	@Test
+    public void testSetDescription()
+    {
+        Course c = new Course("", "");
+        c.setDescription("test");
+        assertEquals("test", c.getDescription());
+    }
+	
+	@Test
+    public void testSetName()
+    {
+        Course c = new Course("", "");
+        c.setName("test");
+        assertEquals("test", c.getName());
+    }
 
 }

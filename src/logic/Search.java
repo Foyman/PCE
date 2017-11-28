@@ -88,4 +88,13 @@ public class Search
         }
     }
 
+    /**
+     * Resets the list of courses.
+     * Used in unit tests since the methods of this class are static.
+     */
+    public static void resetCourses()
+    {
+        courses = null;
+    }
+
 }
