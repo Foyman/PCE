@@ -1,3 +1,9 @@
+/**
+ * JUnit tests for the CourseComparator class
+ * 
+ * @author Tim Stoddard
+ */
+
 package test;
 
 import static org.junit.jupiter.api.Assertions.*;

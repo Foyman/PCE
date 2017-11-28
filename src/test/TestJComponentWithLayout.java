@@ -1,3 +1,9 @@
+/**
+ * JUnit tests for the JComponentWithLayout class
+ * 
+ * @author Tim Stoddard
+ */
+
 package test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -2,8 +2,8 @@
  * JUnit tests for the Course class
  * 
  * @author Collin Wong
- * @version NGA-JUnit
  */
+
 package test;
 
 import static org.junit.Assert.*;

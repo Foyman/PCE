@@ -2,8 +2,8 @@
  * JUnit tests for the EditDistance class
  * 
  * @author Collin Wong
- * @version NGA-JUnit
  */
+
 package test;
 
 import logic.Course;

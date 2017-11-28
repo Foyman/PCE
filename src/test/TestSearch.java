@@ -1,3 +1,9 @@
+/**
+ * JUnit tests for the Search class
+ * 
+ * @author Connor Witzeman
+ */
+
 package test;
 
 import static org.junit.jupiter.api.Assertions.*;
