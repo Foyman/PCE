@@ -94,23 +94,6 @@ public class FrameController
     	String[] args = {};
     	main(args);
     	frame.dispose();
-
-    	
-    	
-    	// Removes all Components
-        //frame.getContentPane().removeAll();
-        //frame.invalidate();
-        /*
-        homeframe = new JFrame("PolyRatings Course Edition");
-        homeframe.setLayout(new BorderLayout());
-        homeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        DBConnect.connectToDB();
-        // Set Home Frame
-        Home.createFrame(homeframe);
-        frame.dispose();*/
-        
-        //homeframe.revalidate();
-        //homeframe.repaint();
     }
 
 }
