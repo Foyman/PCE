@@ -90,20 +90,27 @@ public class FrameController
     
     
     
-    public static void goHome(JFrame homeFrame) throws FileNotFoundException{
+    public static void goHome() throws Exception{
+    	String[] args = {};
+    	main(args);
+    	frame.dispose();
+
+    	
+    	
     	// Removes all Components
-        frame.getContentPane().removeAll();
-        frame.invalidate();
-        
-        frame = new JFrame("PolyRatings Course Edition");
-        frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.getContentPane().removeAll();
+        //frame.invalidate();
+        /*
+        homeframe = new JFrame("PolyRatings Course Edition");
+        homeframe.setLayout(new BorderLayout());
+        homeframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         DBConnect.connectToDB();
         // Set Home Frame
-        Home.createFrame(frame);
+        Home.createFrame(homeframe);
+        frame.dispose();*/
         
-        frame.revalidate();
-        frame.repaint();
+        //homeframe.revalidate();
+        //homeframe.repaint();
     }
 
 }
