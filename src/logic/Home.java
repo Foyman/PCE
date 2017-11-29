@@ -14,7 +14,7 @@ import java.util.regex.*;
 
 public class Home
 {
-    private static final Logger HOMELOGGER= Logger.getLogger(Home.class.getName());
+    private static final Logger HOMELOGGER = Logger.getLogger(Home.class.getName());
 
     // To Please SonarQube
     private Home()
@@ -22,7 +22,7 @@ public class Home
 
     }
 
-    public static void createFrame(JFrame frame) throws FileNotFoundException
+    public static List<JComponentWithLayout> createFrame(JFrame frame)
     {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -40,33 +40,24 @@ public class Home
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
 
-
         // Home button
-        JButton homeButton = new JButton("PCE");          
+        JButton homeButton = new JButton("PCE");
         homeButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-
-                try {
-                    FrameController.goHome();
-                } catch (Exception e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                //FrameController.changeFrame(Home.createFrame());
+                FrameController.goHome();
             }
         });
         homeButton.setBorderPainted(false);
-        homeButton.setContentAreaFilled(false); 
-        homeButton.setFocusPainted(false); 
+        homeButton.setContentAreaFilled(false);
+        homeButton.setFocusPainted(false);
         homeButton.setOpaque(false);
         homeButton.setForeground(Color.WHITE);
         homeButton.setFont(new Font("Arial", Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
         header.add(homeButton);
-        header.add(Box.createHorizontalStrut((screenWidth - (900))));
-
+        header.add(Box.createHorizontalStrut((screenWidth - 900)));
 
         // Course List button
         JButton courseListButton = new JButton("Course List");
@@ -85,8 +76,8 @@ public class Home
             }
         });
         courseListButton.setBorderPainted(false);
-        courseListButton.setContentAreaFilled(false); 
-        courseListButton.setFocusPainted(false); 
+        courseListButton.setContentAreaFilled(false);
+        courseListButton.setFocusPainted(false);
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
         courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -112,8 +103,8 @@ public class Home
         header.add(Box.createHorizontalStrut(20));
 
         evaluateButton.setBorderPainted(false);
-        evaluateButton.setContentAreaFilled(false); 
-        evaluateButton.setFocusPainted(false); 
+        evaluateButton.setContentAreaFilled(false);
+        evaluateButton.setFocusPainted(false);
         evaluateButton.setOpaque(false);
         evaluateButton.setForeground(Color.WHITE);
         evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -137,8 +128,8 @@ public class Home
         });
         header.add(Box.createHorizontalStrut(20));
         faqButton.setBorderPainted(false);
-        faqButton.setContentAreaFilled(false); 
-        faqButton.setFocusPainted(false); 
+        faqButton.setContentAreaFilled(false);
+        faqButton.setFocusPainted(false);
         faqButton.setOpaque(false);
         faqButton.setForeground(Color.WHITE);
         faqButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -196,9 +187,7 @@ public class Home
         c.insets = new Insets(14, 0, 0, 0); // top margin
         main.add(searchButton, c);
 
-
         addAction(searchButton, c, courseNumberInput, deptList, main, courseNameInput);
-
 
         // Everything for footer below
         JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
@@ -216,25 +205,22 @@ public class Home
         {
             p.addToFrame(frame);
         }
-        frame.pack();
         frame.setVisible(true);
 
-        FrameController.changeFrame(panels);
+        return panels;
     }
 
     /**
-     * Creates search Button Action 
-     * For SonarQube Complexity
+     * Creates search Button Action For SonarQube Complexity
      */
-    public static void addAction(JButton searchButton, final GridBagConstraints c, 
-            final JTextField courseNumberInput, final JComboBox<String> deptList,
-            final JPanel main, final JTextField courseNameInput)
+    public static void addAction(JButton searchButton, final GridBagConstraints c, final JTextField courseNumberInput,
+            final JComboBox<String> deptList, final JPanel main, final JTextField courseNameInput)
     {
 
         // Displaying Search Results
         searchButton.addActionListener(new ActionListener()
         {
-            int noInput = 0; //track if user did not enter input
+            int noInput = 0; // track if user did not enter input
             JLabel noInputText = new JLabel();
 
             public void actionPerformed(ActionEvent e)
@@ -258,15 +244,15 @@ public class Home
                     search.append(" ");
                     search.append(courseNumberInput.getText());
                     cSelected = (String) deptList.getSelectedItem() + courseNumberInput.getText();
-                    searchForReview((String) deptList.getSelectedItem(), 
-                            courseNumberInput.getText(), cSelected);
+                    searchForReview((String) deptList.getSelectedItem(), courseNumberInput.getText(), cSelected);
                 }
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
                     t = Type.DESCRIPTION;
                     search.append(courseNameInput.getText());
-                } else {
+                } else
+                {
                     noInputText.setText("Please add a search input before searching");
                     c.gridx = 0;
                     c.gridy = 4;
@@ -276,11 +262,13 @@ public class Home
                     t = null;
                 }
 
-                if (t != null) {
+                if (t != null)
+                {
                     List<Course> courses = Search.getCourses();
                     EditDistance.sortList(search.toString(), t);
 
-                    if (noInput == 1){ //remove jlabel that asks for input
+                    if (noInput == 1)
+                    { // remove jlabel that asks for input
                         noInputText.setText("");
                         noInput = 0;
                         main.revalidate();
@@ -302,9 +290,11 @@ public class Home
                         // send to Search Page Frame
                         FrameController.changeFrame(SearchPage.createFrame(courses));
                     }
-                } else {
-                    if (noInput == 0){
-                        main.revalidate(); //display new jlabel
+                } else
+                {
+                    if (noInput == 0)
+                    {
+                        main.revalidate(); // display new jlabel
                         main.repaint();
                         noInput = 1;
                     }
@@ -313,30 +303,35 @@ public class Home
         });
     }
 
-
-
-    public static void searchForReview(String department, String cNum, String courseNamed) {
-        String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s", 
+    public static void searchForReview(String department, String cNum, String courseNamed)
+    {
+        String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s",
                 department, cNum);
-        String query = String.format("SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);", querySub);
-        try {
+        String query = String.format(
+                "SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);",
+                querySub);
+        try
+        {
             ResultSet r = DBConnect.processGeneralQuery(query);
-            //System.out.println("Qury " + query);
+            // System.out.println("Qury " + query);
             CourseReviewPage cReview = new CourseReviewPage(makeReviews(r, courseNamed), courseNamed);
             if (cReview != null)
-            {  
+            {
                 FrameController.changeFrame(cReview.createFrame());
             }
-        } catch (SQLException s) {
-            //System.out.println("SQL cannot process query");
+        } catch (SQLException s)
+        {
+            // System.out.println("SQL cannot process query");
             HOMELOGGER.info("SQL cannot process query");
         }
     }
 
-    public static ArrayList<StudentReview> makeReviews(ResultSet r, String c) throws SQLException {
+    public static ArrayList<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
+    {
         ArrayList<StudentReview> reviews = new ArrayList<StudentReview>();
         StudentReview rev;
-        while(r.next()) {
+        while (r.next())
+        {
             double rating1 = r.getDouble("Rating1");
             double rating2 = r.getDouble("Rating2");
             double rating3 = r.getDouble("Rating3");
@@ -352,27 +347,34 @@ public class Home
      * Gets all departments for drop down box
      * 
      * @return List of Departments for all courses
-     * @throws FileNotFoundException
      */
-    public static List<String> getDepartments() throws FileNotFoundException
+    public static List<String> getDepartments()
     {
         File courses = new File("courses.txt");
-        Scanner scan = new Scanner(courses);
-        String department;
         List<String> list = new ArrayList<String>();
-        list.add("");
+        Scanner scan;
 
-        while (scan.hasNextLine())
+        try
         {
-            department = scan.nextLine();
-            Matcher match = Pattern.compile("^([A-Z]+)$").matcher(department);
-            if (match.find())
+            scan = new Scanner(courses);
+            String department;
+            list.add("");
+
+            while (scan.hasNextLine())
             {
-                list.add(match.group(1));
+                department = scan.nextLine();
+                Matcher match = Pattern.compile("^([A-Z]+)$").matcher(department);
+                if (match.find())
+                {
+                    list.add(match.group(1));
+                }
             }
+
+            scan.close();
+        } catch (FileNotFoundException e)
+        {
         }
 
-        scan.close();
         return list;
     }
 }

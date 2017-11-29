@@ -12,8 +12,7 @@ public class FrameController
     // Stack to hold the components of previous pages and the current page
     private static Deque<JComponentWithLayout> components = new ArrayDeque<JComponentWithLayout>();
 
-    // Stack to hold the number of components used on the previous pages and current
-    // page
+    // Stack to hold the number of components used on the previous pages and current page
     private static Deque<Integer> numComps = new ArrayDeque<Integer>();
 
     private static JFrame frame;
@@ -22,7 +21,7 @@ public class FrameController
      * Run this to start the program
      * 
      * @param args
-     * @throws Exception 
+     * @throws Exception
      */
     public static void main(String[] args) throws Exception
     {
@@ -32,8 +31,7 @@ public class FrameController
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         DBConnect.connectToDB();
         // Set Home Frame
-        Home.createFrame(frame);
-
+        changeFrame(Home.createFrame(frame));
     }
 
     /**
@@ -84,14 +82,9 @@ public class FrameController
         frame.revalidate();
         frame.repaint();
     }
-    
-    
-    
-    
-    public static void goHome() throws Exception{
-    	String[] args = {};
-    	main(args);
-    	frame.dispose();
-    }
 
+    public static void goHome()
+    {
+        changeFrame(Home.createFrame(frame));
+    }
 }
