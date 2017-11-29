@@ -65,13 +65,7 @@ public class Home
         {
             public void actionPerformed(ActionEvent e)
             {
-                try
-                {
-                    Search.readCourses();
-                } catch (FileNotFoundException e1)
-                {
-                    return;
-                }
+                Search.readCourses();
                 FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
             }
         });
@@ -90,13 +84,7 @@ public class Home
         {
             public void actionPerformed(ActionEvent e)
             {
-                try
-                {
-                    Search.readCourses();
-                } catch (FileNotFoundException e1)
-                {
-                    return;
-                }
+                Search.readCourses();
                 FrameController.changeFrame(EvaluatePage.createFrame());
             }
         });
@@ -116,13 +104,7 @@ public class Home
         {
             public void actionPerformed(ActionEvent e)
             {
-                try
-                {
-                    Search.readCourses();
-                } catch (FileNotFoundException e1)
-                {
-                    return;
-                }
+                Search.readCourses();
                 FrameController.changeFrame(FaqPage.createFrame());
             }
         });
@@ -227,13 +209,7 @@ public class Home
             {
                 StringBuilder search = new StringBuilder();
                 Type t;
-                try
-                {
-                    Search.readCourses();
-                } catch (FileNotFoundException e1)
-                {
-                    return;
-                }
+                Search.readCourses();
 
                 // Search Department and number
                 String cSelected = "";

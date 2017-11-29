@@ -19,13 +19,7 @@ class TestSearch
     {
         Search.resetCourses();
         assertEquals(null, Search.getCourses());
-        try
-        {
-            Search.readCourses();
-        } catch (FileNotFoundException e)
-        {
-            fail("Course list file was not found.");
-        }
+        Search.readCourses();
         assertTrue(Search.getCourses().size() > 0);
     }
 
@@ -34,21 +28,8 @@ class TestSearch
     {
         Search.resetCourses();
         assertEquals(null, Search.getCourses());
-        try
-        {
-            Search.readCourses();
-        } catch (FileNotFoundException e)
-        {
-            fail("Course list file was not found (1st try).");
-        }
-        try
-        {
-            Search.readCourses();
-        } catch (FileNotFoundException e)
-        {
-            fail("Course list file was not found (2nd try).");
-        }
+        Search.readCourses();
+        Search.readCourses();
         assertTrue(Search.getCourses().size() > 0);
     }
-
 }

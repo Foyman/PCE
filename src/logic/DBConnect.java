@@ -1,6 +1,5 @@
 package logic;
 
-import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.List;
 
@@ -8,7 +7,7 @@ public class DBConnect
 {
     private static Connection conn;
 
-    public static void buildCourse() throws SQLException, FileNotFoundException
+    public static void buildCourse() throws SQLException
     {
         Search.readCourses();
         int i = 1;

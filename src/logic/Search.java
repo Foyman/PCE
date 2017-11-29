@@ -33,7 +33,7 @@ public class Search
      * 
      * @throws FileNotFoundException
      */
-    public static void readCourses() throws FileNotFoundException
+    public static void readCourses()
     {
         if (courses != null)
         {

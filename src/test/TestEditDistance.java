@@ -27,13 +27,7 @@ public class TestEditDistance
     public void testSortListByName()
     {
         Search.resetCourses();
-        try
-        {
-            Search.readCourses();
-        } catch (FileNotFoundException e)
-        {
-            fail("Course list file was not found.");
-        }
+        Search.readCourses();
         String search = "hi";
         Course c1 = new Course("HI", null);
         Course c2 = new Course("HIT", null);
@@ -50,13 +44,7 @@ public class TestEditDistance
     public void testSortListByDescription()
     {
         Search.resetCourses();
-        try
-        {
-            Search.readCourses();
-        } catch (FileNotFoundException e)
-        {
-            fail("Course list file was not found.");
-        }
+        Search.readCourses();
         String search = "hi";
         Course c1 = new Course(null, "HI");
         Course c2 = new Course(null, "HIT");
