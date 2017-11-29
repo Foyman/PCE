@@ -303,22 +303,20 @@ public class Home
         });
     }
 
-    public static void searchForReview(String department, String cNum, String courseNamed)
+    public static void searchForReview(String department, String courseNumber, String courseName)
     {
         String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s",
-                department, cNum);
+                department, courseNumber);
         String query = String.format(
                 "SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);",
                 querySub);
+        System.out.println(query);
         try
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
-            // System.out.println("Qury " + query);
-            CourseReviewPage cReview = new CourseReviewPage(makeReviews(r, courseNamed), courseNamed);
-            if (cReview != null)
-            {
-                FrameController.changeFrame(cReview.createFrame());
-            }
+            // System.out.println("Query " + query);
+            ArrayList<StudentReview> reviews = makeReviews(r, courseName);
+            FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
         } catch (SQLException s)
         {
             // System.out.println("SQL cannot process query");

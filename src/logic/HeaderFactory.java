@@ -22,8 +22,11 @@ public class HeaderFactory
         header.setBackground(new Color(7, 88, 64));
 
         // Back Button
-        final JButton button = new JButton();
+        JButton button = new JButton();
         button.setText("< Back");
+        button.setBorderPainted(false);
+        button.setForeground(Color.WHITE);
+        button.setFont(button.getFont().deriveFont(20.0f));
         button.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -42,7 +45,7 @@ public class HeaderFactory
         headerText.setFont(headerText.getFont().deriveFont(64.0f));
         headerText.setHorizontalAlignment(JLabel.CENTER);
         header.add(headerText, BorderLayout.CENTER);
-        
+
         return header;
     }
 }
