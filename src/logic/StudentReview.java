@@ -62,4 +62,19 @@ public class StudentReview
         return (criteria1 + " " + criteria2 + " " + criteria3 + " " + grade + " " + review);
     }
 
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StudentReview myReview = (StudentReview) o;
+
+        return (this.criteria1 == myReview.criteria1) &&
+                (this.criteria2 == myReview.criteria2) &&
+                (this.criteria3 == myReview.criteria3) &&
+                (this.grade.equals(myReview.grade)) &&
+                (this.review.equals(myReview.review)) &&
+                (this.course.equals(myReview.course));
+
+    }
+
 }

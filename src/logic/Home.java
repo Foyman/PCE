@@ -290,12 +290,10 @@ public class Home
         try
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
-            // System.out.println("Query " + query);
             ArrayList<StudentReview> reviews = makeReviews(r, courseName);
             FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
         } catch (SQLException s)
         {
-            // System.out.println("SQL cannot process query");
             HOMELOGGER.info("SQL cannot process query");
         }
     }
