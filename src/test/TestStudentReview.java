@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
 public class TestStudentReview
 {
 
-	private static String string1 = "THIS IS MY REVIEW";
-	private static String string2 = "Course";
-    private static StudentReview r = new StudentReview(4.5, 2.5, 3.5, "A", string1, string2);
+	private static final String STRING_1 = "THIS IS MY REVIEW";
+	private static final String STRING_2 = "Course";
+    private static StudentReview r = new StudentReview(4.5, 2.5, 3.5, "A", STRING_1, STRING_2);
 
 	
     @Test
@@ -44,35 +44,35 @@ public class TestStudentReview
     @Test
     public void testConstructor4()
     {
-        assertEquals(string1, r.getReview());
+        assertEquals(STRING_1, r.getReview());
     }
       
     @Test
     public void testConstructor5()
     {
-        assertEquals(string2, r.getCourse());
+        assertEquals(STRING_2, r.getCourse());
     }
     
 
     @Test
     public void testEmptyConstructor()
     {
-        StudentReview r = new StudentReview();
-        assertTrue(r instanceof StudentReview);
+        StudentReview review = new StudentReview();
+        assertTrue(review instanceof StudentReview);
     }
 
     @Test
     public void testGetCriteriaWithInvalidCriteriaNumber()
     {
-        StudentReview r = new StudentReview(4.5, 2.5, 3.5, "A", "THIS IS MY REVIEW", "Course");
-        assertEquals(0.0, r.getCriteria(0), .0);
+        StudentReview review = new StudentReview(4.5, 2.5, 3.5, "A", STRING_1, STRING_2);
+        assertEquals(0.0, review.getCriteria(0), .0);
     }
 
     @Test
     public void testToString()
     {
-        StudentReview r = new StudentReview(4.5, 2.5, 3.5, "A", "THIS IS MY REVIEW", "Course");
-        assertEquals("4.5 2.5 3.5 A THIS IS MY REVIEW", r.toString());
+        StudentReview review = new StudentReview(4.5, 2.5, 3.5, "A", STRING_1, STRING_2);
+        assertEquals("4.5 2.5 3.5 A THIS IS MY REVIEW", review.toString());
     }
 
 }
