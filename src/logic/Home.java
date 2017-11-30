@@ -40,6 +40,12 @@ public class Home
         JPanel footer = new JPanel();
 
         
+ /*********************************
+  * 
+  * CAN REMOVE IF WANTED. HEADER FACTORY DOES THIS NOW
+  * 
+  */
+        
         /*int screenWidth = screenSize.width;
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
