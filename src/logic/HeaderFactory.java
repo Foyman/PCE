@@ -84,7 +84,7 @@ public class HeaderFactory
             public void actionPerformed(ActionEvent e)
             {
                 Search.readCourses();
-                FrameController.changeFrame(EvaluatePage.createFrame());
+                FrameController.changeFrame(NotImplementedPage.createFrame());
             }
         });
 
@@ -103,7 +103,7 @@ public class HeaderFactory
             public void actionPerformed(ActionEvent e)
             {
                 Search.readCourses();
-                FrameController.changeFrame(FaqPage.createFrame());
+                FrameController.changeFrame(NotImplementedPage.createFrame());
             }
         });
         faqButton.setBorderPainted(false);

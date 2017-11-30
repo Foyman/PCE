@@ -1,28 +1,26 @@
 package logic;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
-public class FaqPage
+public class NotImplementedPage
 {
 
     // To Please SonarQube
-    private FaqPage()
+    private NotImplementedPage()
     {
 
     }
 
     public static List<JComponentWithLayout> createFrame()
     {
-
         final GridBagConstraints c = new GridBagConstraints();
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
-        JPanel header = HeaderFactory.createHeader("FAQ");
+        JPanel header = HeaderFactory.createHeader("Not Implemented");
         JPanel footer = new JPanel();
         JPanel main = new JPanel(new GridBagLayout());
 
@@ -34,7 +32,6 @@ public class FaqPage
         c.gridx = 0;
         c.gridy = 0;
         main.add(text, c);
-        
         
         // Everything for footer below
         JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
