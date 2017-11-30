@@ -31,7 +31,7 @@ public class Home
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
-        JPanel header = HeaderFactory.createHeader("PCE");
+        JPanel header = HeaderFactory.createHeader("PolyRatings Course Edition");
         final JPanel main = new JPanel(new GridBagLayout());
         JPanel footer = new JPanel();
 
