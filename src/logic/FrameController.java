@@ -30,14 +30,6 @@ public class FrameController
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         DBConnect.connectToDB();
-        try
-        {
-            // only needs to run when the db is first built
-            // otherwise, will throw an error due to duplicate keys
-            DBConnect.buildCourse();
-        } catch(SQLException e)
-        {
-        }
         // Set Home Frame
         changeFrame(Home.createFrame(frame));
     }
