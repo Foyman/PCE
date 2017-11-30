@@ -33,7 +33,7 @@ public class TestHome
         {
 
         }
-        assertEquals(rExpected.size(), rActual.size());
+        
         assertEquals(rExpected, rActual);
     }
 
