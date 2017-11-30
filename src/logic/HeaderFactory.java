@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 
 public class HeaderFactory
 {
+	private static final String ARIAL = "Arial";
+	
     private HeaderFactory()
     {
 
@@ -43,7 +45,7 @@ public class HeaderFactory
         homeButton.setFocusPainted(false);
         homeButton.setOpaque(false);
         homeButton.setForeground(Color.WHITE);
-        homeButton.setFont(new Font("Arial", Font.BOLD, 40));
+        homeButton.setFont(new Font(ARIAL, Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
         header.add(homeButton, BorderLayout.WEST);
 
@@ -74,7 +76,7 @@ public class HeaderFactory
         courseListButton.setFocusPainted(false);
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
-        courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
+        courseListButton.setFont(new Font(ARIAL, Font.BOLD, 20));
         //header.add(Box.createHorizontalStrut(20));
         subPanel.add(courseListButton);
         
@@ -97,7 +99,7 @@ public class HeaderFactory
         evaluateButton.setFocusPainted(false);
         evaluateButton.setOpaque(false);
         evaluateButton.setForeground(Color.WHITE);
-        evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
+        evaluateButton.setFont(new Font(ARIAL, Font.BOLD, 20));
         subPanel.add(evaluateButton);
 
         // FAQ button
@@ -116,7 +118,7 @@ public class HeaderFactory
         faqButton.setFocusPainted(false);
         faqButton.setOpaque(false);
         faqButton.setForeground(Color.WHITE);
-        faqButton.setFont(new Font("Arial", Font.BOLD, 20));
+        faqButton.setFont(new Font(ARIAL, Font.BOLD, 20));
         subPanel.add(faqButton);
         
         header.add(subPanel, BorderLayout.EAST);

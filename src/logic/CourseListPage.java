@@ -64,8 +64,11 @@ public class CourseListPage
             {
                 if (e.getClickCount() == 2)
                 {
-                    // VERIFIES THAT IT IS CLICKING ON THE ACTUAL COURSE
-                    System.out.println("Double Click on " + courses.get(table.getSelectedRow()).getName());
+                   // VERIFIES THAT IT IS CLICKING ON THE ACTUAL COURSE
+                   String selectedCourse = courses.get(table.getSelectedRow()).getName();
+                   String dept = selectedCourse.split(" ")[0];
+                   String courseNum = selectedCourse.split(" ")[1];
+                   Home.searchForReview(dept, courseNum, selectedCourse);
                 }
             }
 
