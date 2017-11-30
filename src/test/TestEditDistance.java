@@ -9,13 +9,12 @@ package test;
 import logic.Course;
 import logic.EditDistance;
 import logic.Search;
-import logic.Type;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TestEditDistance
 {
@@ -33,27 +32,10 @@ public class TestEditDistance
         courses.add(c3); // hit!
         courses.add(c1); // hi
         courses.add(c2); // hit
-        EditDistance.sortList(search, Type.NAME);
+        EditDistance.sortList(search);
         assertEquals(c2, courses.get(2));
     }
     
-    @Test
-    public void testSortListByDescription()
-    {
-        Search.resetCourses();
-        Search.readCourses();
-        String search = "hi";
-        Course c1 = new Course(null, "HI");
-        Course c2 = new Course(null, "HIT");
-        Course c3 = new Course(null, "HIT!");
-        List<Course> courses = new ArrayList<Course>(3);
-        courses.add(c3); // hit!
-        courses.add(c1); // hi
-        courses.add(c2); // hit
-        EditDistance.sortList(search, Type.DESCRIPTION);
-        assertEquals(c2, courses.get(2));
-    }
-
     // Each loop (1-3) executed typical number of times
     @Test
     public void testGetDistanceNormal()

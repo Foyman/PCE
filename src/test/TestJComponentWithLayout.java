@@ -10,14 +10,15 @@ import static org.junit.Assert.assertEquals;
 import java.awt.*;
 import javax.swing.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import logic.JComponentWithLayout;
 
 class TestJComponentWithLayout
 {
 
-    class TestComponent extends JComponent
+    @SuppressWarnings("serial")
+	class TestComponent extends JComponent
     {
         private TestComponent()
         {

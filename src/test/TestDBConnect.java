@@ -7,7 +7,9 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.sql.SQLException;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
 import logic.DBConnect;
 
 public class TestDBConnect
