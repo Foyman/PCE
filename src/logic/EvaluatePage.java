@@ -25,7 +25,6 @@ public class EvaluatePage
         JPanel footer = new JPanel();
         JPanel main = new JPanel(new GridBagLayout());
 
-        
         //Main
         main.setBackground(new Color(255, 255, 255));
         JLabel text = new JLabel("TO BE IMPLEMENTED AT A FUTURE DATE");
@@ -35,10 +34,6 @@ public class EvaluatePage
         c.gridy = 0;
         main.add(text, c);
         
-
-/*        // Makes table scroll-able
-        JScrollPane scroll = new JScrollPane();
-*/
         // Everything for footer below
         JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
         footText.setForeground(Color.WHITE);
