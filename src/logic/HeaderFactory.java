@@ -2,9 +2,15 @@ package logic;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,31 +27,103 @@ public class HeaderFactory
         JPanel header = new JPanel(new BorderLayout());
         header.setBackground(new Color(7, 88, 64));
 
-        // Back Button
-        JButton button = new JButton();
-        button.setText("< Back");
-        button.setBorderPainted(false);
-        button.setForeground(Color.WHITE);
-        button.setFont(button.getFont().deriveFont(20.0f));
-        button.addActionListener(new ActionListener()
+        // Everything for header below
+        header.add(Box.createHorizontalStrut(20));
+   
+        JButton homeButton = new JButton("PCE");
+        homeButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                if (e.getSource() == button)
-                {
-                    FrameController.backFrame();
-                }
+                FrameController.goHome();
             }
         });
-        header.add(button, BorderLayout.WEST);
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false);
+        homeButton.setFocusPainted(false);
+        homeButton.setOpaque(false);
+        homeButton.setForeground(Color.WHITE);
+        homeButton.setFont(new Font("Arial", Font.BOLD, 40));
+        header.setBackground(new Color(7, 88, 64));
+        header.add(homeButton, BorderLayout.WEST);
 
-        // Everything for header below
+        
         JLabel headerText = new JLabel(headerLabel);
         headerText.setForeground(Color.WHITE);
         headerText.setFont(headerText.getFont().deriveFont(64.0f));
         headerText.setHorizontalAlignment(JLabel.CENTER);
-        header.add(headerText, BorderLayout.CENTER);
+        header.add(headerText, BorderLayout.CENTER);   
+        
+        
+        JPanel subPanel = new JPanel(/*new BorderLayout()*/);
+        subPanel.setBackground(new Color(7, 88, 64));
+        
+        
+        // Course List button
+        JButton courseListButton = new JButton("Course List");
+        courseListButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Search.readCourses();
+                FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
+            }
+        });
+        courseListButton.setBorderPainted(false);
+        courseListButton.setContentAreaFilled(false);
+        courseListButton.setFocusPainted(false);
+        courseListButton.setOpaque(false);
+        courseListButton.setForeground(Color.WHITE);
+        courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
+        //header.add(Box.createHorizontalStrut(20));
+        subPanel.add(courseListButton);
+        
+        
+        
+        // Evaluate Course button
+        JButton evaluateButton = new JButton("Evaluate a Course");
+        evaluateButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Search.readCourses();
+                FrameController.changeFrame(EvaluatePage.createFrame());
+            }
+        });
+        //header.add(Box.createHorizontalStrut(20));
+
+        evaluateButton.setBorderPainted(false);
+        evaluateButton.setContentAreaFilled(false);
+        evaluateButton.setFocusPainted(false);
+        evaluateButton.setOpaque(false);
+        evaluateButton.setForeground(Color.WHITE);
+        evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
+        subPanel.add(evaluateButton);
+
+        // FAQ button
+        JButton faqButton = new JButton("FAQ");
+        faqButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Search.readCourses();
+                FrameController.changeFrame(FaqPage.createFrame());
+            }
+        });
+        //header.add(Box.createHorizontalStrut(20));
+        faqButton.setBorderPainted(false);
+        faqButton.setContentAreaFilled(false);
+        faqButton.setFocusPainted(false);
+        faqButton.setOpaque(false);
+        faqButton.setForeground(Color.WHITE);
+        faqButton.setFont(new Font("Arial", Font.BOLD, 20));
+        subPanel.add(faqButton);
+        
+        header.add(subPanel, BorderLayout.EAST);
+        
 
         return header;
     }
+    
+    
 }
