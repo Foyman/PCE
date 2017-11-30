@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
+import logic.Course;
 import logic.DBConnect;
 import logic.Home;
 import logic.StudentReview;
@@ -30,8 +31,27 @@ public class TestHome
         } catch (SQLException e) {
             return;
         }
-        
+
         assertEquals(rExpected, rActual);
+    }
+
+    @Test
+    public void testmakeCourses()
+    {
+        DBConnect.connectToDB();
+        String query = "SELECT * FROM Course WHERE CourseId = 1;";
+        ArrayList<Course> cExpected = new ArrayList<Course>();
+        ArrayList<Course> cActual = new ArrayList<Course>();
+        cExpected.add((new Course ("AERO 121", "AEROSPACE FUNDAMENTALS")));
+        try
+        {
+            ResultSet rs = DBConnect.processGeneralQuery(query);
+            cActual.addAll(Home.makeCourses(rs));
+        } catch (SQLException e) {
+            return;
+        }
+
+        assertEquals(cExpected, cActual);
     }
 
 }
