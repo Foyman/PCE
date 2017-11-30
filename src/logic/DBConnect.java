@@ -2,11 +2,19 @@ package logic;
 
 import java.sql.*;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class DBConnect
 {
     private static Connection conn;
+	 private static final Logger LOGGER = Logger.getLogger( DBConnect.class.getName() );
 
+	 //For SonarQube
+	 private DBConnect()
+	 {
+		 
+	 }
+	 
     public static void buildCourse() throws SQLException
     {
         Search.readCourses();
@@ -20,7 +28,6 @@ public class DBConnect
             String courseName = course.getDescription().toUpperCase();
             String query = String.format("INSERT INTO Course VALUES (%d, \"%s\", %s, \"%s\");", i, dept, courseNum,
                     courseName);
-            // System.out.println(query);
             processUpdateQuery(query);
             i++;
         }
@@ -36,19 +43,18 @@ public class DBConnect
     public static ResultSet processGeneralQuery(String query) throws SQLException
     {
         Statement s = conn.createStatement();
-        ResultSet result = s.executeQuery(query);
-        return result;
+        return s.executeQuery(query);
     }
 
     public static void connectToDB()
     {
         try
         {
-            Class.forName("com.mysql.jdbc.Driver").getConstructor().getInstance();
+            Class.forName("com.mysql.jdbc.Driver").getConstructor().newInstance();
         } catch (Exception ex)
         {
-            System.out.println("Driver not found");
-            System.out.println(ex);
+      	  		String temp = "Driver not found" + ex.getMessage();
+            LOGGER.info(temp);
         }
 
         String uId = "root";
@@ -62,11 +68,11 @@ public class DBConnect
             conn = DriverManager.getConnection(url, uId, pass);
         } catch (Exception ex)
         {
-            System.out.println("Could not open connection");
-            System.out.println(ex);
+      	  		String temp = "Could not open connection" + ex.getMessage();
+           LOGGER.info(temp);
         }
         if (conn != null) {
-            System.out.println("Connected");            
+      	  LOGGER.info("Connected");           
         }
     }
 }
