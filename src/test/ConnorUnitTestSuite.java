@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestSearch.class })
+@SuiteClasses({ TestSearch.class, TestSearchAndCourse.class })
 public class ConnorUnitTestSuite
 {
 
