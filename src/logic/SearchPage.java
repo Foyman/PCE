@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,10 +11,6 @@ import javax.swing.table.JTableHeader;
 
 public class SearchPage
 {
-
-   	 private static final Logger LOGGER = Logger.getLogger( SearchPage.class.getName() );
-
-	
     // To Please SonarQube
     private SearchPage()
     {
@@ -74,8 +69,10 @@ public class SearchPage
                 if (e.getClickCount() == 2)
                 {
                     // VERIFIES THAT IT IS CLICKING ON THE ACTUAL COURSE
-                    //                    querySub = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
-         //           cSelectedQuery = String.format("SELECT CourseId FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+                    String selectedCourse = courses.get(table.getSelectedRow()).getName();
+                    String dept = selectedCourse.split(" ")[0];
+                    String courseNum = selectedCourse.split(" ")[1];
+                    Home.searchForReview(dept, courseNum, selectedCourse);
 
                 }
             }

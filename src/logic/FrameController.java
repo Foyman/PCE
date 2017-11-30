@@ -1,7 +1,6 @@
 package logic;
 
 import java.awt.BorderLayout;
-import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -31,14 +30,14 @@ public class FrameController
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         DBConnect.connectToDB();
-        /*try
+        try
         {
             // only needs to run when the db is first built
             // otherwise, will throw an error due to duplicate keys
             DBConnect.buildCourse();
         } catch(SQLException e)
         {
-        }*/
+        }
         // Set Home Frame
         changeFrame(Home.createFrame(frame));
     }

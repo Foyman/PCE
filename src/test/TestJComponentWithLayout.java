@@ -6,10 +6,12 @@
 
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 import java.awt.*;
 import javax.swing.*;
+
+import org.junit.Test;
+
 import logic.JComponentWithLayout;
 
 class TestJComponentWithLayout
@@ -17,7 +19,7 @@ class TestJComponentWithLayout
 
     class TestComponent extends JComponent
     {
-        public TestComponent()
+        private TestComponent()
         {
 
         }
@@ -29,7 +31,6 @@ class TestJComponentWithLayout
         JComponent comp = new TestComponent();
         String borderLayout = BorderLayout.NORTH;
         JComponentWithLayout compWithLayout = new JComponentWithLayout(comp, borderLayout);
-        assertEquals(comp, compWithLayout.getPanel());
         assertEquals(borderLayout, compWithLayout.getBorderLayout());
     }
 
@@ -40,7 +41,6 @@ class TestJComponentWithLayout
         String borderLayout = BorderLayout.NORTH;
         JComponentWithLayout compWithLayout = new JComponentWithLayout(comp, borderLayout);
         JFrame frame = new JFrame();
-        assertEquals(0, frame.getContentPane().getComponentCount());
         compWithLayout.addToFrame(frame);
         assertEquals(1, frame.getContentPane().getComponentCount());
     }

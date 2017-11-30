@@ -16,6 +16,7 @@ import java.util.regex.*;
 public class Home
 {
     private static final Logger HOMELOGGER = Logger.getLogger(Home.class.getName());
+    private static final String ARIAL = "Arial";
 
     // To Please SonarQube
     private Home()
@@ -64,7 +65,7 @@ public class Home
         homeButton.setFocusPainted(false);
         homeButton.setOpaque(false);
         homeButton.setForeground(Color.WHITE);
-        homeButton.setFont(new Font("Arial", Font.BOLD, 40));
+        homeButton.setFont(new Font(ARIAL, Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
         header.add(homeButton, BorderLayout.WEST);
         //header.add(Box.createHorizontalStrut((screenWidth - 900)));
@@ -97,9 +98,15 @@ public class Home
         courseListButton.setFocusPainted(false);
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
+<<<<<<< HEAD
         courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
         //header.add(Box.createHorizontalStrut(20));
         subPanel.add(courseListButton);
+=======
+        courseListButton.setFont(new Font(ARIAL, Font.BOLD, 20));
+        header.add(Box.createHorizontalStrut(20));
+        header.add(courseListButton);
+>>>>>>> 4b498bb330b74b8c8f6e20c5cad2ec2808fe0ea9
 
         // Evaluate Course button
         JButton evaluateButton = new JButton("Evaluate a Course");
@@ -118,8 +125,13 @@ public class Home
         evaluateButton.setFocusPainted(false);
         evaluateButton.setOpaque(false);
         evaluateButton.setForeground(Color.WHITE);
+<<<<<<< HEAD
         evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
         subPanel.add(evaluateButton);
+=======
+        evaluateButton.setFont(new Font(ARIAL, Font.BOLD, 20));
+        header.add(evaluateButton);
+>>>>>>> 4b498bb330b74b8c8f6e20c5cad2ec2808fe0ea9
 
         // FAQ button
         JButton faqButton = new JButton("FAQ");
@@ -137,8 +149,13 @@ public class Home
         faqButton.setFocusPainted(false);
         faqButton.setOpaque(false);
         faqButton.setForeground(Color.WHITE);
+<<<<<<< HEAD
         faqButton.setFont(new Font("Arial", Font.BOLD, 20));
         subPanel.add(faqButton);
+=======
+        faqButton.setFont(new Font(ARIAL, Font.BOLD, 20));
+        header.add(faqButton);
+>>>>>>> 4b498bb330b74b8c8f6e20c5cad2ec2808fe0ea9
 
         header.add(subPanel, BorderLayout.EAST);*/
         
@@ -234,7 +251,7 @@ public class Home
             public void actionPerformed(ActionEvent e)
             {
                 StringBuilder search = new StringBuilder();
-                Type t;
+                Type t = null;
                 Search.readCourses();
 
                 // Search Department and number
@@ -251,8 +268,22 @@ public class Home
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
-                    t = Type.DESCRIPTION;
-                    search.append(courseNameInput.getText());
+//                    t = Type.DESCRIPTION;
+//                    search.append(courseNameInput.getText());
+
+                    String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+                    try
+                    {
+                        ResultSet r = DBConnect.processGeneralQuery(query);
+                        ArrayList<Course> courseList = makeCourses(r);
+                        if(!courseList.isEmpty())
+                            FrameController.changeFrame(SearchPage.createFrame(courseList)); 
+                        else
+                            FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
+                    } catch (SQLException s)
+                    {
+                        HOMELOGGER.info("SQL cannot process query");
+                    }
                 } else
                 {
                     noInputText.setText("Please add a search input before searching");
@@ -305,6 +336,21 @@ public class Home
         });
     }
 
+    public static ArrayList<Course> makeCourses (ResultSet r) throws SQLException {
+        ArrayList<Course> cList = new ArrayList<Course>();
+        Course c;
+        while (r.next())
+        {
+            String cDept = r.getString("Dept");
+            int cNum = r.getInt("CourseNum");
+            String description = r.getString("CourseName");
+            String cName = cDept + " " + cNum;
+            c = new Course(cName, description);
+            cList.add(c);
+        }
+        return cList;
+    }
+
     public static void searchForReview(String department, String courseNumber, String courseName)
     {
         String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s",
@@ -312,19 +358,19 @@ public class Home
         String query = String.format(
                 "SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);",
                 querySub);
-        System.out.println(query);
         try
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
-            ArrayList<StudentReview> reviews = makeReviews(r, courseName);
-            FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
+            List<StudentReview> reviews = makeReviews(r, courseName);
+            if(!reviews.isEmpty())
+                FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
         } catch (SQLException s)
         {
             HOMELOGGER.info("SQL cannot process query");
         }
     }
 
-    public static ArrayList<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
+    public static List<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
     {
         ArrayList<StudentReview> reviews = new ArrayList<StudentReview>();
         StudentReview rev;
@@ -350,7 +396,7 @@ public class Home
     {
         File courses = new File("courses.txt");
         List<String> list = new ArrayList<String>();
-        Scanner scan;
+        Scanner scan = null;
 
         try
         {
@@ -368,9 +414,14 @@ public class Home
                 }
             }
 
-            scan.close();
         } catch (FileNotFoundException e)
         {
+      	  		HOMELOGGER.info("FileNotFoundException in getDepartments");
+        }
+        finally
+        {
+      	  		if(scan != null)
+      	  			scan.close();
         }
 
         return list;

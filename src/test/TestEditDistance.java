@@ -12,9 +12,6 @@ import logic.Search;
 import logic.Type;
 
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
