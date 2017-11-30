@@ -28,11 +28,7 @@ public class TestHome
         {
             ResultSet rs = DBConnect.processGeneralQuery(query);
             rActual.addAll(Home.makeReviews(rs, "ERSC 339"));
-
-        } catch (SQLException e)
-        {
-
-        }
+        } 
         
         assertEquals(rExpected, rActual);
     }
