@@ -15,6 +15,7 @@ import java.util.regex.*;
 public class Home
 {
     private static final Logger HOMELOGGER = Logger.getLogger(Home.class.getName());
+    private static final String ARIAL = "Arial";
 
     // To Please SonarQube
     private Home()
@@ -54,7 +55,7 @@ public class Home
         homeButton.setFocusPainted(false);
         homeButton.setOpaque(false);
         homeButton.setForeground(Color.WHITE);
-        homeButton.setFont(new Font("Arial", Font.BOLD, 40));
+        homeButton.setFont(new Font(ARIAL, Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
         header.add(homeButton);
         header.add(Box.createHorizontalStrut((screenWidth - 900)));
@@ -74,7 +75,7 @@ public class Home
         courseListButton.setFocusPainted(false);
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
-        courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
+        courseListButton.setFont(new Font(ARIAL, Font.BOLD, 20));
         header.add(Box.createHorizontalStrut(20));
         header.add(courseListButton);
 
@@ -95,7 +96,7 @@ public class Home
         evaluateButton.setFocusPainted(false);
         evaluateButton.setOpaque(false);
         evaluateButton.setForeground(Color.WHITE);
-        evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
+        evaluateButton.setFont(new Font(ARIAL, Font.BOLD, 20));
         header.add(evaluateButton);
 
         // FAQ button
@@ -114,7 +115,7 @@ public class Home
         faqButton.setFocusPainted(false);
         faqButton.setOpaque(false);
         faqButton.setForeground(Color.WHITE);
-        faqButton.setFont(new Font("Arial", Font.BOLD, 20));
+        faqButton.setFont(new Font(ARIAL, Font.BOLD, 20));
         header.add(faqButton);
 
         // Everything for main below
@@ -290,7 +291,7 @@ public class Home
         try
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
-            ArrayList<StudentReview> reviews = makeReviews(r, courseName);
+            List<StudentReview> reviews = makeReviews(r, courseName);
             if(!reviews.isEmpty())
                 FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
         } catch (SQLException s)
@@ -299,7 +300,7 @@ public class Home
         }
     }
 
-    public static ArrayList<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
+    public static List<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
     {
         ArrayList<StudentReview> reviews = new ArrayList<StudentReview>();
         StudentReview rev;
