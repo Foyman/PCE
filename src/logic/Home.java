@@ -9,6 +9,7 @@ import java.io.*;
 import java.sql.*;
 
 import javax.swing.*;
+
 import java.util.*;
 import java.util.regex.*;
 
@@ -32,11 +33,14 @@ public class Home
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
-        JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        //JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        //JPanel header = new JPanel(new BorderLayout());
+        JPanel header = HeaderFactory.createHeader("PCE");
         final JPanel main = new JPanel(new GridBagLayout());
         JPanel footer = new JPanel();
 
-        int screenWidth = screenSize.width;
+        
+        /*int screenWidth = screenSize.width;
         // Everything for header below
         header.add(Box.createHorizontalStrut(20));
 
@@ -56,9 +60,22 @@ public class Home
         homeButton.setForeground(Color.WHITE);
         homeButton.setFont(new Font("Arial", Font.BOLD, 40));
         header.setBackground(new Color(7, 88, 64));
-        header.add(homeButton);
-        header.add(Box.createHorizontalStrut((screenWidth - 900)));
+        header.add(homeButton, BorderLayout.WEST);
+        //header.add(Box.createHorizontalStrut((screenWidth - 900)));
+        
+        
+        JLabel headerText = new JLabel("PolyRatings Course Edition");
+        headerText.setForeground(Color.WHITE);
+        headerText.setFont(headerText.getFont().deriveFont(64.0f));
+        headerText.setHorizontalAlignment(JLabel.CENTER);
+        header.add(headerText, BorderLayout.CENTER); 
+        
+          
+        
+        JPanel subPanel = new JPanel();
+        subPanel.setBackground(new Color(7, 88, 64));
 
+        
         // Course List button
         JButton courseListButton = new JButton("Course List");
         courseListButton.addActionListener(new ActionListener()
@@ -75,8 +92,8 @@ public class Home
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
         courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
-        header.add(Box.createHorizontalStrut(20));
-        header.add(courseListButton);
+        //header.add(Box.createHorizontalStrut(20));
+        subPanel.add(courseListButton);
 
         // Evaluate Course button
         JButton evaluateButton = new JButton("Evaluate a Course");
@@ -88,7 +105,7 @@ public class Home
                 FrameController.changeFrame(EvaluatePage.createFrame());
             }
         });
-        header.add(Box.createHorizontalStrut(20));
+        //header.add(Box.createHorizontalStrut(20));
 
         evaluateButton.setBorderPainted(false);
         evaluateButton.setContentAreaFilled(false);
@@ -96,7 +113,7 @@ public class Home
         evaluateButton.setOpaque(false);
         evaluateButton.setForeground(Color.WHITE);
         evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
-        header.add(evaluateButton);
+        subPanel.add(evaluateButton);
 
         // FAQ button
         JButton faqButton = new JButton("FAQ");
@@ -115,8 +132,11 @@ public class Home
         faqButton.setOpaque(false);
         faqButton.setForeground(Color.WHITE);
         faqButton.setFont(new Font("Arial", Font.BOLD, 20));
-        header.add(faqButton);
+        subPanel.add(faqButton);
 
+        header.add(subPanel, BorderLayout.EAST);*/
+        
+        
         // Everything for main below
         main.setBackground(new Color(255, 255, 255));
 
