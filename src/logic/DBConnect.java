@@ -44,7 +44,7 @@ public class DBConnect
     {
         try
         {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.jdbc.Driver").getConstructor().newInstance();
         } catch (Exception ex)
         {
             System.out.println("Driver not found");
