@@ -8,17 +8,22 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import java.io.FileNotFoundException;
 import logic.Search;
 
 class TestSearch
 {
 
     @Test
-    void testSearchReadCoursesCalledOnce()
+    void testResetCourses()
     {
         Search.resetCourses();
         assertEquals(null, Search.getCourses());
+    }
+    
+    @Test
+    void testSearchReadCoursesCalledOnce()
+    {
+        Search.resetCourses();
         Search.readCourses();
         assertTrue(Search.getCourses().size() > 0);
     }
@@ -27,7 +32,6 @@ class TestSearch
     void testSearchReadCourseCalledTwice()
     {
         Search.resetCourses();
-        assertEquals(null, Search.getCourses());
         Search.readCourses();
         Search.readCourses();
         assertTrue(Search.getCourses().size() > 0);
