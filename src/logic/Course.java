@@ -46,6 +46,9 @@ public class Course
         this.distance = distance;
     }
     
+    public String toString() {
+        return name + " " + description;
+    }
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -53,8 +56,8 @@ public class Course
         Course myCourse = (Course) o;
 
         return 
-                (this.name.equals(myCourse.name)) &&
-                (this.description.equals(myCourse.description));
+                (this.name.equalsIgnoreCase(myCourse.name)) &&
+                (this.description.equalsIgnoreCase(myCourse.description));
 
     }
     
