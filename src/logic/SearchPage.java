@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,9 +11,6 @@ import javax.swing.table.JTableHeader;
 
 public class SearchPage
 {
-
-   	 private static final Logger LOGGER = Logger.getLogger( SearchPage.class.getName() );
-
 	
     // To Please SonarQube
     private SearchPage()

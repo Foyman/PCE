@@ -286,7 +286,7 @@ public class Home
         String query = String.format(
                 "SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);",
                 querySub);
-        System.out.println(query);
+        
         try
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
@@ -325,7 +325,7 @@ public class Home
     {
         File courses = new File("courses.txt");
         List<String> list = new ArrayList<String>();
-        Scanner scan;
+        Scanner scan = null;
 
         try
         {
@@ -343,9 +343,14 @@ public class Home
                 }
             }
 
-            scan.close();
         } catch (FileNotFoundException e)
         {
+      	  		HOMELOGGER.info("FileNotFoundException in getDepartments");
+        }
+        finally
+        {
+      	  		if(scan != null)
+      	  			scan.close();
         }
 
         return list;
