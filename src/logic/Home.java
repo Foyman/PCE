@@ -16,7 +16,6 @@ import java.util.regex.*;
 public class Home
 {
     private static final Logger HOMELOGGER = Logger.getLogger(Home.class.getName());
-    private static final String ARIAL = "Arial";
 
     // To Please SonarQube
     private Home()
@@ -26,139 +25,16 @@ public class Home
 
     public static List<JComponentWithLayout> createFrame(JFrame frame)
     {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
         // Constraints used for setting up main
         final GridBagConstraints c = new GridBagConstraints();
 
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
-        //JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        //JPanel header = new JPanel(new BorderLayout());
         JPanel header = HeaderFactory.createHeader("PCE");
         final JPanel main = new JPanel(new GridBagLayout());
         JPanel footer = new JPanel();
 
-        
- /*********************************
-  * 
-  * CAN REMOVE IF WANTED. HEADER FACTORY DOES THIS NOW
-  * 
-  */
-        
-        /*int screenWidth = screenSize.width;
-        // Everything for header below
-        header.add(Box.createHorizontalStrut(20));
-
-        // Home button
-        JButton homeButton = new JButton("PCE");
-        homeButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                FrameController.goHome();
-            }
-        });
-        homeButton.setBorderPainted(false);
-        homeButton.setContentAreaFilled(false);
-        homeButton.setFocusPainted(false);
-        homeButton.setOpaque(false);
-        homeButton.setForeground(Color.WHITE);
-        homeButton.setFont(new Font(ARIAL, Font.BOLD, 40));
-        header.setBackground(new Color(7, 88, 64));
-        header.add(homeButton, BorderLayout.WEST);
-        //header.add(Box.createHorizontalStrut((screenWidth - 900)));
-        
-        
-        JLabel headerText = new JLabel("PolyRatings Course Edition");
-        headerText.setForeground(Color.WHITE);
-        headerText.setFont(headerText.getFont().deriveFont(64.0f));
-        headerText.setHorizontalAlignment(JLabel.CENTER);
-        header.add(headerText, BorderLayout.CENTER); 
-        
-          
-        
-        JPanel subPanel = new JPanel();
-        subPanel.setBackground(new Color(7, 88, 64));
-
-        
-        // Course List button
-        JButton courseListButton = new JButton("Course List");
-        courseListButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                Search.readCourses();
-                FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
-            }
-        });
-        courseListButton.setBorderPainted(false);
-        courseListButton.setContentAreaFilled(false);
-        courseListButton.setFocusPainted(false);
-        courseListButton.setOpaque(false);
-        courseListButton.setForeground(Color.WHITE);
-<<<<<<< HEAD
-        courseListButton.setFont(new Font("Arial", Font.BOLD, 20));
-        //header.add(Box.createHorizontalStrut(20));
-        subPanel.add(courseListButton);
-=======
-        courseListButton.setFont(new Font(ARIAL, Font.BOLD, 20));
-        header.add(Box.createHorizontalStrut(20));
-        header.add(courseListButton);
->>>>>>> 4b498bb330b74b8c8f6e20c5cad2ec2808fe0ea9
-
-        // Evaluate Course button
-        JButton evaluateButton = new JButton("Evaluate a Course");
-        evaluateButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                Search.readCourses();
-                FrameController.changeFrame(EvaluatePage.createFrame());
-            }
-        });
-        //header.add(Box.createHorizontalStrut(20));
-
-        evaluateButton.setBorderPainted(false);
-        evaluateButton.setContentAreaFilled(false);
-        evaluateButton.setFocusPainted(false);
-        evaluateButton.setOpaque(false);
-        evaluateButton.setForeground(Color.WHITE);
-<<<<<<< HEAD
-        evaluateButton.setFont(new Font("Arial", Font.BOLD, 20));
-        subPanel.add(evaluateButton);
-=======
-        evaluateButton.setFont(new Font(ARIAL, Font.BOLD, 20));
-        header.add(evaluateButton);
->>>>>>> 4b498bb330b74b8c8f6e20c5cad2ec2808fe0ea9
-
-        // FAQ button
-        JButton faqButton = new JButton("FAQ");
-        faqButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                Search.readCourses();
-                FrameController.changeFrame(FaqPage.createFrame());
-            }
-        });
-        header.add(Box.createHorizontalStrut(20));
-        faqButton.setBorderPainted(false);
-        faqButton.setContentAreaFilled(false);
-        faqButton.setFocusPainted(false);
-        faqButton.setOpaque(false);
-        faqButton.setForeground(Color.WHITE);
-<<<<<<< HEAD
-        faqButton.setFont(new Font("Arial", Font.BOLD, 20));
-        subPanel.add(faqButton);
-=======
-        faqButton.setFont(new Font(ARIAL, Font.BOLD, 20));
-        header.add(faqButton);
->>>>>>> 4b498bb330b74b8c8f6e20c5cad2ec2808fe0ea9
-
-        header.add(subPanel, BorderLayout.EAST);*/
-        
         
         // Everything for main below
         main.setBackground(new Color(255, 255, 255));
@@ -251,14 +127,13 @@ public class Home
             public void actionPerformed(ActionEvent e)
             {
                 StringBuilder search = new StringBuilder();
-                Type t = null;
+                boolean t = true;
                 Search.readCourses();
 
                 // Search Department and number
                 String cSelected = "";
                 if (!courseNumberInput.getText().equals(""))
                 {
-                    t = Type.NAME;
                     search.append((String) deptList.getSelectedItem());
                     search.append(" ");
                     search.append(courseNumberInput.getText());
@@ -268,14 +143,11 @@ public class Home
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
-//                    t = Type.DESCRIPTION;
-//                    search.append(courseNameInput.getText());
-
                     String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
                     try
                     {
                         ResultSet r = DBConnect.processGeneralQuery(query);
-                        ArrayList<Course> courseList = makeCourses(r);
+                        List<Course> courseList = makeCourses(r);
                         if(!courseList.isEmpty())
                             FrameController.changeFrame(SearchPage.createFrame(courseList)); 
                         else
@@ -292,13 +164,13 @@ public class Home
                     c.gridwidth = 4;
                     c.ipady = 4; // vertical padding
                     main.add(noInputText, c);
-                    t = null;
+                    t = false;
                 }
 
-                if (t != null)
+                if (t)
                 {
                     List<Course> courses = Search.getCourses();
-                    EditDistance.sortList(search.toString(), t);
+                    EditDistance.sortList(search.toString());
 
                     if (noInput == 1)
                     { // remove jlabel that asks for input
@@ -307,22 +179,7 @@ public class Home
                         main.revalidate();
                         main.repaint();
                     }
-
-                    // Distance of the first two courses in the search list
-                    int t1 = courses.get(0).getDistance();
-                    int t2 = courses.get(1).getDistance();
-                    if (t1 == 0 && t2 == 0)
-                    {
-                        // send to Search Page frame
-                        FrameController.changeFrame(SearchPage.createFrame(courses));
-                    } else if (t1 == 0)
-                    {
-                        // send to Course Page Frame
-                    } else
-                    {
-                        // send to Search Page Frame
-                        FrameController.changeFrame(SearchPage.createFrame(courses));
-                    }
+                    FrameController.changeFrame(SearchPage.createFrame(courses));
                 } else
                 {
                     if (noInput == 0)
@@ -336,8 +193,8 @@ public class Home
         });
     }
 
-    public static ArrayList<Course> makeCourses (ResultSet r) throws SQLException {
-        ArrayList<Course> cList = new ArrayList<Course>();
+    public static List<Course> makeCourses (ResultSet r) throws SQLException {
+        List<Course> cList = new ArrayList<Course>();
         Course c;
         while (r.next())
         {
@@ -372,7 +229,7 @@ public class Home
 
     public static List<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
     {
-        ArrayList<StudentReview> reviews = new ArrayList<StudentReview>();
+        List<StudentReview> reviews = new ArrayList<StudentReview>();
         StudentReview rev;
         while (r.next())
         {

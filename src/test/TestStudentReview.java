@@ -8,7 +8,9 @@ package test;
 
 import static org.junit.Assert.*;
 import logic.StudentReview;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
 
 public class TestStudentReview
 {

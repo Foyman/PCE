@@ -7,8 +7,7 @@ package test;
 import static org.junit.Assert.assertEquals;
 import java.sql.*;
 import java.util.ArrayList;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import logic.DBConnect;
 import logic.Home;
