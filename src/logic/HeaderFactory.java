@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class HeaderFactory
 {
-    public HeaderFactory()
+    private HeaderFactory()
     {
 
     }

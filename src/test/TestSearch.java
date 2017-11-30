@@ -6,8 +6,11 @@
 
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
 import logic.Search;
 
 class TestSearch
@@ -25,7 +28,7 @@ class TestSearch
     {
         Search.resetCourses();
         Search.readCourses();
-        assertTrue(Search.getCourses().size() > 0);
+        assertTrue(Search.getCourses().isEmpty());
     }
 
     @Test
@@ -34,6 +37,6 @@ class TestSearch
         Search.resetCourses();
         Search.readCourses();
         Search.readCourses();
-        assertTrue(Search.getCourses().size() > 0);
+        assertTrue(Search.getCourses().isEmpty());
     }
 }
