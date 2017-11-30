@@ -143,20 +143,8 @@ public class Home
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
-                    String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
-                    try
-                    {
-                        ResultSet r = DBConnect.processGeneralQuery(query);
-                        List<Course> courseList = makeCourses(r);
-                        if(!courseList.isEmpty())
-                            FrameController.changeFrame(SearchPage.createFrame(courseList)); 
-                        else
-                            FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
-                    } catch (SQLException s)
-                    {
-                        HOMELOGGER.info("SQL cannot process query");
-                    }
-                    t = false;
+                    searchCourseDescription(courseNameInput);
+               	 		t = false;
                 } else
                 {
                     noInputText.setText("Please add a search input before searching");
@@ -194,6 +182,23 @@ public class Home
         });
     }
 
+    public static void searchCourseDescription(final JTextField courseNameInput)
+    {
+   	 String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+       try
+       {
+           ResultSet r = DBConnect.processGeneralQuery(query);
+           List<Course> courseList = makeCourses(r);
+           if(!courseList.isEmpty())
+               FrameController.changeFrame(SearchPage.createFrame(courseList)); 
+           else
+               FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
+       } catch (SQLException s)
+       {
+           HOMELOGGER.info("SQL cannot process query");
+       }
+    }
+    
     public static List<Course> makeCourses (ResultSet r) throws SQLException {
         List<Course> cList = new ArrayList<Course>();
         Course c;

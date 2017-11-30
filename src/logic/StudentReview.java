@@ -74,7 +74,18 @@ public class StudentReview
                 (this.grade.equals(myReview.grade)) &&
                 (this.review.equals(myReview.review)) &&
                 (this.course.equals(myReview.course));
-
     }
+    
+    public int hashCode() 
+    {
+       int prime = 31;
+       int result = 1;
+       result = prime * result;
+       if(course != null)
+       {
+      	 	result += course.hashCode();
+       }
+       return result;
+   }
 
 }
