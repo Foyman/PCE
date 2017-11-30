@@ -45,5 +45,17 @@ public class Course
     {
         this.distance = distance;
     }
+    
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course myCourse = (Course) o;
+
+        return 
+                (this.name.equals(myCourse.name)) &&
+                (this.description.equals(myCourse.description));
+
+    }
 
 }
