@@ -208,7 +208,7 @@ public class Home
             public void actionPerformed(ActionEvent e)
             {
                 StringBuilder search = new StringBuilder();
-                Type t;
+                Type t = null;
                 Search.readCourses();
 
                 // Search Department and number
@@ -291,7 +291,8 @@ public class Home
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
             ArrayList<StudentReview> reviews = makeReviews(r, courseName);
-            FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
+            if(!reviews.isEmpty())
+                FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
         } catch (SQLException s)
         {
             HOMELOGGER.info("SQL cannot process query");
