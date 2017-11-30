@@ -156,6 +156,7 @@ public class Home
                     {
                         HOMELOGGER.info("SQL cannot process query");
                     }
+                    t = false;
                 } else
                 {
                     noInputText.setText("Please add a search input before searching");
