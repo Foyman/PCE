@@ -2,11 +2,7 @@ package logic;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -77,7 +73,6 @@ public class HeaderFactory
         courseListButton.setOpaque(false);
         courseListButton.setForeground(Color.WHITE);
         courseListButton.setFont(new Font(ARIAL, Font.BOLD, 20));
-        //header.add(Box.createHorizontalStrut(20));
         subPanel.add(courseListButton);
         
         
@@ -92,7 +87,6 @@ public class HeaderFactory
                 FrameController.changeFrame(EvaluatePage.createFrame());
             }
         });
-        //header.add(Box.createHorizontalStrut(20));
 
         evaluateButton.setBorderPainted(false);
         evaluateButton.setContentAreaFilled(false);
@@ -112,7 +106,6 @@ public class HeaderFactory
                 FrameController.changeFrame(FaqPage.createFrame());
             }
         });
-        //header.add(Box.createHorizontalStrut(20));
         faqButton.setBorderPainted(false);
         faqButton.setContentAreaFilled(false);
         faqButton.setFocusPainted(false);
