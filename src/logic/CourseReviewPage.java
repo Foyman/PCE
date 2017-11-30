@@ -188,15 +188,19 @@ public class CourseReviewPage
             {
                 case "A":
                     total += 4;
+                    break;
                 case "B":
                     total += 3;
+                    break;
                 case "C":
                     total += 2;
+                    break;
                 case "D":
                     total += 1;
+                    break;
             }
         }
-
+       
         int average = (int) Math.round((double) total / reviews.size());
         switch (average)
         {

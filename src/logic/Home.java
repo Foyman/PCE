@@ -225,8 +225,22 @@ public class Home
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
-                    t = Type.DESCRIPTION;
-                    search.append(courseNameInput.getText());
+//                    t = Type.DESCRIPTION;
+//                    search.append(courseNameInput.getText());
+
+                    String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+                    try
+                    {
+                        ResultSet r = DBConnect.processGeneralQuery(query);
+                        ArrayList<Course> courseList = makeCourses(r);
+                        if(!courseList.isEmpty())
+                            FrameController.changeFrame(SearchPage.createFrame(courseList)); 
+                        else
+                            FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
+                    } catch (SQLException s)
+                    {
+                        HOMELOGGER.info("SQL cannot process query");
+                    }
                 } else
                 {
                     noInputText.setText("Please add a search input before searching");
@@ -279,6 +293,21 @@ public class Home
         });
     }
 
+    public static ArrayList<Course> makeCourses (ResultSet r) throws SQLException {
+        ArrayList<Course> cList = new ArrayList<Course>();
+        Course c;
+        while (r.next())
+        {
+            String cDept = r.getString("Dept");
+            int cNum = r.getInt("CourseNum");
+            String description = r.getString("CourseName");
+            String cName = cDept + " " + cNum;
+            c = new Course(cName, description);
+            cList.add(c);
+        }
+        return cList;
+    }
+
     public static void searchForReview(String department, String courseNumber, String courseName)
     {
         String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s",
@@ -286,7 +315,7 @@ public class Home
         String query = String.format(
                 "SELECT Rating1, Rating2, Rating3, StudentGrade, Review FROM Reviews r WHERE r.CourseId = (%s);",
                 querySub);
-        System.out.println(query);
+
         try
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
