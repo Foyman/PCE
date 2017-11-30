@@ -28,12 +28,12 @@ public class EvaluatePage
         
         //Main
         main.setBackground(new Color(255, 255, 255));
-        JLabel Text = new JLabel("TO BE IMPLEMENTED AT A FUTURE DATE");
-        Text.setFont(Text.getFont().deriveFont(30.0f));
+        JLabel text = new JLabel("TO BE IMPLEMENTED AT A FUTURE DATE");
+        text.setFont(text.getFont().deriveFont(30.0f));
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
-        main.add(Text, c);
+        main.add(text, c);
         
 
 /*        // Makes table scroll-able
