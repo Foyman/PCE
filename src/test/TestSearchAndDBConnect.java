@@ -25,6 +25,7 @@ public class TestSearchAndDBConnect
     public void testbuildCourse()
     {
         DBConnect.connectToDB();
+        Search.resetCourses();
         Search.readCourses();
         String query2 = "SELECT * FROM Course WHERE CourseId >= 4067;";
 
