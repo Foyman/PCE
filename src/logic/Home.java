@@ -35,7 +35,7 @@ public class Home
         final JPanel main = new JPanel(new GridBagLayout());
         JPanel footer = new JPanel();
 
-        
+
         // Everything for main below
         main.setBackground(new Color(255, 255, 255));
 
@@ -138,13 +138,13 @@ public class Home
                     search.append(" ");
                     search.append(courseNumberInput.getText());
                     cSelected = (String) deptList.getSelectedItem() + courseNumberInput.getText();
-                    searchForReview((String) deptList.getSelectedItem(), courseNumberInput.getText(), cSelected);
+                    t = searchForReview((String) deptList.getSelectedItem(), courseNumberInput.getText(), cSelected);
                 }
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
                 {
                     searchCourseDescription(courseNameInput);
-               	 		t = false;
+                    t = false;
                 } else
                 {
                     noInputText.setText("Please add a search input before searching");
@@ -184,21 +184,21 @@ public class Home
 
     public static void searchCourseDescription(final JTextField courseNameInput)
     {
-   	 String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
-       try
-       {
-           ResultSet r = DBConnect.processGeneralQuery(query);
-           List<Course> courseList = makeCourses(r);
-           if(!courseList.isEmpty())
-               FrameController.changeFrame(SearchPage.createFrame(courseList)); 
-           else
-               FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
-       } catch (SQLException s)
-       {
-           HOMELOGGER.info("SQL cannot process query");
-       }
+        String query = String.format("SELECT Dept, CourseNum, CourseName FROM Course WHERE CourseName LIKE \"%%%s%%\"", courseNameInput.getText());
+        try
+        {
+            ResultSet r = DBConnect.processGeneralQuery(query);
+            List<Course> courseList = makeCourses(r);
+            if(!courseList.isEmpty())
+                FrameController.changeFrame(SearchPage.createFrame(courseList)); 
+            else
+                FrameController.changeFrame(CourseListPage.createFrame(Search.getCourses()));
+        } catch (SQLException s)
+        {
+            HOMELOGGER.info("SQL cannot process query");
+        }
     }
-    
+
     public static List<Course> makeCourses (ResultSet r) throws SQLException {
         List<Course> cList = new ArrayList<Course>();
         Course c;
@@ -214,7 +214,7 @@ public class Home
         return cList;
     }
 
-    public static void searchForReview(String department, String courseNumber, String courseName)
+    public static boolean searchForReview(String department, String courseNumber, String courseName)
     {
         String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s",
                 department, courseNumber);
@@ -225,12 +225,15 @@ public class Home
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
             List<StudentReview> reviews = makeReviews(r, courseName);
-            if(!reviews.isEmpty())
+            if(!reviews.isEmpty()) {
                 FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
+                return false;
+            }
         } catch (SQLException s)
         {
             HOMELOGGER.info("SQL cannot process query");
         }
+        return true;
     }
 
     public static List<StudentReview> makeReviews(ResultSet r, String c) throws SQLException
@@ -279,12 +282,12 @@ public class Home
 
         } catch (FileNotFoundException e)
         {
-      	  		HOMELOGGER.info("FileNotFoundException in getDepartments");
+            HOMELOGGER.info("FileNotFoundException in getDepartments");
         }
         finally
         {
-      	  		if(scan != null)
-      	  			scan.close();
+            if(scan != null)
+                scan.close();
         }
 
         return list;

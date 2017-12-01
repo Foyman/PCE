@@ -27,7 +27,7 @@ public class TestHomeAndDBConnect
         String query = "SELECT * FROM Reviews ORDER BY ReviewId LIMIT 1;";
         ArrayList<StudentReview> rExpected = new ArrayList<StudentReview>();
         ArrayList<StudentReview> rActual = new ArrayList<StudentReview>();
-        rExpected.add(new StudentReview(3.4, 3.0, 2.8, "A","Aaaaaaa", "CSC 307"));
+        rExpected.add(new StudentReview(3.4, 3.0, 2.8, "A","This course is intense. It's worth it to get a taste of what you're going to experience in the industry", "CSC 307"));
         try
         {
             ResultSet rs = DBConnect.processGeneralQuery(query);
