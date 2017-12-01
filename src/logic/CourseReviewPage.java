@@ -12,10 +12,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.BorderLayout;
 
-
 public class CourseReviewPage
 {
 	private static final Logger LOGGER = Logger.getLogger(CourseReviewPage.class.getName());
+	private static final String FOUR_STRING = "/4.00";
 	private static final String ARIAL = "Arial";
 	
 	// To Please SonarQube
@@ -161,21 +161,21 @@ public class CourseReviewPage
 		main.add(topMiddle, c);
 
 		double score1 = averageCriteria(1, reviews);
-		JLabel criteria1 = new JLabel("Workload: " + numberFormat.format(score1) + "/4.00");
+		JLabel criteria1 = new JLabel("Workload: " + numberFormat.format(score1) + FOUR_STRING);
 		criteria1.setForeground(Color.BLACK);
 		criteria1.setFont(criteria1.getFont().deriveFont(20.0f));
 		criteria1.setHorizontalAlignment(JLabel.CENTER);
         topMiddle2Left.add(criteria1, BorderLayout.WEST);  
 
 		double score2 = averageCriteria(2, reviews);
-		JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + "/4.00");
+		JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + FOUR_STRING);
 		criteria2.setForeground(Color.BLACK);
 		criteria2.setFont(grade.getFont().deriveFont(20.0f));
 		criteria2.setHorizontalAlignment(JLabel.CENTER);
         topMiddle2Middle.add(criteria2, BorderLayout.CENTER);  
 		
 		double score3 = averageCriteria(3, reviews);
-		JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + "/4.00");
+		JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + FOUR_STRING);
 		criteria3.setForeground(Color.BLACK);
 		criteria3.setFont(criteria3.getFont().deriveFont(20.0f));
 		criteria3.setHorizontalAlignment(JLabel.CENTER);
@@ -194,7 +194,7 @@ public class CourseReviewPage
 
       //Overall Number Score
         double finalScore = (score1 + score2 + score3)/3;
-        JLabel overall = new JLabel("Overall Score: " + numberFormat.format(finalScore) + "/4.00", SwingConstants.RIGHT);
+        JLabel overall = new JLabel("Overall Score: " + numberFormat.format(finalScore) + FOUR_STRING, SwingConstants.RIGHT);
         overall.setFont(criteria3.getFont().deriveFont(20.0f));
         c.gridx = 1;
         c.gridy = 4;

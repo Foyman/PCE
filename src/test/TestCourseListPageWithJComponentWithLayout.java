@@ -2,32 +2,27 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 
-import logic.Course;
+import org.junit.jupiter.api.Test;
+
 import logic.CourseListPage;
-import logic.Home;
 import logic.JComponentWithLayout;
 import logic.Search;
 
-import org.junit.Test;
 
 public class TestCourseListPageWithJComponentWithLayout {
 
     private JComponent component;
-    //private final String borderLayout;
 	
 	@Test
-	public void TestCourseListPageWithJComponentWithLayout() {
+	public void TestCourseListPageWithJComponent() {
         Search.readCourses();
-		JComponentWithLayout JCWL = new JComponentWithLayout(component, "North");		
-		JComponentWithLayout JCWL2 = CourseListPage.createFrame(Search.getCourses()).get(0);
+		JComponentWithLayout jcwl = new JComponentWithLayout(component, "North");		
+		JComponentWithLayout jcwl2 = CourseListPage.createFrame(Search.getCourses()).get(0);
 
 	
-		assertEquals(JCWL.getBorderLayout(), JCWL2.getBorderLayout());
+		assertEquals(jcwl.getBorderLayout(), jcwl2.getBorderLayout());
 	
 	}
 
