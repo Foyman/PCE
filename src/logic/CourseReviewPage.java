@@ -21,52 +21,50 @@ public class CourseReviewPage
 	// To Please SonarQube
 	private CourseReviewPage()
 	{
+	    
+    }
 
-	}
-
-	public static List<JComponentWithLayout> createFrame(String department, String courseNum, List<StudentReview> reviews)
-	{
-		List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
+    public static List<JComponentWithLayout> createFrame(String department, String courseNum, List<StudentReview> reviews)
+    {
+        List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
 		// Panels
 		JPanel header = HeaderFactory.createHeader("Course Reviews for " + department + " " + courseNum);
 		JPanel main = new JPanel(new GridBagLayout());
 		JPanel footer = new JPanel();
 
-		createMain(main, courseNum, reviews);
+        createMain(main, courseNum, reviews);
 
-		// Everything for footer below
-		JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
-		footText.setForeground(Color.WHITE);
-		footer.setBackground(new Color(7, 88, 64));
-		footer.add(footText);
+        // Everything for footer below
+        JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
+        footText.setForeground(Color.WHITE);
+        footer.setBackground(new Color(7, 88, 64));
+        footer.add(footText);
 
-		// All panels into frame
-		panels.add(new JComponentWithLayout(header, BorderLayout.NORTH));
-		panels.add(new JComponentWithLayout(main, BorderLayout.CENTER));
-		panels.add(new JComponentWithLayout(footer, BorderLayout.SOUTH));
+        // All panels into frame
+        panels.add(new JComponentWithLayout(header, BorderLayout.NORTH));
+        panels.add(new JComponentWithLayout(main, BorderLayout.CENTER));
+        panels.add(new JComponentWithLayout(footer, BorderLayout.SOUTH));
 
-		return panels;
-	}
+        return panels;
+    }
 
-	public static void createMain(JPanel main, String courseNum, List<StudentReview> reviews)
-	{
-	    DecimalFormat numberFormat = new DecimalFormat("#.00");		
-	    
-	    // Constraints used for setting up main
-		GridBagConstraints c = new GridBagConstraints();
+    public static void createMain(JPanel main, String courseNum, List<StudentReview> reviews)
+    {
+        DecimalFormat numberFormat = new DecimalFormat("#.00");		
+        // Constraints used for setting up main
+        GridBagConstraints c = new GridBagConstraints();
 
-		JPanel topRight = new JPanel(new BorderLayout());
-		topRight.setBackground(new Color(255, 255, 255));
+        JPanel topRight = new JPanel(new BorderLayout());
+        topRight.setBackground(new Color(255, 255, 255));
 
-		
-		JPanel topLeft = new JPanel(new BorderLayout());
-		topLeft.setBackground(new Color(255, 255, 255));
 
-	
-		JPanel topMiddle = new JPanel(new BorderLayout());
-		topMiddle.setBackground(new Color(255, 255, 255));
-		
+        JPanel topLeft = new JPanel(new BorderLayout());
+        topLeft.setBackground(new Color(255, 255, 255));
+
+        JPanel topMiddle = new JPanel(new BorderLayout());
+        topMiddle.setBackground(new Color(255, 255, 255));
+
 		JPanel topMiddle2Left = new JPanel(new BorderLayout());
 		topMiddle2Left.setBackground(new Color(255, 255, 255));
 		
@@ -77,9 +75,8 @@ public class CourseReviewPage
         topMiddle2Right.setBackground(new Color(255, 255, 255));
 
 
-		
-		// Everything for main below
-		main.setBackground(new Color(255, 255, 255));
+        // Everything for main below
+        main.setBackground(new Color(255, 255, 255));
 
         JButton teacher = new JButton("Teachers for " + courseNum);
         teacher.addActionListener(new ActionListener()
@@ -98,8 +95,8 @@ public class CourseReviewPage
         teacher.setFont(teacher.getFont().deriveFont(30.0f));
         teacher.setFont(new Font(ARIAL, Font.BOLD, 20));
         topRight.add(teacher, BorderLayout.CENTER);
-		
-        
+
+
         JButton docs = new JButton("Documents for " + courseNum);
         docs.addActionListener(new ActionListener()
         {
@@ -117,15 +114,15 @@ public class CourseReviewPage
         docs.setFont(docs.getFont().deriveFont(30.0f));
         docs.setFont(new Font(ARIAL, Font.BOLD, 20));
         topRight.add(docs, BorderLayout.EAST);
-		
-        c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 2;
-		c.gridy = 0;
-		c.anchor = GridBagConstraints.EAST;
-		c.weightx = 0.5;
-		main.add(topRight, c);
 
-		
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 2;
+        c.gridy = 0;
+        c.anchor = GridBagConstraints.EAST;
+        c.weightx = 0.5;
+        main.add(topRight, c);
+
+
 
         JButton evaluation = new JButton("Evaluate " + courseNum);
         evaluation.addActionListener(new ActionListener()
@@ -144,8 +141,7 @@ public class CourseReviewPage
         evaluation.setFont(teacher.getFont().deriveFont(30.0f));
         evaluation.setFont(new Font(ARIAL, Font.BOLD, 20));
         topLeft.add(evaluation, BorderLayout.WEST);
-        
-        
+
         c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 0;
