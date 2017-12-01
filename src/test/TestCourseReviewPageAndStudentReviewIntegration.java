@@ -11,13 +11,15 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
+
 import logic.CourseReviewPage;
 import logic.StudentReview;
 
 public class TestCourseReviewPageAndStudentReviewIntegration
 {
     private static List<StudentReview> list = new ArrayList<StudentReview>();
-    
+
     @Test
     public void testOverallGrade()
     {
@@ -35,14 +37,12 @@ public class TestCourseReviewPageAndStudentReviewIntegration
         list.add(sr5);
         list.add(sr6);
         list.add(sr7);
-        assertEquals(CourseReviewPage.calculateOverallGrade(list),"C");
+        assertEquals(CourseReviewPage.calculateOverallGrade(list), "C");
     }
-    
+
     @Test
     public void testAverageCriteria()
     {
         assertEquals(CourseReviewPage.averageCriteria(1, list), 2.64, .01);
     }
 }
-    
-    
