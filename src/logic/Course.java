@@ -58,7 +58,6 @@ public class Course
         return 
                 (this.name.equalsIgnoreCase(myCourse.name)) &&
                 (this.description.equalsIgnoreCase(myCourse.description));
-
     }
     
     public int hashCode() 
