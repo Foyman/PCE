@@ -138,7 +138,7 @@ public class Home
                     search.append(" ");
                     search.append(courseNumberInput.getText());
                     cSelected = (String) deptList.getSelectedItem() + courseNumberInput.getText();
-                    searchForReview((String) deptList.getSelectedItem(), courseNumberInput.getText(), cSelected);
+                    t = searchForReview((String) deptList.getSelectedItem(), courseNumberInput.getText(), cSelected);
                 }
                 // Search Course description
                 else if (!courseNameInput.getText().equals(""))
@@ -214,7 +214,7 @@ public class Home
         return cList;
     }
 
-    public static void searchForReview(String department, String courseNumber, String courseName)
+    public static boolean searchForReview(String department, String courseNumber, String courseName)
     {
         String querySub = String.format("SELECT CourseId FROM Course WHERE Dept = \"%s\" AND CourseNum = %s",
                 department, courseNumber);
@@ -225,12 +225,15 @@ public class Home
         {
             ResultSet r = DBConnect.processGeneralQuery(query);
             List<StudentReview> reviews = makeReviews(r, courseName);
-            if(!reviews.isEmpty())
+            if(!reviews.isEmpty()) {
                 FrameController.changeFrame(CourseReviewPage.createFrame(department, courseNumber, reviews));
+                return false;
+            }
         } catch (SQLException s)
         {
             HOMELOGGER.info("SQL cannot process query");
         }
+        return true;
     }
 
     public static List<StudentReview> makeReviews(ResultSet r, String c) throws SQLException

@@ -179,7 +179,7 @@ public class CourseReviewPage
 		return total / reviews.size();
 	}
 
-	private static String calculateOverallGrade(List<StudentReview> reviews)
+	public static String calculateOverallGrade(List<StudentReview> reviews)
 	{
 		int total = 0;
 		for (StudentReview review : reviews)
