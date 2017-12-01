@@ -65,13 +65,17 @@ public class CourseReviewPage
         JPanel topLeft = new JPanel(new BorderLayout());
         topLeft.setBackground(new Color(255, 255, 255));
 
-
         JPanel topMiddle = new JPanel(new BorderLayout());
         topMiddle.setBackground(new Color(255, 255, 255));
 
-        JPanel topMiddle2 = new JPanel(new BorderLayout());
-        topMiddle2.setBackground(new Color(255, 255, 255));
-
+		JPanel topMiddle2Left = new JPanel(new BorderLayout());
+		topMiddle2Left.setBackground(new Color(255, 255, 255));
+		
+		JPanel topMiddle2Middle = new JPanel(new BorderLayout());
+        topMiddle2Middle.setBackground(new Color(255, 255, 255));
+        
+        JPanel topMiddle2Right = new JPanel(new BorderLayout());
+        topMiddle2Right.setBackground(new Color(255, 255, 255));
 
 
         // Everything for main below
@@ -141,88 +145,93 @@ public class CourseReviewPage
         evaluation.setFont(new Font("arial", Font.BOLD, 20));
         topLeft.add(evaluation, BorderLayout.WEST);
 
-
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.anchor = GridBagConstraints.WEST;
-        c.weightx = 0.5;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.anchor = GridBagConstraints.WEST;
+		c.weightx = 0.5;
         main.add(topLeft, c);
+		
 
-
-        JLabel grade = new JLabel("Average Grade: " + calculateOverallGrade(reviews));
-        grade.setForeground(Color.BLACK);
-        grade.setFont(grade.getFont().deriveFont(20.0f));
-        grade.setHorizontalAlignment(JLabel.CENTER);
+		JLabel grade = new JLabel("Average Grade: " + calculateOverallGrade(reviews));
+		grade.setForeground(Color.BLACK);
+		grade.setFont(grade.getFont().deriveFont(20.0f));
+		grade.setHorizontalAlignment(JLabel.CENTER);
         topMiddle.add(grade, BorderLayout.CENTER);  
-        c.gridx = 1;
-        c.gridy = 2;
-        c.insets = new Insets(0, 0, 0, 50);
-        main.add(topMiddle, c);
+		c.gridx = 1;
+		c.gridy = 2;
+		c.insets = new Insets(0, 0, 0, 50);
+		main.add(topMiddle, c);
 
-        double score1 = averageCriteria(1, reviews);
-        JLabel criteria1 = new JLabel("Criteria 1: " + numberFormat.format(score1) + "/4.0");
-        criteria1.setForeground(Color.BLACK);
-        criteria1.setFont(criteria1.getFont().deriveFont(20.0f));
-        criteria1.setHorizontalAlignment(JLabel.CENTER);
-        topMiddle2.add(criteria1, BorderLayout.WEST);  
+		double score1 = averageCriteria(1, reviews);
+		JLabel criteria1 = new JLabel("Workload: " + numberFormat.format(score1) + "/4.0");
+		criteria1.setForeground(Color.BLACK);
+		criteria1.setFont(criteria1.getFont().deriveFont(20.0f));
+		criteria1.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle2Left.add(criteria1, BorderLayout.WEST);  
 
-        //main.add(topMiddle2, c);
-
-        double score2 = averageCriteria(2, reviews);
-        JLabel criteria2 = new JLabel("Criteria 2: " + numberFormat.format(score2) + "/4.0");
-        criteria2.setForeground(Color.BLACK);
-        criteria2.setFont(grade.getFont().deriveFont(20.0f));
-        criteria2.setHorizontalAlignment(JLabel.CENTER);
-        topMiddle2.add(criteria2, BorderLayout.CENTER);  
-        //main.add(topMiddle2, c);
-
-        double score3 = averageCriteria(3, reviews);
-        JLabel criteria3 = new JLabel("Criteria 3: " + numberFormat.format(score3) + "/4.0");
-        criteria3.setForeground(Color.BLACK);
-        criteria3.setFont(criteria3.getFont().deriveFont(20.0f));
-        criteria3.setHorizontalAlignment(JLabel.CENTER);
-        topMiddle2.add(criteria3, BorderLayout.EAST);  
-        c.gridx = 1;
-        c.gridy = 3;
-        c.insets = new Insets(0, 0, 0, 50);
-        main.add(topMiddle2, c);
-
-
-
-
-        // Overall Score
-        ImageIcon stars = getStars(score1, score2, score3);
-        JLabel overall = new JLabel("Overall Score", SwingConstants.LEFT);
-        JLabel starRating = new JLabel(stars, SwingConstants.RIGHT);
+		//main.add(topMiddle2, c);
+		
+		double score2 = averageCriteria(2, reviews);
+		JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + "/4.0");
+		criteria2.setForeground(Color.BLACK);
+		criteria2.setFont(grade.getFont().deriveFont(20.0f));
+		criteria2.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle2Middle.add(criteria2, BorderLayout.CENTER);  
+		//main.add(topMiddle2, c);
+		
+		double score3 = averageCriteria(3, reviews);
+		JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + "/4.0");
+		criteria3.setForeground(Color.BLACK);
+		criteria3.setFont(criteria3.getFont().deriveFont(20.0f));
+		criteria3.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle2Right.add(criteria3, BorderLayout.EAST);  
+		
         c.gridx = 0;
-        c.gridy = 4;
-        c.anchor = GridBagConstraints.NORTH;
-        c.ipady = 50;
-        c.insets = new Insets(0, 50, 0, 0);
-        //overall.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-        main.add(overall, c);
-        main.add(starRating, c);
+		c.gridy = 3;
+		c.insets = new Insets(0, 0, 0, 50);
+		main.add(topMiddle2Left, c);
+		
+		c.gridx = 1;
+        //c.insets = new Insets(0, 0, 0, 50);
+        main.add(topMiddle2Middle, c);
+        
+        c.gridx = 2;
+        //c.insets = new Insets(0, 0, 0, 50);
+        main.add(topMiddle2Right, c);
 
-        // Content (Each student review that submitted written feedback/review)
-        JLabel content;
-        c.fill = GridBagConstraints.BOTH;
-        c.gridwidth = 3;
-        c.gridx = 0;
-        c.gridy = 4;
-        c.weighty = 1;
-        c.ipady = 0;
+		
+		// Overall Score
+		ImageIcon stars = getStars(score1, score2, score3);
+		JLabel overall = new JLabel("Overall Score", SwingConstants.LEFT);
+		JLabel starRating = new JLabel(stars, SwingConstants.RIGHT);
+		c.gridx = 0;
+		c.gridy = 4;
+		c.anchor = GridBagConstraints.NORTH;
+		c.ipady = 50;
+		c.insets = new Insets(0, 50, 0, 0);
+		//overall.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
+		main.add(overall, c);
+		main.add(starRating, c);
 
-        for (int i = 0 ; i < reviews.size(); i++) {
-            content = new JLabel((reviews.get(i)).getReview());
-            c.gridy++;
-            c.ipady++;
-            content.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-            main.add(content, c);
+               // Content (Each student review that submitted written feedback/review)
+               JLabel content;
+               c.fill = GridBagConstraints.BOTH;
+               c.gridwidth = 3;
+               c.gridx = 0;
+               c.gridy = 4;
+               c.weighty = 1;
+               c.ipady = 0;
 
-        }
-    }
+               for (int i = 0 ; i < reviews.size(); i++) {
+                     content = new JLabel((reviews.get(i)).getReview());
+                     c.gridy++;
+                     c.ipady++;
+                     content.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
+                     main.add(content, c);
 
+               }
+            }
 
     /*
 		// Content (Each student review that submitted written feedback/review)
@@ -315,3 +324,4 @@ public class CourseReviewPage
         }
     }
 }
+
