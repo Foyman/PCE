@@ -1,3 +1,9 @@
+/**
+ * JUnit tests for the Course and Search classes
+ * 
+ * @author Tim Stoddard
+ */
+
 package test;
 
 import static org.junit.jupiter.api.Assertions.*;
