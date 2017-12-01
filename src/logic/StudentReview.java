@@ -4,9 +4,9 @@ package logic;
 
 public class StudentReview
 {
-    private double criteria1;
-    private double criteria2;
-    private double criteria3;
+    private double criteria1; // Workload
+    private double criteria2; // Course Content Difficulty
+    private double criteria3; // Test Difficulty
     private String grade;
     private String review;
     private String course;
