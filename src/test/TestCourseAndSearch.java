@@ -1,5 +1,5 @@
 /**
- * JUnit tests for the CourseComparator class
+ * JUnit tests for the Course and Search classes
  * 
  * @author Tim Stoddard
  */
