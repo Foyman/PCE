@@ -130,6 +130,7 @@ public class Home
                 boolean t = true;
                 Search.readCourses();
 
+                
                 // Search Department and number
                 String cSelected = "";
                 if (!courseNumberInput.getText().equals(""))
