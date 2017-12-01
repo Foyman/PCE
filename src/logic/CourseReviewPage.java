@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import java.util.List;
 import javax.swing.*;
 import java.text.*;
@@ -12,8 +11,6 @@ import java.util.logging.Logger;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 
 public class CourseReviewPage
@@ -168,21 +165,21 @@ public class CourseReviewPage
 		main.add(topMiddle, c);
 
 		double score1 = averageCriteria(1, reviews);
-		JLabel criteria1 = new JLabel("Workload: " + numberFormat.format(score1) + "/4.0");
+		JLabel criteria1 = new JLabel("Workload: " + numberFormat.format(score1) + "/4.00");
 		criteria1.setForeground(Color.BLACK);
 		criteria1.setFont(criteria1.getFont().deriveFont(20.0f));
 		criteria1.setHorizontalAlignment(JLabel.CENTER);
         topMiddle2Left.add(criteria1, BorderLayout.WEST);  
 
 		double score2 = averageCriteria(2, reviews);
-		JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + "/4.0");
+		JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + "/4.00");
 		criteria2.setForeground(Color.BLACK);
 		criteria2.setFont(grade.getFont().deriveFont(20.0f));
 		criteria2.setHorizontalAlignment(JLabel.CENTER);
         topMiddle2Middle.add(criteria2, BorderLayout.CENTER);  
 		
 		double score3 = averageCriteria(3, reviews);
-		JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + "/4.0");
+		JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + "/4.00");
 		criteria3.setForeground(Color.BLACK);
 		criteria3.setFont(criteria3.getFont().deriveFont(20.0f));
 		criteria3.setHorizontalAlignment(JLabel.CENTER);
@@ -199,17 +196,24 @@ public class CourseReviewPage
         c.gridx = 2;
         main.add(topMiddle2Right, c);
 
+      //Overall Number Score
+        double finalScore = (score1 + score2 + score3)/3;
+        JLabel overall = new JLabel("Overall Score: " + numberFormat.format(finalScore) + "/4.00", SwingConstants.RIGHT);
+        overall.setFont(criteria3.getFont().deriveFont(20.0f));
+        c.gridx = 1;
+        c.gridy = 4;
+        c.anchor = GridBagConstraints.NORTH;
+        c.ipady = 50;
+        c.insets = new Insets(0, 0, 0, 0);
+        main.add(overall, c);
 		
-		// Overall Score
+		// Overall Star Score
 		ImageIcon stars = getStars(score1, score2, score3);
-		JLabel overall = new JLabel("Overall Score", SwingConstants.LEFT);
-		JLabel starRating = new JLabel(stars, SwingConstants.RIGHT);
-		c.gridx = 0;
-		c.gridy = 4;
-		c.anchor = GridBagConstraints.NORTH;
-		c.ipady = 50;
-		c.insets = new Insets(0, 50, 0, 0);
-		main.add(overall, c);
+		JLabel starRating = new JLabel(stars, SwingConstants.CENTER);
+		c.gridx = 1;
+		c.gridy = 5;
+		c.ipady = 0;
+		c.insets = new Insets(0, 0, 0, 0);
 		main.add(starRating, c);
 
                // Content (Each student review that submitted written feedback/review)
@@ -217,7 +221,7 @@ public class CourseReviewPage
                c.fill = GridBagConstraints.BOTH;
                c.gridwidth = 3;
                c.gridx = 0;
-               c.gridy = 4;
+               c.gridy = 6;
                c.weighty = 1;
                c.ipady = 0;
 
@@ -240,7 +244,10 @@ public class CourseReviewPage
 		String info = "Stars: " + average;
 		LOGGER.info(info);
 		String link = "images/" + Integer.toString(average) + "_star.png";
-		return new ImageIcon(link);
+		ImageIcon temp = new ImageIcon(link);
+		Image image = temp.getImage();
+		Image newImage = image.getScaledInstance(200, 50,  java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(newImage);
 	}
 
 	// Takes the courseNum and gets all reviews for that course
