@@ -21,6 +21,7 @@ public class TestCourseReviewPageAndStudentReviewIntegration
     private static List<StudentReview> list = new ArrayList<StudentReview>();
     private static final String REVIEW = "Review";
     private static final String COURSE = "Course";
+    
     @Test
     public void testOverallGrade()
     {
