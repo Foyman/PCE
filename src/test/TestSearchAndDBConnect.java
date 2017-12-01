@@ -17,7 +17,6 @@ import logic.Course;
 import logic.DBConnect;
 import logic.Home;
 import logic.Search;
-import logic.StudentReview;
 
 public class TestSearchAndDBConnect
 {
@@ -26,7 +25,6 @@ public class TestSearchAndDBConnect
     {
         DBConnect.connectToDB();
         Search.readCourses();
-        //String query1 = "SELECT * FROM Course ORDER BY CourseId LIMIT 5;";
         String query2 = "SELECT * FROM Course WHERE CourseId >= 4067;";
         
         ArrayList<Course> cExpected = (ArrayList<Course>) Search.getCourses();
