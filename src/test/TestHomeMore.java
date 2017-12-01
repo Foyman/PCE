@@ -1,10 +1,16 @@
+/**
+ * junit test for Home.java
+ * 
+ * @author Jake Veazey
+ */
 package test;
 
 import static org.junit.Assert.*;
 
 import java.util.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import logic.Home;
 public class TestHomeMore {
 
