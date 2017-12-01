@@ -23,11 +23,15 @@ public class SearchPage
         List<JComponentWithLayout> panels = new ArrayList<JComponentWithLayout>(3);
 
         // Panels
-        JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel header; /* = new JPanel(new FlowLayout(FlowLayout.LEFT));*/
         JPanel footer = new JPanel();
 
+        
+        
         // Does everything to create header
-        createHeader(header);
+        
+        header = HeaderFactory.createHeader("Search Results");
+        //createHeader(header);
 
         // Getting column names and rows for search Data
         Object[] columnNames = { "Course", "Description" };
@@ -134,7 +138,7 @@ public class SearchPage
      * 
      * @param header - JPanel of the header
      */
-    public static void createHeader(JPanel header)
+    /*public static void createHeader(JPanel header)
     {
         // Back Button
         final JButton button = new JButton();
@@ -163,5 +167,5 @@ public class SearchPage
         header.add(headText, 2);
 
     }
-
+*/
 }
