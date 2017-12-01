@@ -6,8 +6,7 @@
 
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import logic.Search;
 
@@ -29,7 +28,7 @@ class TestSearch
     {
         Search.resetCourses();
         Search.readCourses();
-        assertTrue(Search.getCourses().isEmpty());
+        assertFalse(Search.getCourses().isEmpty());
     }
 
     @Test
@@ -38,6 +37,6 @@ class TestSearch
         Search.resetCourses();
         Search.readCourses();
         Search.readCourses();
-        assertTrue(Search.getCourses().isEmpty());
+        assertFalse(Search.getCourses().isEmpty());
     }
 }

@@ -51,18 +51,30 @@ public class TestCourseReviewPageGetFunctions
     @Test
     public void testGetStars0NoAverage()
     {
+<<<<<<< HEAD
         assertEquals(CourseReviewPage.getStars(0, 0, 0).getImage(), new ImageIcon(IMAGE).getImage());
+=======
+        assertEquals(CourseReviewPage.getStars(0, 0, 0).getImage(), new ImageIcon("images/0_star.png").getImage());
+>>>>>>> branch 'master' of https://github.com/Foyman/PCE.git
     }
     
     @Test
     public void testGetStarsHighAverage()
     {
+<<<<<<< HEAD
         assertEquals(CourseReviewPage.getStars(5.1, 23.0, 10.5).getImage(), new ImageIcon(IMAGE).getImage());
+=======
+        assertEquals(CourseReviewPage.getStars(5.1, 23.0, 10.5).getImage(), new ImageIcon("images/0_star.png").getImage());
+>>>>>>> branch 'master' of https://github.com/Foyman/PCE.git
     }
     
     @Test
     public void testGetStarsNegative()
     {
+<<<<<<< HEAD
         assertEquals(CourseReviewPage.getStars(-2.1, -3.0, -3.1).getImage(), new ImageIcon(IMAGE).getImage());
+=======
+        assertEquals(CourseReviewPage.getStars(-2.1, -3.0, -3.1).getImage(), new ImageIcon("images/0_star.png").getImage());
+>>>>>>> branch 'master' of https://github.com/Foyman/PCE.git
     }
 }

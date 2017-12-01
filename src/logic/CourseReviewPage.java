@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+import java.text.*;
 import java.util.logging.Logger;
 
 public class CourseReviewPage
