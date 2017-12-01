@@ -1,6 +1,5 @@
 package logic;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -30,8 +29,6 @@ public class Search
     /**
      * Reads in Courses into Course Objects from the courses.txt file Sets the
      * static courses list in this class
-     * 
-     * @throws FileNotFoundException
      */
     public static void readCourses()
     {
