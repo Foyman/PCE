@@ -19,7 +19,8 @@ import javax.swing.JPanel;
 public class CourseReviewPage
 {
 	private static final Logger LOGGER = Logger.getLogger(CourseReviewPage.class.getName());
-
+	private static final String ARIAL = "Arial";
+	
 	// To Please SonarQube
 	private CourseReviewPage()
 	{
@@ -33,7 +34,6 @@ public class CourseReviewPage
 		// Panels
 		JPanel header = HeaderFactory.createHeader("Course Reviews for " + department + " " + courseNum);
 		JPanel main = new JPanel(new GridBagLayout());
-		//JPanel main = new JPanel(new BorderLayout());
 		JPanel footer = new JPanel();
 
 		createMain(main, courseNum, reviews);
@@ -99,7 +99,7 @@ public class CourseReviewPage
         teacher.setOpaque(false);
         teacher.setForeground(Color.BLACK);
         teacher.setFont(teacher.getFont().deriveFont(30.0f));
-        teacher.setFont(new Font("arial", Font.BOLD, 20));
+        teacher.setFont(new Font(ARIAL, Font.BOLD, 20));
         topRight.add(teacher, BorderLayout.CENTER);
 		
         
@@ -118,7 +118,7 @@ public class CourseReviewPage
         docs.setOpaque(false);
         docs.setForeground(Color.BLACK);
         docs.setFont(docs.getFont().deriveFont(30.0f));
-        docs.setFont(new Font("arial", Font.BOLD, 20));
+        docs.setFont(new Font(ARIAL, Font.BOLD, 20));
         topRight.add(docs, BorderLayout.EAST);
 		
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -145,7 +145,7 @@ public class CourseReviewPage
         evaluation.setOpaque(false);
         evaluation.setForeground(Color.BLACK);
         evaluation.setFont(teacher.getFont().deriveFont(30.0f));
-        evaluation.setFont(new Font("arial", Font.BOLD, 20));
+        evaluation.setFont(new Font(ARIAL, Font.BOLD, 20));
         topLeft.add(evaluation, BorderLayout.WEST);
         
         
@@ -174,15 +174,12 @@ public class CourseReviewPage
 		criteria1.setHorizontalAlignment(JLabel.CENTER);
         topMiddle2Left.add(criteria1, BorderLayout.WEST);  
 
-		//main.add(topMiddle2, c);
-		
 		double score2 = averageCriteria(2, reviews);
 		JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + "/4.0");
 		criteria2.setForeground(Color.BLACK);
 		criteria2.setFont(grade.getFont().deriveFont(20.0f));
 		criteria2.setHorizontalAlignment(JLabel.CENTER);
         topMiddle2Middle.add(criteria2, BorderLayout.CENTER);  
-		//main.add(topMiddle2, c);
 		
 		double score3 = averageCriteria(3, reviews);
 		JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + "/4.0");
@@ -197,11 +194,9 @@ public class CourseReviewPage
 		main.add(topMiddle2Left, c);
 		
 		c.gridx = 1;
-        //c.insets = new Insets(0, 0, 0, 50);
         main.add(topMiddle2Middle, c);
         
         c.gridx = 2;
-        //c.insets = new Insets(0, 0, 0, 50);
         main.add(topMiddle2Right, c);
 
 		
@@ -214,7 +209,6 @@ public class CourseReviewPage
 		c.anchor = GridBagConstraints.NORTH;
 		c.ipady = 50;
 		c.insets = new Insets(0, 50, 0, 0);
-		//overall.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
 		main.add(overall, c);
 		main.add(starRating, c);
 
@@ -237,19 +231,6 @@ public class CourseReviewPage
                }
             }
 
-
-/*
-		// Content (Each student review that submitted written feedback/review)
-		JLabel content = new JLabel("Content");
-		c.fill = GridBagConstraints.BOTH;
-		c.gridwidth = 3;
-		c.gridx = 0;
-		c.gridy = 4;
-		c.weighty = 1;
-		c.ipady = 0;
-		//content.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(content, c);
-	}*/
 
 	public static ImageIcon getStars(double score1, double score2, double score3)
 	{
