@@ -19,13 +19,9 @@ import logic.StudentReview;
 public class TestCourseReviewPageAndStudentReviewIntegration
 {
     private static List<StudentReview> list = new ArrayList<StudentReview>();
-<<<<<<< HEAD
     private static final String REVIEW = "Review";
     private static final String COURSE = "Course";
     
-=======
-
->>>>>>> branch 'master' of https://github.com/Foyman/PCE.git
     @Test
     public void testOverallGrade()
     {
