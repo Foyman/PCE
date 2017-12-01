@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestDBConnect.class, TestHome.class })
+@SuiteClasses({ TestDBConnect.class, TestCourseListPage.class })
 public class BibekUnitTestSuite
 {
 
