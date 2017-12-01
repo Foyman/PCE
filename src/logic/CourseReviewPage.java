@@ -1,10 +1,19 @@
 package logic;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import java.util.List;
 import javax.swing.*;
 import java.util.logging.Logger;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 
 public class CourseReviewPage
 {
@@ -23,6 +32,7 @@ public class CourseReviewPage
 		// Panels
 		JPanel header = HeaderFactory.createHeader("Course Reviews for " + department + " " + courseNum);
 		JPanel main = new JPanel(new GridBagLayout());
+		//JPanel main = new JPanel(new BorderLayout());
 		JPanel footer = new JPanel();
 
 		createMain(main, courseNum, reviews);
@@ -46,94 +56,149 @@ public class CourseReviewPage
 		// Constraints used for setting up main
 		GridBagConstraints c = new GridBagConstraints();
 
+		JPanel topRight = new JPanel(new BorderLayout());
+		topRight.setBackground(new Color(255, 255, 255));
+
+		
+		JPanel topLeft = new JPanel(new BorderLayout());
+		topLeft.setBackground(new Color(255, 255, 255));
+
+	
+		JPanel topMiddle = new JPanel(new BorderLayout());
+		topMiddle.setBackground(new Color(255, 255, 255));
+		
+		JPanel topMiddle2 = new JPanel(new BorderLayout());
+		topMiddle2.setBackground(new Color(255, 255, 255));
+
+
+		
 		// Everything for main below
 		main.setBackground(new Color(255, 255, 255));
 
-		// Evaluate
-		JLabel evaluation = new JLabel("Evaluate " + courseNum, SwingConstants.SOUTH_EAST);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 0;
-		c.gridy = 1;
-		c.anchor = GridBagConstraints.SOUTH;
+        JButton teacher = new JButton("Teachers for " + courseNum);
+        teacher.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Search.readCourses();
+                FrameController.changeFrame(NotImplementedPage.createFrame());
+            }
+        });
+        teacher.setBorderPainted(false);
+        teacher.setContentAreaFilled(false);
+        teacher.setFocusPainted(false);
+        teacher.setOpaque(false);
+        teacher.setForeground(Color.BLACK);
+        teacher.setFont(teacher.getFont().deriveFont(30.0f));
+        teacher.setFont(new Font("arial", Font.BOLD, 20));
+        topRight.add(teacher, BorderLayout.CENTER);
+		
+        
+        JButton docs = new JButton("Documents for " + courseNum);
+        docs.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Search.readCourses();
+                FrameController.changeFrame(NotImplementedPage.createFrame());
+            }
+        });
+        docs.setBorderPainted(false);
+        docs.setContentAreaFilled(false);
+        docs.setFocusPainted(false);
+        docs.setOpaque(false);
+        docs.setForeground(Color.BLACK);
+        docs.setFont(docs.getFont().deriveFont(30.0f));
+        docs.setFont(new Font("arial", Font.BOLD, 20));
+        topRight.add(docs, BorderLayout.EAST);
+		
+        c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 0;
+		c.anchor = GridBagConstraints.EAST;
 		c.weightx = 0.5;
-		evaluation.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(evaluation, c);
+		main.add(topRight, c);
 
-		// Class Title (Will need to get from class list)
-		JLabel className = new JLabel(courseNum, SwingConstants.CENTER);
-		className.setFont(className.getFont().deriveFont(64.0f));
-		c.gridx = 1;
+		
+
+        JButton evaluation = new JButton("Evaluate " + courseNum);
+        evaluation.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                Search.readCourses();
+                FrameController.changeFrame(NotImplementedPage.createFrame());
+            }
+        });
+        evaluation.setBorderPainted(false);
+        evaluation.setContentAreaFilled(false);
+        evaluation.setFocusPainted(false);
+        evaluation.setOpaque(false);
+        evaluation.setForeground(Color.BLACK);
+        evaluation.setFont(teacher.getFont().deriveFont(30.0f));
+        evaluation.setFont(new Font("arial", Font.BOLD, 20));
+        topLeft.add(evaluation, BorderLayout.WEST);
+        
+        
+        c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
 		c.gridy = 0;
-		c.anchor = GridBagConstraints.CENTER;
-		c.ipady = 50;
-		c.gridheight = 2;
-		className.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(className, c);
+		c.anchor = GridBagConstraints.WEST;
+		c.weightx = 0.5;
+        main.add(topLeft, c);
+		
 
-		// Class Teachers (Get from SQL or Polylearn)
-		JLabel teachers = new JLabel(courseNum + " Teachers");
-		c.gridx = 2;
-		c.gridy = 0;
-		c.gridheight = 1;
-		c.ipady = 0;
-		c.insets = new Insets(0, 10, 0, 0);
-		teachers.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(teachers, c);
-
-		// Class Documents
-		JLabel docs = new JLabel(courseNum + " Documents");
-		c.gridx = 2;
-		c.gridy = 1;
-		docs.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(docs, c);
-
-		// Average Grade (Calculated based on grades from student reviews for class on
-		// SQL database)
 		JLabel grade = new JLabel("Average Grade: " + calculateOverallGrade(reviews));
-		c.gridx = 2;
+		grade.setForeground(Color.BLACK);
+		grade.setFont(grade.getFont().deriveFont(20.0f));
+		grade.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle.add(grade, BorderLayout.CENTER);  
+		c.gridx = 1;
 		c.gridy = 2;
 		c.insets = new Insets(0, 0, 0, 50);
-		grade.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(grade, c);
+		main.add(topMiddle, c);
 
-		// Criteria 1 (Calculated based on criteria1 from student reviews for class on
-		// SQL database)
 		double score1 = averageCriteria(1, reviews);
 		JLabel criteria1 = new JLabel("Criteria 1: " + Double.toString(score1) + "/4.0");
-		c.gridx = 0;
-		c.gridy = 3;
-		c.insets = new Insets(0, 0, 0, 0);
-		criteria1.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(criteria1, c);
+		criteria1.setForeground(Color.BLACK);
+		criteria1.setFont(criteria1.getFont().deriveFont(20.0f));
+		criteria1.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle2.add(criteria1, BorderLayout.WEST);  
 
-		// Criteria 2 (Calculated based on criteria2 from student reviews for class on
-		// SQL database)
+		//main.add(topMiddle2, c);
+		
 		double score2 = averageCriteria(2, reviews);
-		JLabel criteria2 = new JLabel("Criteria 2: " + Double.toString(score2) + "/4.0");
+		JLabel criteria2 = new JLabel("Criteria 2: " + Double.toString(score1) + "/4.0");
+		criteria2.setForeground(Color.BLACK);
+		criteria2.setFont(grade.getFont().deriveFont(20.0f));
+		criteria2.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle2.add(criteria2, BorderLayout.CENTER);  
+		//main.add(topMiddle2, c);
+		
+		double score3 = averageCriteria(3, reviews);
+		JLabel criteria3 = new JLabel("Criteria 3: " + Double.toString(score1) + "/4.0");
+		criteria3.setForeground(Color.BLACK);
+		criteria3.setFont(criteria3.getFont().deriveFont(20.0f));
+		criteria3.setHorizontalAlignment(JLabel.CENTER);
+        topMiddle2.add(criteria3, BorderLayout.EAST);  
 		c.gridx = 1;
 		c.gridy = 3;
-		criteria2.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(criteria2, c);
+		c.insets = new Insets(0, 0, 0, 50);
+		main.add(topMiddle2, c);
 
-		// Criteria 3 (Calculated based on criteria3 from student reviews for class on
-		// SQL database)
-		double score3 = averageCriteria(3, reviews);
-		JLabel criteria3 = new JLabel("Criteria 3: " + Double.toString(score3) + "/4.0");
-		c.gridx = 2;
-		c.gridy = 3;
-		criteria3.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
-		main.add(criteria3, c);
+		
+		
 
 		// Overall Score
 		ImageIcon stars = getStars(score1, score2, score3);
 		JLabel overall = new JLabel("Overall Score", SwingConstants.LEFT);
 		JLabel starRating = new JLabel(stars, SwingConstants.RIGHT);
 		c.gridx = 0;
-		c.gridy = 2;
+		c.gridy = 4;
 		c.anchor = GridBagConstraints.NORTH;
 		c.ipady = 50;
 		c.insets = new Insets(0, 50, 0, 0);
-		overall.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
+		//overall.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
 		main.add(overall, c);
 		main.add(starRating, c);
 
@@ -145,7 +210,7 @@ public class CourseReviewPage
 		c.gridy = 4;
 		c.weighty = 1;
 		c.ipady = 0;
-		content.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
+		//content.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
 		main.add(content, c);
 	}
 
@@ -220,4 +285,5 @@ public class CourseReviewPage
 			return "No grade yet";
 		}
 	}
+	
 }
