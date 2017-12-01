@@ -43,6 +43,9 @@ public class CourseReviewPage
 
     public static void createMain(JPanel main, String courseNum, List<StudentReview> reviews)
     {
+        //Used for formating printed Criteria values
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        
         // Constraints used for setting up main
         GridBagConstraints c = new GridBagConstraints();
 
@@ -99,7 +102,7 @@ public class CourseReviewPage
         // Criteria 1 (Calculated based on criteria1 from student reviews for class on
         // SQL database)
         double score1 = averageCriteria(1, reviews);
-        JLabel criteria1 = new JLabel("Criteria 1: " + Double.toString(score1) + "/4.0");
+        JLabel criteria1 = new JLabel("Workload: " + numberFormat.format(score1) + "/4.0");
         c.gridx = 0;
         c.gridy = 3;
         c.insets = new Insets(0, 0, 0, 0);
@@ -109,7 +112,7 @@ public class CourseReviewPage
         // Criteria 2 (Calculated based on criteria2 from student reviews for class on
         // SQL database)
         double score2 = averageCriteria(2, reviews);
-        JLabel criteria2 = new JLabel("Criteria 2: " + Double.toString(score2) + "/4.0");
+        JLabel criteria2 = new JLabel("Test Difficulty: " + numberFormat.format(score2) + "/4.0");
         c.gridx = 1;
         c.gridy = 3;
         criteria2.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
@@ -118,7 +121,7 @@ public class CourseReviewPage
         // Criteria 3 (Calculated based on criteria3 from student reviews for class on
         // SQL database)
         double score3 = averageCriteria(3, reviews);
-        JLabel criteria3 = new JLabel("Criteria 3: " + Double.toString(score3) + "/4.0");
+        JLabel criteria3 = new JLabel("Content Difficulty: " + numberFormat.format(score3) + "/4.0");
         c.gridx = 2;
         c.gridy = 3;
         criteria3.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // For visually seeing grids
@@ -145,7 +148,6 @@ public class CourseReviewPage
         c.gridy = 4;
         c.weighty = 1;
         c.ipady = 0;
-//        main.add(content, c);
 
         for (int i = 0 ; i < reviews.size(); i++) {
             content = new JLabel((reviews.get(i)).getReview());
@@ -178,6 +180,9 @@ public class CourseReviewPage
     // on the string passed in
     public static double averageCriteria(int criteria, List<StudentReview> reviews)
     {
+        if (reviews.size() == 0) {
+            return 0.0;
+        }
         int i;
         double total = 0;
         for (i = 0; i < reviews.size(); i++)
@@ -189,6 +194,9 @@ public class CourseReviewPage
 
     public static String calculateOverallGrade(List<StudentReview> reviews)
     {
+        if (reviews.size() == 0) {
+            return "No grade yet";
+        }
         int total = 0;
         for (StudentReview review : reviews)
         {
@@ -225,7 +233,7 @@ public class CourseReviewPage
             case 0:
                 return "F";
             default:
-                return "No grade yet";
+                return "";
         }
     }
 }
