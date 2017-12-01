@@ -16,9 +16,11 @@ import org.junit.jupiter.api.Test;
 
 public class TestCourseReviewPageStudentReviewList
 {
-    private static StudentReview sra = new StudentReview(4.5, 2.5, 3.5, "A", "Review", "Course");
-    private static StudentReview srb = new StudentReview(1.1, 2.2, 4.0, "B", "Review", "Course");
-    private static StudentReview src = new StudentReview(2.9, 3.1, 3.0, "C", "Review", "Course");
+   private static final String REVIEW = "Review";
+   private static final String COURSE = "Course";
+    private static StudentReview sra = new StudentReview(4.5, 2.5, 3.5, "A", REVIEW, COURSE);
+    private static StudentReview srb = new StudentReview(1.1, 2.2, 4.0, "B", REVIEW, COURSE);
+    private static StudentReview src = new StudentReview(2.9, 3.1, 3.0, "C", REVIEW, COURSE);
     private static List<StudentReview> list = new ArrayList<StudentReview>();
     private static List<StudentReview> empty = new ArrayList<StudentReview>();
 

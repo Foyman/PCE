@@ -149,7 +149,6 @@ public class CourseReviewPage
         c.gridy = 4;
         c.weighty = 1;
         c.ipady = 0;
-//        main.add(content, c);
 
         for (int i = 0 ; i < reviews.size(); i++) {
             content = new JLabel((reviews.get(i)).getReview());
@@ -182,7 +181,7 @@ public class CourseReviewPage
     // on the string passed in
     public static double averageCriteria(int criteria, List<StudentReview> reviews)
     {
-        if (reviews.size() == 0) {
+        if (reviews.isEmpty()) {
             return 0.0;
         }
         int i;
@@ -196,7 +195,7 @@ public class CourseReviewPage
 
     public static String calculateOverallGrade(List<StudentReview> reviews)
     {
-        if (reviews.size() == 0) {
+       if (reviews.isEmpty()) {
             return "No grade yet";
         }
         int total = 0;
