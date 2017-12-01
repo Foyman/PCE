@@ -181,7 +181,7 @@ public class CourseReviewPage
     // on the string passed in
     public static double averageCriteria(int criteria, List<StudentReview> reviews)
     {
-        if (reviews.size() == 0) {
+        if (reviews.isEmpty()) {
             return 0.0;
         }
         int i;
@@ -195,7 +195,7 @@ public class CourseReviewPage
 
     public static String calculateOverallGrade(List<StudentReview> reviews)
     {
-        if (reviews.size() == 0) {
+       if (reviews.isEmpty()) {
             return "No grade yet";
         }
         int total = 0;
