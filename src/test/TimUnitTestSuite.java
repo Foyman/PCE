@@ -5,8 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestCourseComparator.class, TestJComponentWithLayout.class })
+@SuiteClasses({ TestJComponentWithLayout.class, TestNotImplementedPage.class })
 public class TimUnitTestSuite
 {
-
 }

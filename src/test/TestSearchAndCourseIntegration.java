@@ -16,12 +16,11 @@ import logic.Search;
 public class TestSearchAndCourseIntegration
 {
 
-   
     @Test
     public void testSearchCourses() throws FileNotFoundException
     {
-   	 		Search.readCourses();
-        assertEquals("aero 121",Search.getCourses().get(0).getName());
+        Search.readCourses();
+        assertEquals("aero 121", Search.getCourses().get(0).getName());
     }
-    
+
 }

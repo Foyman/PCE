@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import logic.Course;
 import logic.CourseComparator;
 
-class TestCourseComparator
+class TestCourseAndCourseComparator
 {
 
     @Test

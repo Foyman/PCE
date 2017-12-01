@@ -24,7 +24,7 @@ public class NotImplementedPage
         JPanel footer = new JPanel();
         JPanel main = new JPanel(new GridBagLayout());
 
-        //Main
+        // Main
         main.setBackground(new Color(255, 255, 255));
         JLabel text = new JLabel("TO BE IMPLEMENTED AT A FUTURE DATE");
         text.setFont(text.getFont().deriveFont(30.0f));
@@ -32,7 +32,7 @@ public class NotImplementedPage
         c.gridx = 0;
         c.gridy = 0;
         main.add(text, c);
-        
+
         // Everything for footer below
         JLabel footText = new JLabel("© 2017 Polyratings Course Edition");
         footText.setForeground(Color.WHITE);

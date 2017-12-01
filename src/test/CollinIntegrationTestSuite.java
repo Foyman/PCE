@@ -6,6 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestCourseComparatorAndCourseIntegration.class, TestSearchAndCourseIntegration.class })
-public class CollinIntegrationTestSuite {
+public class CollinIntegrationTestSuite
+{
 
 }
