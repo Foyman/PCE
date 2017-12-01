@@ -48,7 +48,7 @@ public class HeaderFactory
         
         JLabel headerText = new JLabel(headerLabel);
         headerText.setForeground(Color.WHITE);
-        headerText.setFont(headerText.getFont().deriveFont(64.0f));
+        headerText.setFont(headerText.getFont().deriveFont(46.0f));
         headerText.setHorizontalAlignment(JLabel.CENTER);
         header.add(headerText, BorderLayout.CENTER);   
         
