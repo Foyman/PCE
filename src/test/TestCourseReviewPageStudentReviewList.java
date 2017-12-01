@@ -1,7 +1,7 @@
-/*
- * JUnit tests for the CourseReviewPage's
+/**
+ * JUnit tests for the CourseReviewPage's overall scores functions
  * 
- * @author: Jack Foy
+ * @author Jack Foy
  */
 
 package test;
@@ -27,25 +27,25 @@ public class TestCourseReviewPageStudentReviewList
         list.add(sra);
         list.add(srb);
         list.add(src);
-        assertEquals(CourseReviewPage.averageCriteria(1, list), 2.83, .000001);
+        assertEquals(CourseReviewPage.averageCriteria(1, list), 2.83, .01);
     }
     
     @Test
     public void testAverageCriteria2()
     {
-        assertEquals(CourseReviewPage.averageCriteria(2, list), 2.6, .000001);
+        assertEquals(CourseReviewPage.averageCriteria(2, list), 2.6, .01);
     }
     
     @Test
     public void testAverageCriteria3()
     {
-        assertEquals(CourseReviewPage.averageCriteria(3, list), 3.5, .000001);
+        assertEquals(CourseReviewPage.averageCriteria(3, list), 3.5, .01);
     }
     
     @Test
     public void testAverageCriteriaEmtpy()
     {
-        assertEquals(CourseReviewPage.averageCriteria(1, empty), 0, .0);
+        assertEquals(CourseReviewPage.averageCriteria(1, empty), 0, .01);
     }
     
     @Test
