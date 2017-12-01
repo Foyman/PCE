@@ -1,7 +1,7 @@
-/*
- * JUnit tests for the CourseReviewPage's
+/**
+ * JUnit tests for the CourseReviewPage's get functions
  * 
- * @author: Jack Foy
+ * @author Jack Foy
  */
 
 package test;
